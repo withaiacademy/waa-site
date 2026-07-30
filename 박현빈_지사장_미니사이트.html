@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박현빈 지사장 | 한화금융서비스 현빈지사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9;
+  --rule:#C3CDDA; --maxw:560px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;background:var(--surface);min-height:100vh;
+  box-shadow:0 0 60px rgba(22,35,63,.07)}
+.pad{padding:0 26px}
+
+/* 작성 대기 표시 — 실제 내용으로 교체하는 자리 */
+.ph{display:inline;color:var(--coral);font-weight:700;
+  background:rgba(226,87,76,.09);padding:0 3px;border-radius:2px}
+.hero .ph,.recruit .ph,.dark .ph{color:#FFC0B6;background:rgba(255,192,182,.15)}
+
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:36px 26px 30px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-70px;top:-70px;width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;
+  border:1px solid rgba(201,146,46,.28);border-radius:50%}
+.hero>*{position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--amber);font-weight:600;margin-bottom:16px}
+.photo{width:82px;height:82px;border-radius:50%;background:linear-gradient(160deg,#2C3E5E,#16233F);
+  border:2px solid rgba(201,146,46,.5);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.5);text-align:center;margin-bottom:18px}
+.hero h1{font-size:31px;font-weight:700;line-height:1.25;letter-spacing:-.03em}
+.hero h1 .role{font-size:16px;font-weight:500;color:rgba(255,255,255,.62);margin-left:8px;letter-spacing:-.01em}
+.hero .org{font-size:14px;color:rgba(255,255,255,.62);margin-top:8px}
+.tagline{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13);
+  font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.92)}
+
+/* 두 개의 문 */
+.doors{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.door{padding:26px 18px 24px;text-align:center;text-decoration:none;color:inherit;display:block;
+  transition:background .25s ease}
+.door:first-child{border-right:1px solid var(--line)}
+.door .num{font-family:'Gowun Batang',serif;font-size:13px;color:var(--muted);display:block;
+  margin-bottom:10px;letter-spacing:.1em}
+.door .icon{width:38px;height:38px;margin:0 auto 12px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:18px}
+.door:nth-child(1) .icon{background:rgba(226,87,76,.1);color:var(--coral)}
+.door:nth-child(2) .icon{background:rgba(201,146,46,.13);color:var(--amber)}
+.door strong{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:5px}
+.door span.sub{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+.door .arrow{margin-top:12px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+.door:active{background:var(--paper)}
+@media(hover:hover){.door:hover{background:var(--paper)}.door:hover .arrow{color:var(--coral)}}
+
+/* 큰 숫자 시그니처 */
+.big{padding:34px 26px 30px;border-bottom:1px solid var(--line);text-align:center;background:var(--paper)}
+.big .num{font-family:'Gowun Batang',serif;font-size:74px;line-height:.95;color:var(--coral);
+  letter-spacing:-.04em;display:block;white-space:nowrap}
+.big .num em{font-style:normal;font-size:25px;color:var(--ink);margin-left:2px}
+.big .cap{font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7}
+.big .cap strong{color:var(--ink)}
+
+section{padding:36px 0 6px}
+.label{font-size:11.5px;letter-spacing:.16em;color:var(--amber);font-weight:700;margin-bottom:10px}
+h2{font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.35;margin-bottom:16px}
+p.lead{font-size:15px;color:var(--ink-soft);line-height:1.75}
+
+/* 숫자 3칸 — 단위가 줄바꿈되지 않도록 고정 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:20px}
+.stat{background:var(--surface);padding:18px 6px;text-align:center}
+.stat .v{font-family:'Gowun Batang',serif;display:block;font-size:26px;color:var(--ink);
+  line-height:1.15;white-space:nowrap}
+.stat .v em{font-style:normal;font-size:14px;color:var(--muted);margin-left:2px}
+.stat .k{display:block;font-size:11.5px;color:var(--muted);margin-top:7px}
+
+/* 항목 목록 */
+.fields{margin-top:18px;border-top:1px solid var(--line)}
+.field{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.field .k{font-family:'Gowun Batang',serif;font-size:14px;color:var(--coral);flex:0 0 26px;padding-top:2px}
+.field .b strong{display:block;font-size:15.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.02em}
+.field .b span{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* 단계 — 세로 연결선을 border로 확실히 그림 */
+.steps{margin-top:20px;padding-left:24px;border-left:1px solid var(--rule);margin-left:5px}
+.step{position:relative;padding:0 0 22px 0}
+.step:last-child{padding-bottom:4px}
+.step::before{content:'';position:absolute;left:-29px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--coral)}
+.step strong{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.step span{font-size:13.5px;color:var(--muted)}
+
+/* 자가 점검 (FC) */
+.check{margin-top:20px;border:1px solid var(--line);background:var(--paper)}
+.check .ch{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;
+  border-bottom:1px solid var(--line);cursor:pointer}
+.check .ch:last-of-type{border-bottom:none}
+.check .ch input{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--coral)}
+.check .ch span{font-size:14.5px;line-height:1.55}
+.result{padding:18px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.7}
+.result b{color:var(--amber);font-size:19px;font-family:'Gowun Batang',serif}
+.result a{display:inline-block;margin-top:10px;color:#fff;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--coral);padding-bottom:2px;font-size:15px}
+
+/* 어두운 블록 */
+.recruit,.dark{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.recruit .label,.dark .label{color:var(--amber)}
+.recruit h2,.dark h2{color:#fff}
+.recruit p,.dark p{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75}
+.rlist{margin-top:18px;display:grid;gap:10px}
+.rItem{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(255,255,255,.92)}
+.rItem i{color:var(--amber);font-style:normal;flex:0 0 auto;font-size:13px;padding-top:2px}
+
+/* 인용 */
+.quote{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.quote .q{font-family:'Gowun Batang',serif;font-size:19px;line-height:1.8}
+.quote .by{margin-top:16px;font-size:12.5px;color:var(--amber);letter-spacing:.06em}
+
+/* 폼 */
+.form{margin-top:22px;display:grid;gap:13px}
+.f label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:6px;
+  font-family:inherit;font-size:15px;background:var(--surface);color:var(--ink)}
+.f textarea{min-height:84px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:transparent}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.55}
+.consent input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--coral)}
+button.submit{width:100%;padding:15px;background:var(--coral);color:#fff;border:none;border-radius:6px;
+  font-family:inherit;font-size:16px;font-weight:700;letter-spacing:-.02em;cursor:pointer;transition:background .2s}
+button.submit:active{background:#C8483E}
+@media(hover:hover){button.submit:hover{background:#C8483E}}
+.formNote{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.okMsg{display:none;margin-top:14px;padding:14px;background:rgba(201,146,46,.1);
+  border-left:3px solid var(--amber);font-size:14px}
+
+/* 연락 바 */
+.contactbar{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:34px}
+.contactbar a{background:var(--surface);padding:17px 8px;text-align:center;text-decoration:none;
+  color:var(--ink);font-size:14.5px;font-weight:600;letter-spacing:-.02em}
+.contactbar a small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:3px}
+.contactbar a:active{background:var(--paper)}
+
+footer{background:var(--paper);padding:26px;font-size:11.5px;color:var(--muted);line-height:1.75}
+footer .fname{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:11px}
+.waa{margin-top:14px;font-size:11px;color:var(--muted);opacity:.85}
+.waa b{color:var(--coral)}
+
+@media(max-width:360px){
+  .hero h1{font-size:27px}.big .num{font-size:60px}
+  .doors{grid-template-columns:1fr}
+  .door:first-child{border-right:none;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">HANWHA FINANCIAL SERVICES</div>
+    <h1>한화금융서비스<br>현빈지사</h1>
+    <div class="org">지사장 박현빈 · 개설 2021년 · 대구 중구 삼덕동</div>
+    <p class="tagline">잘 먹고 잘 살자 — 30년 현장의 경험으로,<br>우리 식구 하나하나를 키우는 지사입니다.</p>
+  </header>
+
+  <nav class="doors">
+    <a class="door" href="#join">
+      <span class="num">첫 번째 문</span><span class="icon">◈</span>
+      <strong>함께 일하고 싶습니다</strong>
+      <span class="sub">경력·무경력<br>설계사 지원</span>
+      <span class="arrow">지원하기 ↓</span>
+    </a>
+    <a class="door" href="#about">
+      <span class="num">두 번째 문</span><span class="icon">◎</span>
+      <strong>회사가 궁금합니다</strong>
+      <span class="sub">제휴·협업<br>문의</span>
+      <span class="arrow">소개 보기 ↓</span>
+    </a>
+  </nav>
+
+  <section class="pad" id="about">
+    <div class="label">ABOUT</div>
+    <h2>우리는 이런 대리점입니다.</h2>
+    <p class="lead">퍼펙트지사는 2021년, 한화생명에서 30년을 보낸 단장 출신이 직접 만든 지사입니다. "잘 먹고 잘 살자"는 말이 구호가 아닌 실제가 되도록, 처음 들어온 사람도 가족처럼 품고 키웁니다. 숫자보다 사람을 먼저 보는 조직, 그것이 우리가 4년째 지켜온 원칙입니다.</p>
+    <div class="stats">
+      <div class="stat"><span class="v">6<em>년차</em></span><span class="k">업력</span></div>
+      <div class="stat"><span class="v">40<em>명</em></span><span class="k">소속 설계사</span></div>
+      <div class="stat"><span class="v">32<em>사</em></span><span class="k">제휴 원수사</span></div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">OUR PRINCIPLE</div>
+    <h2>조직을 만들 때 지키는 것.</h2>
+    <div class="fields">
+      <div class="field"><div class="k">01</div><div class="b"><strong>가족처럼 품는다</strong><span>처음 위촉된 날부터 혼자 두지 않습니다. 동행 상담, 전담 멘토, 함께하는 식사 — 이것이 퍼펙트지사의 온보딩입니다.</span></div></div>
+      <div class="field"><div class="k">02</div><div class="b"><strong>현장 경험을 그대로 전한다</strong><span>30년 영업 현장에서 직접 만든 노하우를 아낌없이 나눕니다. 교과서가 아닌 실전, 정석이 아닌 살아있는 이야기입니다.</span></div></div>
+      <div class="field"><div class="k">03</div><div class="b"><strong>숫자보다 사람을 먼저</strong><span>단기 실적보다 오래 일할 수 있는 기반을 만드는 데 집중합니다. 우리 지사에서 오래 일한 사람이 많은 것이 가장 큰 자랑입니다.</span></div></div>
+    </div>
+  </section>
+
+  <div class="dark" id="join">
+    <div class="label">JOIN US</div>
+    <h2>혼자 두지 않습니다.</h2>
+    <p>보험 경험이 없어도 괜찮습니다. 사람을 좋아하고, 꾸준히 하고 싶다는 마음이면 충분합니다. 8주 동안 자격증부터 디지털 마케팅까지 함께 준비하고, 그 이후에도 혼자 두지 않습니다. 여기서 시작한 사람이 5년, 10년 뒤에도 웃으며 일하는 것 — 그게 퍼펙트지사가 원하는 그림입니다.</p>
+    <div class="rlist">
+      <div class="rItem"><i>—</i><span>무경력자를 위한 <strong>8주 정규 양성과정</strong></span></div>
+      <div class="rItem"><i>—</i><span>지인 영업에 기대지 않는 <strong>개인 마케팅 채널 구축</strong></span></div>
+      <div class="rItem"><i>—</i><span>첫 3개월 <strong>동행 상담</strong>과 전담 멘토 지정</span></div>
+      <div class="rItem"><i>—</i><span>지사 내 <strong>전용 사무 공간</strong> 및 미팅룸 제공</span></div>
+    </div>
+  </div>
+
+  <section class="pad">
+    <div class="label">PROCESS</div>
+    <h2>지원 절차</h2>
+    <div class="steps">
+      <div class="step"><strong>1. 지원</strong><span>아래 양식 또는 전화. 이력서는 아직 필요 없습니다.</span></div>
+      <div class="step"><strong>2. 사전 통화 (10분)</strong><span>어떤 상황이신지, 무엇이 궁금하신지 여쭙니다.</span></div>
+      <div class="step"><strong>3. 방문 면담 (60분)</strong><span>회사를 직접 보시고, 궁금한 것을 다 물어보시면 됩니다.</span></div>
+      <div class="step"><strong>4. 결정 · 위촉</strong><span>서두르지 않습니다. 충분히 생각하고 결정하십시오.</span></div>
+    </div>
+  </section>
+
+  <section class="pad" id="consult">
+    <div class="label">CONTACT</div>
+    <h2>편하게 남겨 주십시오.</h2>
+    <p class="lead">지원이든 문의든, 남겨 주시면 직접 연락드리겠습니다.</p>
+
+    <form action="https://formspree.io/f/mpqvnbzd" method="POST">
+      <div class="f"><label for="nm">성함</label><input id="nm" name="성함" type="text" placeholder="홍길동" required></div>
+      <div class="f"><label for="tel">연락처</label><input id="tel" name="연락처" type="tel" inputmode="numeric" placeholder="010-0000-0000" required></div>
+      <div class="f"><label for="tp">문의 유형</label>
+        <select id="tp" name="문의유형">
+          <option>설계사 지원 (경력)</option>
+          <option>설계사 지원 (무경력)</option>
+          <option>제휴·협업 문의</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="f"><label for="ms">남기실 말씀 (선택)</label><textarea id="ms" name="남기실말씀" placeholder="편하게 적어 주세요."></textarea></div>
+      <label class="consent"><input type="checkbox" id="cs" name="개인정보동의" value="동의" required>
+        <span>개인정보(성함·연락처) 수집·이용에 동의합니다. 수집한 정보는 상담 목적으로만 사용하며,
+        종료 후 6개월 이내 파기합니다.</span></label>
+      <button type="submit" class="submit">보내기</button>
+      <div class="okMsg" id="ok"><strong>1영업일 이내</strong>에 연락드리겠습니다.</div>
+    </form>
+  </section>
+
+  <div class="contactbar">
+    <a href="tel:01028369495">전화하기<small>010-2836-9495</small></a>
+    <a href="mailto:info2580@naver.com">메일 보내기<small>info2580@naver.com</small></a>
+  </div>
+
+  <footer>
+    <div class="fname">한화금융서비스 현빈지사</div>
+    <div>대구광역시 중구 삼덕동2가, 진석타워 9층</div>
+    <div>010-2836-9495 · info2580@naver.com</div>
+    <div class="compl">
+      본 페이지는 보험 계약 체결을 권유하는 광고가 아니며, 상담 안내를 목적으로 합니다.
+      보험 계약 체결 전 상품설명서 및 약관을 반드시 확인하시기 바랍니다.
+      기존 계약을 해지하고 새로운 계약을 체결할 경우 손해가 발생할 수 있습니다.<br>
+      준법감시인 심의필 제2026-000호 (2026.08.01 ~ 2027.07.31)
+    </div>
+    <div class="waa">Built with <b>WAA</b> · With AI Academy</div>
+  </footer>
+
+</div>
+
+
+</body></html>

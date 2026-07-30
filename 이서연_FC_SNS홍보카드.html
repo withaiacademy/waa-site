@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이서연 FC — SNS 홍보 카드 3종</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;background:#F0F2F5;padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:32px}
+.page-title{font-size:13px;letter-spacing:.14em;color:#888;font-weight:500;margin-bottom:4px;text-align:center}
+
+/* 카드 공통 */
+.card{width:100%;max-width:480px;border-radius:16px;overflow:hidden;position:relative}
+
+/* ── 카드 1: 신뢰 역전 ── */
+.card1{background:#16233F;color:#fff;padding:44px 36px 40px}
+.card1 .tag{font-size:11px;letter-spacing:.2em;color:#C9922E;font-weight:700;margin-bottom:20px}
+.card1 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card1 .headline em{font-style:normal;color:#C9922E}
+.card1 .body{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.78);border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-bottom:28px}
+.card1 .sig{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.card1 .deco{position:absolute;right:-40px;bottom:-40px;width:160px;height:160px;border:1px solid rgba(201,146,46,.2);border-radius:50%}
+.card1 .deco2{position:absolute;right:-10px;bottom:-10px;width:100px;height:100px;border:1px solid rgba(201,146,46,.35);border-radius:50%}
+
+/* ── 카드 2: AI 무장 ── */
+.card2{background:#fff;padding:44px 36px 40px;border:1px solid #E5E9F0}
+.card2 .tag{font-size:11px;letter-spacing:.2em;color:#E2574C;font-weight:700;margin-bottom:20px}
+.card2 .headline{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-.03em;color:#16233F;margin-bottom:8px}
+.card2 .sub{font-size:15px;color:#6B7A90;margin-bottom:20px;line-height:1.6}
+.card2 .boxes{display:grid;gap:10px;margin-bottom:28px}
+.card2 .box{background:#F4F6F9;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.card2 .box .num{font-size:11px;font-weight:700;color:#E2574C;flex:0 0 18px;padding-top:2px}
+.card2 .box .txt{font-size:13.5px;color:#2C3E5E;line-height:1.65}
+.card2 .box .txt strong{display:block;font-size:14px;margin-bottom:3px;color:#16233F}
+.card2 .sig{font-size:12px;color:#9AA3B0;letter-spacing:.06em;border-top:1px solid #E5E9F0;padding-top:16px}
+
+/* ── 카드 3: 첫 마음 ── */
+.card3{background:linear-gradient(145deg,#1A6B3C 0%,#0D4A2A 100%);color:#fff;padding:44px 36px 40px}
+.card3 .tag{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:20px}
+.card3 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card3 .quote-box{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.5);padding:16px 18px;margin-bottom:20px;border-radius:0 8px 8px 0}
+.card3 .quote-box p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.9)}
+.card3 .body{font-size:14px;line-height:1.8;color:rgba(255,255,255,.72);margin-bottom:28px}
+.card3 .sig{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.06em}
+
+/* 복사 버튼 영역 */
+.copy-area{width:100%;max-width:480px;background:#fff;border-radius:12px;border:1px solid #E5E9F0;padding:20px 24px}
+.copy-area h3{font-size:12px;letter-spacing:.12em;color:#888;font-weight:600;margin-bottom:14px}
+.copy-text{font-size:13.5px;line-height:1.85;color:#2C3E5E;white-space:pre-line;margin-bottom:14px}
+.copy-btn{display:inline-block;padding:8px 18px;background:#16233F;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:-.01em}
+.copy-btn:active{background:#2C3E5E}
+.copied{color:#1A6B3C;font-size:12px;margin-left:10px;display:none}
+</style>
+</head>
+<body>
+
+<p class="page-title">이서연 FC · SNS 홍보 카드 3종</p>
+
+<!-- 카드 1 -->
+<div class="card card1">
+  <div class="tag">신뢰 메시지 01</div>
+  <div class="headline">신입이라서<br>오히려 <em>믿을 수 있습니다.</em></div>
+  <div class="body">
+    관성 없이 매 고객에게 처음처럼 정성을 다합니다.<br>
+    경력자가 놓치는 질문을, 신입은 묻습니다.<br><br>
+    모르는 건 반드시 확인하고 답드립니다.<br>
+    아는 척하지 않는 것이 제 첫 번째 약속입니다.
+  </div>
+  <div class="sig">이서연 FC · 한화금융서비스 현빈지사 · 010-2836-9495</div>
+  <div class="deco"></div>
+  <div class="deco2"></div>
+</div>
+
+<!-- 카드 2 -->
+<div class="card card2">
+  <div class="tag">신뢰 메시지 02</div>
+  <div class="headline">AI가 분석하고,<br>제가 설명합니다.</div>
+  <div class="sub">경력 10년 차와 같은 수준의 분석을, 더 솔직하게.</div>
+  <div class="boxes">
+    <div class="box">
+      <div class="num">①</div>
+      <div class="txt"><strong>AI 보험 상담 실무 직접 익힘</strong>세세한 상품 비교·분석을 AI로 진행합니다. AI보다 더 체계적인 분석은 사람이 하기 어렵습니다.</div>
+    </div>
+    <div class="box">
+      <div class="num">②</div>
+      <div class="txt"><strong>최적의 컨설팅과 솔루션 제공</strong>그 분석을 고객님이 이해할 수 있는 언어로 전달합니다. 복잡한 보험, 쉽게 설명합니다.</div>
+    </div>
+    <div class="box">
+      <div class="num">③</div>
+      <div class="txt"><strong>20년 전문가 네트워크가 검토</strong>혼자 상담하지 않습니다. 경험 많은 전문가가 함께 확인합니다.</div>
+    </div>
+  </div>
+  <div class="sig">이서연 FC · 한화금융서비스 현빈지사 · 010-2836-9495</div>
+</div>
+
+<!-- 카드 3 -->
+<div class="card card3">
+  <div class="tag">신뢰 메시지 03</div>
+  <div class="headline">사무원에서 보험 FC로,<br>다시 시작했습니다.</div>
+  <div class="quote-box">
+    <p>"경력단절 52세, SNS 모임에서 만난 이웃이 제 첫 고객이 됐습니다. 지인 영업 없이 시작했고, AI로 무장했습니다."</p>
+  </div>
+  <div class="body">
+    20년간 사람 곁에서 일하며 배운 것 하나 —<br>
+    사람의 말 뒤에 있는 진짜 필요를 듣는 것.<br>
+    그것이 지금 제 가장 큰 무기입니다.
+  </div>
+  <div class="sig">이서연 FC · 한화금융서비스 현빈지사 · 010-2836-9495</div>
+</div>
+
+<!-- 문구 복사 영역 -->
+<div class="copy-area">
+  <h3>복사용 문구 ① — 신뢰 역전</h3>
+  <div class="copy-text" id="txt1">신입이라서 오히려 믿을 수 있습니다.
+
+관성 없이 매 고객에게 처음처럼 정성을 다합니다.
+경력자가 놓치는 질문을, 신입은 묻습니다.
+
+모르는 건 반드시 확인하고 답드립니다.
+아는 척하지 않는 것이 제 첫 번째 약속입니다.
+
+📞 이서연 FC · 010-2836-9495
+한화금융서비스 현빈지사</div>
+  <button class="copy-btn" onclick="copyText('txt1','c1')">복사하기</button>
+  <span class="copied" id="c1">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ② — AI 무장</h3>
+  <div class="copy-text" id="txt2">AI가 분석하고, 제가 설명합니다.
+경력 10년 차와 같은 수준의 분석을, 더 솔직하게.
+
+✅ AI 보험 상담 실무를 직접 익혔습니다
+✅ 세세한 상품 비교·분석, AI로 진행합니다
+✅ 복잡한 보험을 쉬운 언어로 전달합니다
+✅ 20년 경력 전문가 네트워크가 함께 검토합니다
+
+AI보다 더 체계적인 분석은 사람이 하기 어렵습니다.
+그 분석을 제가 고객님 곁에서 설명드립니다.
+
+📞 이서연 FC · 010-2836-9495
+한화금융서비스 현빈지사</div>
+  <button class="copy-btn" onclick="copyText('txt2','c2')">복사하기</button>
+  <span class="copied" id="c2">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ③ — 스토리텔링</h3>
+  <div class="copy-text" id="txt3">경력단절 52세, 다시 시작했습니다.
+
+사무원으로, 매장 관리자로, 교육 강사로 —
+20년간 사람 곁에서 일했습니다.
+
+그러다 보험 FC로 새 출발했습니다.
+지인 영업이 두려웠던 저는
+걷기 모임, 독서 모임, 디지털 강좌에서
+진심으로 사람을 사귀었고,
+그것이 자연스럽게 새로운 시장이 됐습니다.
+
+사람의 말 뒤에 있는 진짜 필요를 듣는 것.
+그것이 지금 제 가장 큰 무기입니다.
+
+저처럼 다시 시작하려는 분,
+보험 상담이 필요하신 분 — 편하게 연락 주세요.
+
+📞 이서연 FC · 010-2836-9495
+한화금융서비스 현빈지사</div>
+  <button class="copy-btn" onclick="copyText('txt3','c3')">복사하기</button>
+  <span class="copied" id="c3">✓ 복사됨</span>
+</div>
+
+<script>
+function copyText(id, cId) {
+  var txt = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(txt).then(function() {
+    var el = document.getElementById(cId);
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

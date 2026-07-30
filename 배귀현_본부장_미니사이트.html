@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배귀현 본부장 | 프라임에셋 148본부</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --ink:#0D1B2A; --ink-soft:#1C3144; --paper:#F4F6F0; --surface:#FFFFFF;
+  --gold:#B8962E; --gold-light:#D4AF37; --green:#1A6B3C; --muted:#5A6A5A;
+  --line:#D4DDD0; --maxw:560px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;background:var(--surface);min-height:100vh;
+  box-shadow:0 0 60px rgba(13,27,42,.1)}
+.pad{padding:0 26px}
+
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:40px 26px 34px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-60px;top:-60px;width:200px;height:200px;
+  border:1px solid rgba(184,150,46,.2);border-radius:50%}
+.hero::before{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;
+  border:1px solid rgba(184,150,46,.4);border-radius:50%}
+.hero>*{position:relative;z-index:2}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:18px}
+.photo{width:82px;height:82px;border-radius:50%;background:linear-gradient(160deg,#1C3144,#0D1B2A);
+  border:2px solid rgba(184,150,46,.6);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.4);text-align:center;margin-bottom:18px}
+.hero h1{font-size:32px;font-weight:700;line-height:1.2;letter-spacing:-.03em}
+.hero h1 .role{font-size:16px;font-weight:500;color:rgba(255,255,255,.6);margin-left:8px}
+.hero .org{font-size:14px;color:rgba(255,255,255,.55);margin-top:8px}
+.tagline{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+  font-size:17px;line-height:1.7;color:rgba(255,255,255,.92);font-weight:500}
+
+/* 두 개의 문 */
+.doors{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.door{padding:26px 18px 24px;text-align:center;text-decoration:none;color:inherit;display:block;
+  transition:background .25s}
+.door:first-child{border-right:1px solid var(--line)}
+.door .num{font-family:'Gowun Batang',serif;font-size:13px;color:var(--muted);display:block;
+  margin-bottom:10px;letter-spacing:.1em}
+.door .icon{width:38px;height:38px;margin:0 auto 12px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:18px}
+.door:nth-child(1) .icon{background:rgba(26,107,60,.1);color:var(--green)}
+.door:nth-child(2) .icon{background:rgba(184,150,46,.13);color:var(--gold)}
+.door strong{display:block;font-size:16px;font-weight:700;letter-spacing:-.02em;margin-bottom:5px}
+.door span.sub{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+.door .arrow{margin-top:12px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+@media(hover:hover){.door:hover{background:var(--paper)}.door:hover .arrow{color:var(--green)}}
+
+/* 큰 숫자 */
+.big{padding:34px 26px 30px;border-bottom:1px solid var(--line);text-align:center;background:var(--paper)}
+.big .num{font-family:'Gowun Batang',serif;font-size:72px;line-height:.95;color:var(--green);
+  letter-spacing:-.04em;display:block}
+.big .num em{font-style:normal;font-size:24px;color:var(--ink);margin-left:2px}
+.big .cap{font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7}
+
+section{padding:36px 0 6px}
+.label{font-size:11.5px;letter-spacing:.16em;color:var(--gold);font-weight:700;margin-bottom:10px}
+h2{font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.35;margin-bottom:16px}
+p.lead{font-size:15px;color:var(--ink-soft);line-height:1.75}
+
+/* 통계 3칸 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:20px}
+.stat{background:var(--surface);padding:18px 8px;text-align:center}
+.stat .v{font-family:'Gowun Batang',serif;font-size:28px;color:var(--green);display:block;
+  line-height:1.1;letter-spacing:-.02em}
+.stat .v em{font-style:normal;font-size:14px;color:var(--muted)}
+.stat .k{font-size:11.5px;color:var(--muted);margin-top:5px;display:block}
+
+/* 원칙 리스트 */
+.fields{margin-top:18px;border-top:1px solid var(--line)}
+.field{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.field .k{font-family:'Gowun Batang',serif;font-size:22px;color:var(--gold);flex:0 0 28px;line-height:1}
+.field .b{flex:1}
+.field .b strong{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.field .b span{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* 명언 블록 */
+.quote-list{margin-top:20px;display:grid;gap:12px}
+.q-item{background:var(--ink);color:#fff;padding:18px 20px;border-left:3px solid var(--gold)}
+.q-item .qt{font-family:'Gowun Batang',serif;font-size:16px;line-height:1.75;color:rgba(255,255,255,.95)}
+.q-item .sub{font-size:12px;color:var(--gold);margin-top:8px;letter-spacing:.04em}
+
+/* DB 제공 섹션 */
+.db-box{background:var(--green);color:#fff;padding:28px 26px;margin-top:28px}
+.db-box .label{color:rgba(255,255,255,.7)}
+.db-box h2{color:#fff;font-size:22px}
+.db-box p{font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:16px}
+.db-num{font-family:'Gowun Batang',serif;font-size:60px;color:#fff;line-height:1;
+  letter-spacing:-.04em}
+.db-num em{font-style:normal;font-size:20px;color:rgba(255,255,255,.7);margin-left:4px}
+.db-badge{display:inline-block;background:var(--gold);color:#fff;font-size:12px;font-weight:700;
+  padding:4px 12px;letter-spacing:.08em;margin-top:10px}
+
+/* 리쿠르팅 */
+.recruit{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.recruit .label{color:var(--gold)}
+.recruit h2{color:#fff}
+.recruit p{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75}
+.rlist{margin-top:18px;display:grid;gap:10px}
+.rItem{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(255,255,255,.92)}
+.rItem i{color:var(--gold);font-style:normal;flex:0 0 auto;font-size:13px;padding-top:2px}
+
+/* 프로세스 */
+.steps{margin-top:20px;border-left:2px solid var(--line);padding-left:20px;display:grid;gap:20px}
+.step{position:relative}
+.step::before{content:'';position:absolute;left:-29px;top:6px;width:9px;height:9px;
+  border-radius:50%;background:var(--surface);border:2px solid var(--green)}
+.step strong{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.step span{font-size:13.5px;color:var(--muted)}
+
+/* 연락바 */
+.contactbar{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:34px}
+.contactbar a{background:var(--surface);padding:17px 8px;text-align:center;text-decoration:none;
+  color:var(--ink);font-size:14.5px;font-weight:600;letter-spacing:-.02em}
+.contactbar a small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:3px}
+.contactbar a:active{background:var(--paper)}
+
+/* 폼 */
+.form{margin-top:22px;display:grid;gap:13px}
+.f label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:4px;
+  font-family:inherit;font-size:15px;background:var(--surface);color:var(--ink)}
+.f textarea{min-height:84px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--green);outline-offset:1px;border-color:transparent}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.55}
+.consent input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--green)}
+button.submit{width:100%;padding:15px;background:var(--green);color:#fff;border:none;border-radius:4px;
+  font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s}
+button.submit:active{background:#145C32}
+.okMsg{display:none;margin-top:14px;padding:14px;background:rgba(184,150,46,.1);
+  border-left:3px solid var(--gold);font-size:14px}
+
+footer{background:var(--paper);padding:26px;font-size:11.5px;color:var(--muted);line-height:1.75}
+footer .fname{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:11px}
+.waa{margin-top:14px;font-size:11px;color:var(--muted);opacity:.85}
+.waa b{color:#E2574C}
+
+@media(max-width:360px){.hero h1{font-size:27px}.db-num{font-size:48px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">PRIME ASSET · 148본부</div>
+    <div class="photo">사진</div>
+    <h1>배귀현<span class="role">본부장</span></h1>
+    <div class="org">프라임에셋 148본부 · 2009년 · 대구 동구</div>
+    <p class="tagline">"니가 바뀌지 않으면 아무것도 바뀌지 않는다."<br>
+    <span style="font-size:14px;color:rgba(255,255,255,.65);font-weight:400">사람다움으로, 배불리 — 원칙을 지키는 설계사가 고객이 찾는 설계사입니다.</span></p>
+  </header>
+
+  <nav class="doors">
+    <a class="door" href="#join">
+      <span class="num">첫 번째 문</span><span class="icon">◈</span>
+      <strong>함께 일하고 싶습니다</strong>
+      <span class="sub">경력·무경력<br>설계사 지원</span>
+      <span class="arrow">지원하기 ↓</span>
+    </a>
+    <a class="door" href="#about">
+      <span class="num">두 번째 문</span><span class="icon">◎</span>
+      <strong>본부가 궁금합니다</strong>
+      <span class="sub">DB지원·조직<br>소개 보기</span>
+      <span class="arrow">소개 보기 ↓</span>
+    </a>
+  </nav>
+
+  <!-- DB 강점 -->
+  <div class="db-box">
+    <div class="label">DB SUPPORT</div>
+    <h2>설계사의 성과는 DB에서 시작됩니다.</h2>
+    <p>업종별 맞춤 DB, 직접 눈으로 확인하세요. 대구·경북, 경남, 경기, 서울 이외 전국 지사에 제공합니다.</p>
+    <div class="db-num">200<em>건/월</em></div>
+    <div class="db-badge">인당 · 업종별 맞춤 제공</div>
+  </div>
+
+  <section class="pad" id="about">
+    <div class="label">ABOUT</div>
+    <h2>148본부는 이런 곳입니다.</h2>
+    <p class="lead">2009년부터 프라임에셋과 함께 해온 배귀현 본부장이 이끄는 조직입니다. 100명이 넘는 설계사, 5개 예하 지사 — 숫자보다 중요한 것은 매일 성장하는 사람들입니다. 독서와 자기개발을 수년째 멈추지 않는 본부장의 철학이 조직 문화가 됐습니다.</p>
+    <div class="stats">
+      <div class="stat"><span class="v">15<em>년+</em></span><span class="k">업력</span></div>
+      <div class="stat"><span class="v">100<em>명+</em></span><span class="k">소속 설계사</span></div>
+      <div class="stat"><span class="v">5<em>개</em></span><span class="k">예하 지사</span></div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">PHILOSOPHY</div>
+    <h2>본부장이 매일 되새기는 말.</h2>
+    <div class="quote-list">
+      <div class="q-item">
+        <div class="qt">"니가 바뀌지 않으면 마무것도 바뀌지 않는다."</div>
+        <div class="sub">변화의 출발점</div>
+      </div>
+      <div class="q-item">
+        <div class="qt">"원칙을 지키는 설계사, 고객이 찾는 설계사 —<br>그 길의 끝에서 성공이 기다린다."</div>
+        <div class="sub">148본부의 방향</div>
+      </div>
+      <div class="q-item">
+        <div class="qt">"오늘도 고객의 오늘을 지키고, 고객의 내일을 설계한다.<br>우리가 가는 길이 누군가의 인생이 된다."</div>
+        <div class="sub">설계사의 사명</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">OUR PRINCIPLE</div>
+    <h2>148본부가 지키는 것.</h2>
+    <div class="fields">
+      <div class="field"><div class="k">01</div><div class="b"><strong>사람다움, 배불리</strong><span>돈과 성공에 대한 올바른 집착. 단, 원칙을 어기면서까지 얻는 성과는 없습니다.</span></div></div>
+      <div class="field"><div class="k">02</div><div class="b"><strong>매일 성장하는 사람</strong><span>본부장은 수년째 매일 독서합니다. 자기개발을 멈추지 않는 사람이 오래 성공합니다.</span></div></div>
+      <div class="field"><div class="k">03</div><div class="b"><strong>될 놈인지 안 될 놈인지</strong><span>좋은 설계사보다 필요한 설계사. 스스로 묻고, 스스로 증명하는 사람을 키웁니다.</span></div></div>
+    </div>
+  </section>
+
+  <div class="recruit" id="join">
+    <div class="label">JOIN US</div>
+    <h2>연수입 1억은 기본, 3억이 목표입니다.</h2>
+    <p>변액자격 보유자, 연금 전문 지점장급을 찾습니다. 당신의 경험과 열정, 이제 연금시장 최고의 자리로 연결됩니다. 무경력도 환영합니다 — 될 사람이면 함께 키웁니다.</p>
+    <div class="rlist">
+      <div class="rItem"><i>—</i><span>인당 월 <strong>200건 맞춤 DB</strong> 지원 (업종별)</span></div>
+      <div class="rItem"><i>—</i><span>전국 지사 네트워크 — <strong>대구·경북·경남·경기·서울</strong> 외 전국</span></div>
+      <div class="rItem"><i>—</i><span>안정적인 연금시장 + <strong>최고의 지원 시스템</strong></span></div>
+      <div class="rItem"><i>—</i><span>전문가와 함께하는 <strong>성장 환경</strong> + 높은 수익·성과보상</span></div>
+    </div>
+  </div>
+
+  <section class="pad">
+    <div class="label">PROCESS</div>
+    <h2>지원 절차</h2>
+    <div class="steps">
+      <div class="step"><strong>1. 문의</strong><span>전화 또는 아래 양식. 이력서는 나중에 드려도 됩니다.</span></div>
+      <div class="step"><strong>2. 사전 통화 (10분)</strong><span>현재 상황과 목표를 간단히 이야기합니다.</span></div>
+      <div class="step"><strong>3. 방문 면담 (60분)</strong><span>직접 보시고, 궁금한 것을 다 물어보세요.</span></div>
+      <div class="step"><strong>4. 결정 · 합류</strong><span>서두르지 않습니다. 확신이 생기면 그때 시작합시다.</span></div>
+    </div>
+  </section>
+
+  <section class="pad" id="consult">
+    <div class="label">CONTACT</div>
+    <h2>행동이 성공을 만듭니다.</h2>
+    <p class="lead">지금 바로 문의하세요. 남기신 내용은 배귀현 본부장에게 직접 전달됩니다.</p>
+    <form action="https://formspree.io/f/mpqvnbzd" method="POST">
+      <div class="f"><label for="nm">성함</label><input id="nm" name="성함" type="text" placeholder="홍길동" required></div>
+      <div class="f"><label for="tel">연락처</label><input id="tel" name="연락처" type="tel" inputmode="numeric" placeholder="010-0000-0000" required></div>
+      <div class="f"><label for="tp">문의 유형</label>
+        <select id="tp" name="문의유형">
+          <option>설계사 지원 (경력)</option>
+          <option>설계사 지원 (무경력)</option>
+          <option>지점장급 합류 문의</option>
+          <option>DB 지원 문의</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="f"><label for="ms">남기실 말씀 (선택)</label><textarea id="ms" name="남기실말씀" placeholder="편하게 적어 주세요."></textarea></div>
+      <label class="consent"><input type="checkbox" id="cs" name="개인정보동의" value="동의" required>
+        <span>개인정보(성함·연락처) 수집·이용에 동의합니다. 수집한 정보는 상담 목적으로만 사용하며, 종료 후 6개월 이내 파기합니다.</span></label>
+      <button class="submit" id="btn">지금 바로 문의하기</button>
+      <div class="okMsg" id="ok"><strong>배귀현 본부장</strong>이 직접 연락드리겠습니다.</div>
+    </form>
+  </section>
+
+  <div class="contactbar">
+    <a href="tel:01025336958">전화하기<small>010-2533-6958</small></a>
+    <a href="mailto:info2580@naver.com">메일 보내기<small>info2580@naver.com</small></a>
+  </div>
+
+  <footer>
+    <div class="fname">프라임에셋 148본부</div>
+    <div>대구광역시 동구</div>
+    <div>010-2533-6958</div>
+    <div class="compl">
+      본 페이지는 보험 계약 체결을 권유하는 광고가 아니며, 상담 안내를 목적으로 합니다.
+      보험 계약 체결 전 상품설명서 및 약관을 반드시 확인하시기 바랍니다.
+      기존 계약을 해지하고 새로운 계약을 체결할 경우 손해가 발생할 수 있습니다.<br>
+      준법감시인 심의필 제2026-000호 (2026.08.01 ~ 2027.07.31)
+    </div>
+    <div class="waa">Built with <b>WAA</b> · With AI Academy</div>
+  </footer>
+
+</div>
+
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAA 제안 | GA 대표님께</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;background:#EFF2F6;padding:24px 16px;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;display:grid;gap:10px}
+
+/* 헤더 */
+.hero{background:#16233F;color:#fff;border-radius:16px;padding:36px 30px 32px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-50px;top:-50px;width:180px;height:180px;
+  border:1px solid rgba(201,146,46,.25);border-radius:50%}
+.hero::before{content:'';position:absolute;right:-15px;top:-15px;width:110px;height:110px;
+  border:1px solid rgba(201,146,46,.4);border-radius:50%}
+.hero>*{position:relative;z-index:2}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:#C9922E;font-weight:700;margin-bottom:16px}
+.hero h1{font-size:13px;color:rgba(255,255,255,.55);font-weight:400;margin-bottom:10px;line-height:1.6}
+.hero .big{font-family:'Gowun Batang',serif;font-size:28px;font-weight:700;line-height:1.4;
+  color:#fff;letter-spacing:-.02em}
+.hero .big em{font-style:normal;color:#C9922E}
+.hero .sub{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);
+  font-size:13px;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* 문제 제기 */
+.problem{background:#fff;border-radius:12px;padding:28px 26px}
+.label{font-size:10.5px;letter-spacing:.18em;color:#C9922E;font-weight:700;margin-bottom:12px}
+.problem h2{font-size:18px;font-weight:700;color:#16233F;margin-bottom:16px;line-height:1.4;letter-spacing:-.02em}
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.gap-box{border-radius:8px;padding:16px 14px;text-align:center}
+.gap-box.bad{background:#FDF1F0;border:1px solid #F5C4B3}
+.gap-box.good{background:#EAF3DE;border:1px solid #C0DD97}
+.gap-box .num{font-family:'Gowun Batang',serif;font-size:32px;font-weight:700;line-height:1;display:block;margin-bottom:6px}
+.gap-box.bad .num{color:#D85A30}
+.gap-box.good .num{color:#3B6D11}
+.gap-box .desc{font-size:11.5px;line-height:1.55;color:#5A6A5A}
+.gap-box .tag{font-size:10px;font-weight:700;letter-spacing:.1em;display:block;margin-bottom:8px}
+.gap-box.bad .tag{color:#D85A30}
+.gap-box.good .tag{color:#3B6D11}
+.gap-note{margin-top:12px;font-size:12.5px;color:#6B7A90;line-height:1.7;padding:12px 14px;
+  background:#F4F6F9;border-radius:6px}
+
+/* 핵심 문장 */
+.core{background:#16233F;border-radius:12px;padding:26px}
+.core p{font-family:'Gowun Batang',serif;font-size:17px;line-height:1.85;color:rgba(255,255,255,.92);text-align:center}
+.core em{font-style:normal;color:#C9922E}
+
+/* WAA 제공 */
+.offer{background:#fff;border-radius:12px;padding:28px 26px}
+.offer h2{font-size:18px;font-weight:700;color:#16233F;margin-bottom:18px;letter-spacing:-.02em}
+.offer-list{display:grid;gap:12px}
+.offer-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:#F4F6F9;border-radius:8px}
+.offer-item .ico{width:36px;height:36px;border-radius:50%;background:#16233F;display:flex;
+  align-items:center;justify-content:center;flex:0 0 36px;font-size:15px}
+.offer-item .txt strong{display:block;font-size:14.5px;font-weight:700;color:#16233F;margin-bottom:3px;letter-spacing:-.01em}
+.offer-item .txt span{font-size:12.5px;color:#6B7A90;line-height:1.6}
+
+/* 격차 비교 타임라인 */
+.timeline{background:#fff;border-radius:12px;padding:28px 26px}
+.timeline h2{font-size:18px;font-weight:700;color:#16233F;margin-bottom:6px;letter-spacing:-.02em}
+.timeline .tl-sub{font-size:13px;color:#6B7A90;margin-bottom:18px}
+.tl-row{display:grid;grid-template-columns:1fr 40px 1fr;gap:6px;align-items:center;margin-bottom:8px}
+.tl-cell{border-radius:8px;padding:11px 12px;font-size:12.5px;line-height:1.55}
+.tl-cell.a{background:#FDF1F0;color:#993C1D;border:1px solid #F5C4B3}
+.tl-cell.b{background:#EAF3DE;color:#27500A;border:1px solid #C0DD97}
+.tl-cell strong{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;margin-bottom:3px;opacity:.7}
+.tl-mid{text-align:center;font-size:11px;color:#9AA3B0;font-weight:500}
+.tl-head{display:grid;grid-template-columns:1fr 40px 1fr;gap:6px;margin-bottom:10px}
+.tl-head span{font-size:11px;font-weight:700;letter-spacing:.1em;text-align:center;padding:6px 0}
+.tl-head .h-a{color:#D85A30;background:#FDF1F0;border-radius:6px}
+.tl-head .h-b{color:#3B6D11;background:#EAF3DE;border-radius:6px}
+.tl-head .h-mid{color:transparent}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,#16233F 0%,#2C3E5E 100%);border-radius:12px;padding:28px 26px;text-align:center}
+.cta h2{font-size:19px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
+.cta p{font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:22px;line-height:1.65}
+.cta-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:22px}
+.cta-step{background:rgba(255,255,255,.07);border-radius:8px;padding:12px 8px;text-align:center}
+.cta-step .sn{font-family:'Gowun Batang',serif;font-size:20px;color:#C9922E;display:block;margin-bottom:4px}
+.cta-step .st{font-size:11px;color:rgba(255,255,255,.7);line-height:1.4}
+.cta-contact{background:#C9922E;border-radius:8px;padding:14px;color:#fff}
+.cta-contact strong{display:block;font-size:18px;letter-spacing:.04em;margin-bottom:2px}
+.cta-contact span{font-size:12px;opacity:.8}
+
+/* 푸터 */
+.foot{text-align:center;padding:8px 0 4px;font-size:11px;color:#9AA3B0;line-height:1.7}
+.foot b{color:#E2574C}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 헤더 -->
+  <div class="hero">
+    <div class="eyebrow">WITH AI ACADEMY · GA 파트너십 제안</div>
+    <p class="h1">대표님, 지금 이 질문을 드리고 싶습니다.</p>
+    <div class="big">
+      우리 신인이 위촉 첫 주에<br>
+      <em>명함·미니사이트·SNS 채널</em>을<br>
+      갖고 시장에 나간다면?
+    </div>
+    <p class="sub">경력 5년 설계사 중에도 이걸 다 갖춘 사람은 드뭅니다.<br>WAA는 그것을 신인 온보딩 첫 주에 완성합니다.</p>
+  </div>
+
+  <!-- 문제 제기 -->
+  <div class="problem">
+    <div class="label">THE PROBLEM</div>
+    <h2>신인 이탈의 진짜 이유는<br>"상품을 몰라서"가 아닙니다.</h2>
+    <div class="gap-grid">
+      <div class="gap-box bad">
+        <span class="tag">기존 방식</span>
+        <span class="num">3개월</span>
+        <div class="desc">위촉 후 3개월 내<br>이탈률 60~70%<br><br>"지인 다 썼어요."</div>
+      </div>
+      <div class="gap-box good">
+        <span class="tag">WAA 온보딩</span>
+        <span class="num">1주</span>
+        <div class="desc">위촉 첫 주에<br>디지털 시장 기반 완성<br><br>연고 밖에서 시장을 엽니다.</div>
+      </div>
+    </div>
+    <div class="gap-note">
+      신인 정착의 핵심은 <strong>연고 소진 없이 시장을 여는 기술</strong>입니다.<br>
+      AI 기반 디지털 마케팅이 그 답입니다.
+    </div>
+  </div>
+
+  <!-- 핵심 문장 -->
+  <div class="core">
+    <p>"AI를 쓰는 FC와 쓰지 않는 FC의 격차는<br>
+    지금 이 순간에도 벌어지고 있습니다.<br>
+    <em>도입 시점이 곧 경쟁력입니다.</em>"</p>
+  </div>
+
+  <!-- WAA 제공 3가지 -->
+  <div class="offer">
+    <div class="label">WHAT WAA PROVIDES</div>
+    <h2>WAA가 드리는 것, 딱 세 가지.</h2>
+    <div class="offer-list">
+      <div class="offer-item">
+        <div class="ico">🎯</div>
+        <div class="txt">
+          <strong>8주 신인 온보딩 과정</strong>
+          <span>자격증 → AI 마케팅 → 개인 미니사이트까지. 위촉 첫 날부터 시장에 나갈 준비를 완성합니다.</span>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="ico">📱</div>
+        <div class="txt">
+          <strong>연고 밖 시장 창출 실전 기술</strong>
+          <span>SNS·커뮤니티 기반 신규 DB 발굴. 지인 영업에 기대지 않는 디지털 시장 개척법을 체득합니다.</span>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="ico">⚖️</div>
+        <div class="txt">
+          <strong>보험업법 컴플라이언스 포함</strong>
+          <span>SNS 광고규제·개인정보보호까지 함께 교육합니다. AI 마케팅을 가르치면서 준법까지 챙기는 곳은 드뭅니다.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Before / After 타임라인 -->
+  <div class="timeline">
+    <div class="label">BEFORE vs AFTER</div>
+    <h2>신인의 첫 8주가 달라집니다.</h2>
+    <div class="tl-sub">WAA 온보딩 도입 전후 비교</div>
+    <div class="tl-head">
+      <span class="h-a">도입 전</span>
+      <span class="h-mid">·</span>
+      <span class="h-b">도입 후</span>
+    </div>
+    <div class="tl-row">
+      <div class="tl-cell a"><strong>1주차</strong>자격증 공부만, 명함도 없음</div>
+      <div class="tl-mid">vs</div>
+      <div class="tl-cell b"><strong>1주차</strong>전자명함·QR·프로필 완성</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-cell a"><strong>3주차</strong>지인 리스트 소진 시작</div>
+      <div class="tl-mid">vs</div>
+      <div class="tl-cell b"><strong>3주차</strong>SNS 채널 개설·콘텐츠 발행</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-cell a"><strong>8주차</strong>이탈 또는 지인 압박 반복</div>
+      <div class="tl-mid">vs</div>
+      <div class="tl-cell b"><strong>8주차</strong>개인 미니사이트·90일 마케팅 플랜 완성</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>다음 단계는 간단합니다.</h2>
+    <p>부담 없이 20분 통화로 시작합니다.<br>지사 상황에 맞는 커리큘럼을 제안드리겠습니다.</p>
+    <div class="cta-steps">
+      <div class="cta-step"><span class="sn">1</span><span class="st">20분 사전 통화</span></div>
+      <div class="cta-step"><span class="sn">2</span><span class="st">맞춤 제안서 미팅</span></div>
+      <div class="cta-step"><span class="sn">3</span><span class="st">파트너십 계약</span></div>
+    </div>
+    <div class="cta-contact">
+      <strong>010-2836-9495</strong>
+      <span>박근오 · With AI Academy (WAA)</span>
+    </div>
+  </div>
+
+  <div class="foot">Built with <b>WAA</b> · With AI Academy · info258@naver.com</div>
+
+</div>
+</body>
+</html>

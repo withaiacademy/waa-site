@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이서연 FC | 한화금융서비스 현빈지사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9;
+  --rule:#C3CDDA; --maxw:560px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;background:var(--surface);min-height:100vh;
+  box-shadow:0 0 60px rgba(22,35,63,.07)}
+.pad{padding:0 26px}
+
+/* 작성 대기 표시 — 실제 내용으로 교체하는 자리 */
+.ph{display:inline;color:var(--coral);font-weight:700;
+  background:rgba(226,87,76,.09);padding:0 3px;border-radius:2px}
+.hero .ph,.recruit .ph,.dark .ph{color:#FFC0B6;background:rgba(255,192,182,.15)}
+
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:36px 26px 30px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-70px;top:-70px;width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;
+  border:1px solid rgba(201,146,46,.28);border-radius:50%}
+.hero>*{position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--amber);font-weight:600;margin-bottom:16px}
+.photo{width:82px;height:82px;border-radius:50%;background:linear-gradient(160deg,#2C3E5E,#16233F);
+  border:2px solid rgba(201,146,46,.5);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.5);text-align:center;margin-bottom:18px}
+.hero h1{font-size:31px;font-weight:700;line-height:1.25;letter-spacing:-.03em}
+.hero h1 .role{font-size:16px;font-weight:500;color:rgba(255,255,255,.62);margin-left:8px;letter-spacing:-.01em}
+.hero .org{font-size:14px;color:rgba(255,255,255,.62);margin-top:8px}
+.tagline{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13);
+  font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.92)}
+
+/* 두 개의 문 */
+.doors{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.door{padding:26px 18px 24px;text-align:center;text-decoration:none;color:inherit;display:block;
+  transition:background .25s ease}
+.door:first-child{border-right:1px solid var(--line)}
+.door .num{font-family:'Gowun Batang',serif;font-size:13px;color:var(--muted);display:block;
+  margin-bottom:10px;letter-spacing:.1em}
+.door .icon{width:38px;height:38px;margin:0 auto 12px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:18px}
+.door:nth-child(1) .icon{background:rgba(226,87,76,.1);color:var(--coral)}
+.door:nth-child(2) .icon{background:rgba(201,146,46,.13);color:var(--amber)}
+.door strong{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:5px}
+.door span.sub{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+.door .arrow{margin-top:12px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+.door:active{background:var(--paper)}
+@media(hover:hover){.door:hover{background:var(--paper)}.door:hover .arrow{color:var(--coral)}}
+
+/* 큰 숫자 시그니처 */
+.big{padding:34px 26px 30px;border-bottom:1px solid var(--line);text-align:center;background:var(--paper)}
+.big .num{font-family:'Gowun Batang',serif;font-size:74px;line-height:.95;color:var(--coral);
+  letter-spacing:-.04em;display:block;white-space:nowrap}
+.big .num em{font-style:normal;font-size:25px;color:var(--ink);margin-left:2px}
+.big .cap{font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7}
+.big .cap strong{color:var(--ink)}
+
+section{padding:36px 0 6px}
+.label{font-size:11.5px;letter-spacing:.16em;color:var(--amber);font-weight:700;margin-bottom:10px}
+h2{font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.35;margin-bottom:16px}
+p.lead{font-size:15px;color:var(--ink-soft);line-height:1.75}
+
+/* 숫자 3칸 — 단위가 줄바꿈되지 않도록 고정 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:20px}
+.stat{background:var(--surface);padding:18px 6px;text-align:center}
+.stat .v{font-family:'Gowun Batang',serif;display:block;font-size:26px;color:var(--ink);
+  line-height:1.15;white-space:nowrap}
+.stat .v em{font-style:normal;font-size:14px;color:var(--muted);margin-left:2px}
+.stat .k{display:block;font-size:11.5px;color:var(--muted);margin-top:7px}
+
+/* 항목 목록 */
+.fields{margin-top:18px;border-top:1px solid var(--line)}
+.field{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.field .k{font-family:'Gowun Batang',serif;font-size:14px;color:var(--coral);flex:0 0 26px;padding-top:2px}
+.field .b strong{display:block;font-size:15.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.02em}
+.field .b span{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* 단계 — 세로 연결선을 border로 확실히 그림 */
+.steps{margin-top:20px;padding-left:24px;border-left:1px solid var(--rule);margin-left:5px}
+.step{position:relative;padding:0 0 22px 0}
+.step:last-child{padding-bottom:4px}
+.step::before{content:'';position:absolute;left:-29px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--coral)}
+.step strong{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.step span{font-size:13.5px;color:var(--muted)}
+
+/* 자가 점검 (FC) */
+.check{margin-top:20px;border:1px solid var(--line);background:var(--paper)}
+.check .ch{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;
+  border-bottom:1px solid var(--line);cursor:pointer}
+.check .ch:last-of-type{border-bottom:none}
+.check .ch input{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--coral)}
+.check .ch span{font-size:14.5px;line-height:1.55}
+.result{padding:18px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.7}
+.result b{color:var(--amber);font-size:19px;font-family:'Gowun Batang',serif}
+.result a{display:inline-block;margin-top:10px;color:#fff;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--coral);padding-bottom:2px;font-size:15px}
+
+/* 어두운 블록 */
+.recruit,.dark{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.recruit .label,.dark .label{color:var(--amber)}
+.recruit h2,.dark h2{color:#fff}
+.recruit p,.dark p{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75}
+.rlist{margin-top:18px;display:grid;gap:10px}
+.rItem{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(255,255,255,.92)}
+.rItem i{color:var(--amber);font-style:normal;flex:0 0 auto;font-size:13px;padding-top:2px}
+
+/* 인용 */
+.quote{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.quote .q{font-family:'Gowun Batang',serif;font-size:19px;line-height:1.8}
+.quote .by{margin-top:16px;font-size:12.5px;color:var(--amber);letter-spacing:.06em}
+
+/* 폼 */
+.form{margin-top:22px;display:grid;gap:13px}
+.f label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:6px;
+  font-family:inherit;font-size:15px;background:var(--surface);color:var(--ink)}
+.f textarea{min-height:84px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:transparent}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.55}
+.consent input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--coral)}
+button.submit{width:100%;padding:15px;background:var(--coral);color:#fff;border:none;border-radius:6px;
+  font-family:inherit;font-size:16px;font-weight:700;letter-spacing:-.02em;cursor:pointer;transition:background .2s}
+button.submit:active{background:#C8483E}
+@media(hover:hover){button.submit:hover{background:#C8483E}}
+.formNote{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.okMsg{display:none;margin-top:14px;padding:14px;background:rgba(201,146,46,.1);
+  border-left:3px solid var(--amber);font-size:14px}
+
+/* 연락 바 */
+.contactbar{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:34px}
+.contactbar a{background:var(--surface);padding:17px 8px;text-align:center;text-decoration:none;
+  color:var(--ink);font-size:14.5px;font-weight:600;letter-spacing:-.02em}
+.contactbar a small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:3px}
+.contactbar a:active{background:var(--paper)}
+
+footer{background:var(--paper);padding:26px;font-size:11.5px;color:var(--muted);line-height:1.75}
+footer .fname{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:11px}
+.waa{margin-top:14px;font-size:11px;color:var(--muted);opacity:.85}
+.waa b{color:var(--coral)}
+
+@media(max-width:360px){
+  .hero h1{font-size:27px}.big .num{font-size:60px}
+  .doors{grid-template-columns:1fr}
+  .door:first-child{border-right:none;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">HANWHA FINANCIAL SERVICES · FINANCIAL CONSULTANT</div>
+    <div class="photo">프로필<br>사진</div>
+    <h1>이서연<span class="role">FC</span></h1>
+    <div class="org">한화금융서비스 현빈지사</div>
+    <p class="tagline">경력단절 52세, 다시 시작했습니다 —<br>SNS 모임에서 만난 이웃이 제 첫 고객이 됐습니다.</p>
+  </header>
+
+  <!-- 시그니처: 3분 자가 점검 -->
+  <section class="pad">
+    <div class="label">3분 자가 점검</div>
+    <h2>지금 내 보험, 확인이 필요할까요?</h2>
+    <p class="lead">해당되는 항목에 표시해 보세요. 상담 전에 혼자서도 확인하실 수 있습니다.</p>
+    <div class="check" id="check">
+      <label class="ch"><input type="checkbox"><span>보험에 가입한 지 <strong>5년이 넘었다</strong></span></label>
+      <label class="ch"><input type="checkbox"><span>결혼·출산·이직 등 <strong>가족 상황이 달라졌다</strong></span></label>
+      <label class="ch"><input type="checkbox"><span>내가 어떤 보장을 받는지 <strong>바로 말하기 어렵다</strong></span></label>
+      <label class="ch"><input type="checkbox"><span>매달 내는 보험료가 <strong>부담스럽게 느껴진다</strong></span></label>
+      <label class="ch"><input type="checkbox"><span>가입할 때 설명해 준 사람과 <strong>지금은 연락이 안 된다</strong></span></label>
+      <div class="result" id="res">
+        <span id="msg">항목을 선택하시면 결과가 나옵니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">INTRODUCTION</div>
+    <h2>어떤 사람인지 먼저 말씀드립니다.</h2>
+    <p class="lead">20년 넘게 사무원, 매장 관리, 교육 강사로 일하며 아이를 키웠습니다. 경력이 끊기고 다시 시작을 고민하던 중, 보험 일을 만났습니다. 지인 영업이 두려웠던 저는 걷기 모임·독서 모임·디지털 강좌에서 진심으로 사람을 사귀었고, 그것이 자연스럽게 새로운 시장이 됐습니다. 저처럼 다시 시작하려는 분들의 이야기를 가장 잘 압니다.</p>
+    <div class="stats">
+      <div class="stat"><span class="v">1<em>년차</em></span><span class="k">도전 중</span></div>
+      <div class="stat"><span class="v">SNS<em></em></span><span class="k">시장 개척</span></div>
+      <div class="stat"><span class="v">3<em>개+</em></span><span class="k">활동 커뮤니티</span></div>
+    </div>
+  </section>
+
+  <!-- ▼ 신인 FC 전용 블록 — 경력 FC는 이 섹션을 통째로 지우십시오 -->
+  <div class="dark">
+    <div class="label">BEFORE THIS</div>
+    <h2>제가 여기 오기까지</h2>
+    <p>사무원으로, 매장 관리자로, 웅진 학습교사로 — 늘 사람 곁에서 일했습니다. 아이를 키우며 경력이 끊겼고, 다시 시작할 용기를 찾는 데 오랜 시간이 걸렸습니다. 보험 일을 시작하면서 깨달은 것은, 그 세월이 결코 낭비가 아니었다는 것입니다. 사람을 경청하고, 필요한 것을 먼저 알아채는 능력 — 그것이 지금 제 가장 큰 무기입니다.</p>
+    <div class="rlist">
+      <div class="rItem"><i>—</i><span>이전 직업: <strong>사무원 · 매장관리 · 웅진 학습교사</strong> (경력단절 후 재도전)</span></div>
+      <div class="rItem"><i>—</i><span>그때 배운 것 중 지금도 쓰는 것: <strong>사람의 말 뒤에 있는 진짜 필요를 듣는 것.</strong></span></div>
+    </div>
+  </div>
+  <!-- ▲ 신인 FC 전용 블록 끝 -->
+
+  <section class="pad">
+    <div class="label">WHAT I DO</div>
+    <h2>이런 이야기를 나눕니다.</h2>
+    <div class="fields">
+      <div class="field"><div class="k">01</div><div class="b"><strong>보장 점검</strong><span>가입한 보험이 지금 상황에 맞는지, 겹치거나 빠진 곳은 없는지 함께 확인합니다.</span></div></div>
+      <div class="field"><div class="k">02</div><div class="b"><strong>커뮤니티 네트워크 관리</strong><span>단체 활동에서 자연스럽게 형성된 신뢰 관계를 기반으로 고객과 오래 함께합니다.</span></div></div>
+      <div class="field"><div class="k">03</div><div class="b"><strong>경력단절 여성 맞춤 설계</strong><span>같은 자리에서 다시 시작한 경험으로, 40·50대 여성 고객의 상황을 가장 잘 압니다.</span></div></div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">HOW IT WORKS</div>
+    <h2>상담은 이렇게 진행됩니다.</h2>
+    <div class="steps">
+      <div class="step"><strong>1. 신청</strong><span>아래 양식 또는 전화. 30초면 됩니다.</span></div>
+      <div class="step"><strong>2. 사전 확인 (10분, 통화)</strong><span>무엇이 궁금하신지 미리 여쭙니다.</span></div>
+      <div class="step"><strong>3. 상담 (40~60분)</strong><span>편하신 장소에서 뵙습니다. 가입 권유는 이 자리에서 하지 않습니다.</span></div>
+      <div class="step"><strong>4. 정리본 전달</strong><span>상담 내용을 문서로 정리해 보내드립니다.</span></div>
+    </div>
+  </section>
+
+
+  <section class="pad">
+    <div class="label">WHY TRUST</div>
+    <h2>신입이라서 오히려 믿을 수 있습니다.</h2>
+
+    <div class="fields">
+      <div class="field">
+        <div class="k">01</div>
+        <div class="b">
+          <strong>보험 경력 1년, 하지만 혼자 상담하지 않습니다</strong>
+          <span>20년 경력의 전문가 네트워크가 모든 상담을 함께 검토합니다. 모르는 건 반드시 확인하고 답드립니다 — 아는 척하지 않는 것이 제 첫 번째 약속입니다.</span>
+        </div>
+      </div>
+      <div class="field">
+        <div class="k">02</div>
+        <div class="b">
+          <strong>AI가 분석하고, 제가 설명합니다</strong>
+          <span>AI는 보험 상품의 세세한 부분까지 비교·분석합니다. 저는 AI 보험 상담 실무를 직접 익혔고, 이를 활용해 고객님께 최적의 컨설팅과 솔루션을 제공합니다. AI보다 더 체계적인 분석은 사람이 하기 어렵습니다 — 그 분석을 쉬운 언어로 전달합니다.</span>
+        </div>
+      </div>
+      <div class="field">
+        <div class="k">03</div>
+        <div class="b">
+          <strong>경력 10년 차와 같은 분석, 더 솔직하게</strong>
+          <span>관성 없이 매 고객에게 처음처럼 정성을 다합니다. 경력자가 놓치는 질문을 신입은 묻습니다. 그리고 AI로 무장했습니다 — 신입이기에 더 투명하고, AI 덕분에 더 정확합니다.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="consult">
+    <div class="label">CONTACT</div>
+    <h2>편하게 남겨 주십시오.</h2>
+    <p class="lead">남기신 내용은 저에게만 전달되며, 영업 목적의 반복 연락은 드리지 않습니다.</p>
+
+    <form action="https://formspree.io/f/mpqvnbzd" method="POST">
+      <div class="f"><label for="nm">성함</label><input id="nm" name="성함" type="text" placeholder="홍길동" required></div>
+      <div class="f"><label for="tel">연락처</label><input id="tel" name="연락처" type="tel" inputmode="numeric" placeholder="010-0000-0000" required></div>
+      <div class="f"><label for="tp">문의 유형</label>
+        <select id="tp" name="문의유형">
+          <option>보장 점검</option>
+          <option>은퇴·연금 설계</option>
+          <option>자녀·가족 보장</option>
+          <option>함께 일하기 (지원 문의)</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="f"><label for="ms">남기실 말씀 (선택)</label><textarea id="ms" name="남기실말씀" placeholder="편하게 적어 주세요."></textarea></div>
+      <label class="consent"><input type="checkbox" id="cs" name="개인정보동의" value="동의" required>
+        <span>개인정보(성함·연락처) 수집·이용에 동의합니다. 수집한 정보는 상담 목적으로만 사용하며,
+        종료 후 6개월 이내 파기합니다.</span></label>
+      <button type="submit" class="submit">보내기</button>
+      <div class="okMsg" id="ok"><strong>1영업일 이내</strong>에 연락드리겠습니다.</div>
+    </form>
+  </section>
+
+  <div class="contactbar">
+    <a href="tel:01028369495">전화하기<small>010-2836-9495</small></a>
+    <a href="mailto:info2580@naver.com">메일 보내기<small>info2580@naver.com</small></a>
+  </div>
+
+  <footer>
+    <div class="fname">이서연 FC · 한화금융서비스 현빈지사</div>
+    <div>010-2836-9495 · info2580@naver.com</div>
+    
+    <div class="compl">
+      본 페이지는 보험 계약 체결을 권유하는 광고가 아니며, 상담 안내를 목적으로 합니다.
+      보험 계약 체결 전 상품설명서 및 약관을 반드시 확인하시기 바랍니다.
+      기존 계약을 해지하고 새로운 계약을 체결할 경우 손해가 발생할 수 있습니다.<br>
+      준법감시인 심의필 제2026-000호 (2026.08.01 ~ 2027.07.31)
+    </div>
+    <div class="waa">Built with <b>WAA</b> · With AI Academy</div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('#check input[type=checkbox]');
+  var msg=document.getElementById('msg');
+  function upd(){
+    var n=0; boxes.forEach(function(b){ if(b.checked) n++; });
+    if(n===0){ msg.innerHTML='항목을 선택하시면 결과가 나옵니다.'; return; }
+    var tail = n>=3
+      ? '점검을 한 번 받아 보시길 권합니다. 정리만 해드려도 달라지는 경우가 많습니다.'
+      : '크게 급하진 않지만, 한 번 짚어 두면 마음이 놓이는 부분입니다.';
+    msg.innerHTML='<b>'+n+'개</b> 항목이 해당됩니다.<br>'+tail+
+      '<br><a href="#consult">상담 신청하기 →</a>';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',upd); });
+})();
+</script>
+
+</body></html>

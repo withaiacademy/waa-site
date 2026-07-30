@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박근오 대표 | With AI Academy (WAA)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9;
+  --rule:#C3CDDA; --maxw:560px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;background:var(--surface);min-height:100vh;
+  box-shadow:0 0 60px rgba(22,35,63,.07)}
+.pad{padding:0 26px}
+
+/* 작성 대기 표시 — 실제 내용으로 교체하는 자리 */
+.ph{display:inline;color:var(--coral);font-weight:700;
+  background:rgba(226,87,76,.09);padding:0 3px;border-radius:2px}
+.hero .ph,.recruit .ph,.dark .ph{color:#FFC0B6;background:rgba(255,192,182,.15)}
+
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:36px 26px 30px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-70px;top:-70px;width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;
+  border:1px solid rgba(201,146,46,.28);border-radius:50%}
+.hero>*{position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--amber);font-weight:600;margin-bottom:16px}
+.photo{width:82px;height:82px;border-radius:50%;background:linear-gradient(160deg,#2C3E5E,#16233F);
+  border:2px solid rgba(201,146,46,.5);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.5);text-align:center;margin-bottom:18px}
+.hero h1{font-size:31px;font-weight:700;line-height:1.25;letter-spacing:-.03em}
+.hero h1 .role{font-size:16px;font-weight:500;color:rgba(255,255,255,.62);margin-left:8px;letter-spacing:-.01em}
+.hero .org{font-size:14px;color:rgba(255,255,255,.62);margin-top:8px}
+.tagline{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13);
+  font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.92)}
+
+/* 두 개의 문 */
+.doors{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.door{padding:26px 18px 24px;text-align:center;text-decoration:none;color:inherit;display:block;
+  transition:background .25s ease}
+.door:first-child{border-right:1px solid var(--line)}
+.door .num{font-family:'Gowun Batang',serif;font-size:13px;color:var(--muted);display:block;
+  margin-bottom:10px;letter-spacing:.1em}
+.door .icon{width:38px;height:38px;margin:0 auto 12px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:18px}
+.door:nth-child(1) .icon{background:rgba(226,87,76,.1);color:var(--coral)}
+.door:nth-child(2) .icon{background:rgba(201,146,46,.13);color:var(--amber)}
+.door strong{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:5px}
+.door span.sub{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+.door .arrow{margin-top:12px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+.door:active{background:var(--paper)}
+@media(hover:hover){.door:hover{background:var(--paper)}.door:hover .arrow{color:var(--coral)}}
+
+/* 큰 숫자 시그니처 */
+.big{padding:34px 26px 30px;border-bottom:1px solid var(--line);text-align:center;background:var(--paper)}
+.big .num{font-family:'Gowun Batang',serif;font-size:74px;line-height:.95;color:var(--coral);
+  letter-spacing:-.04em;display:block;white-space:nowrap}
+.big .num em{font-style:normal;font-size:25px;color:var(--ink);margin-left:2px}
+.big .cap{font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7}
+.big .cap strong{color:var(--ink)}
+
+section{padding:36px 0 6px}
+.label{font-size:11.5px;letter-spacing:.16em;color:var(--amber);font-weight:700;margin-bottom:10px}
+h2{font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.35;margin-bottom:16px}
+p.lead{font-size:15px;color:var(--ink-soft);line-height:1.75}
+
+/* 숫자 3칸 — 단위가 줄바꿈되지 않도록 고정 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:20px}
+.stat{background:var(--surface);padding:18px 6px;text-align:center}
+.stat .v{font-family:'Gowun Batang',serif;display:block;font-size:26px;color:var(--ink);
+  line-height:1.15;white-space:nowrap}
+.stat .v em{font-style:normal;font-size:14px;color:var(--muted);margin-left:2px}
+.stat .k{display:block;font-size:11.5px;color:var(--muted);margin-top:7px}
+
+/* 항목 목록 */
+.fields{margin-top:18px;border-top:1px solid var(--line)}
+.field{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.field .k{font-family:'Gowun Batang',serif;font-size:14px;color:var(--coral);flex:0 0 26px;padding-top:2px}
+.field .b strong{display:block;font-size:15.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.02em}
+.field .b span{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* 단계 — 세로 연결선을 border로 확실히 그림 */
+.steps{margin-top:20px;padding-left:24px;border-left:1px solid var(--rule);margin-left:5px}
+.step{position:relative;padding:0 0 22px 0}
+.step:last-child{padding-bottom:4px}
+.step::before{content:'';position:absolute;left:-29px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--coral)}
+.step strong{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.step span{font-size:13.5px;color:var(--muted)}
+
+/* 자가 점검 (FC) */
+.check{margin-top:20px;border:1px solid var(--line);background:var(--paper)}
+.check .ch{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;
+  border-bottom:1px solid var(--line);cursor:pointer}
+.check .ch:last-of-type{border-bottom:none}
+.check .ch input{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--coral)}
+.check .ch span{font-size:14.5px;line-height:1.55}
+.result{padding:18px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.7}
+.result b{color:var(--amber);font-size:19px;font-family:'Gowun Batang',serif}
+.result a{display:inline-block;margin-top:10px;color:#fff;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--coral);padding-bottom:2px;font-size:15px}
+
+/* 어두운 블록 */
+.recruit,.dark{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.recruit .label,.dark .label{color:var(--amber)}
+.recruit h2,.dark h2{color:#fff}
+.recruit p,.dark p{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75}
+.rlist{margin-top:18px;display:grid;gap:10px}
+.rItem{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(255,255,255,.92)}
+.rItem i{color:var(--amber);font-style:normal;flex:0 0 auto;font-size:13px;padding-top:2px}
+
+/* 인용 */
+.quote{background:var(--ink);color:#fff;padding:32px 26px;margin-top:34px}
+.quote .q{font-family:'Gowun Batang',serif;font-size:19px;line-height:1.8}
+.quote .by{margin-top:16px;font-size:12.5px;color:var(--amber);letter-spacing:.06em}
+
+/* 폼 */
+.form{margin-top:22px;display:grid;gap:13px}
+.f label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:6px;
+  font-family:inherit;font-size:15px;background:var(--surface);color:var(--ink)}
+.f textarea{min-height:84px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:transparent}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.55}
+.consent input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--coral)}
+button.submit{width:100%;padding:15px;background:var(--coral);color:#fff;border:none;border-radius:6px;
+  font-family:inherit;font-size:16px;font-weight:700;letter-spacing:-.02em;cursor:pointer;transition:background .2s}
+button.submit:active{background:#C8483E}
+@media(hover:hover){button.submit:hover{background:#C8483E}}
+.formNote{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.okMsg{display:none;margin-top:14px;padding:14px;background:rgba(201,146,46,.1);
+  border-left:3px solid var(--amber);font-size:14px}
+
+/* 연락 바 */
+.contactbar{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:34px}
+.contactbar a{background:var(--surface);padding:17px 8px;text-align:center;text-decoration:none;
+  color:var(--ink);font-size:14.5px;font-weight:600;letter-spacing:-.02em}
+.contactbar a small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:3px}
+.contactbar a:active{background:var(--paper)}
+
+footer{background:var(--paper);padding:26px;font-size:11.5px;color:var(--muted);line-height:1.75}
+footer .fname{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:11px}
+.waa{margin-top:14px;font-size:11px;color:var(--muted);opacity:.85}
+.waa b{color:var(--coral)}
+
+@media(max-width:360px){
+  .hero h1{font-size:27px}.big .num{font-size:60px}
+  .doors{grid-template-columns:1fr}
+  .door:first-child{border-right:none;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">WITH AI ACADEMY</div>
+    <h1>With AI Academy<br><span style="font-size:18px;font-weight:500;color:rgba(255,255,255,.75)">WAA</span></h1>
+    <div class="org">대표 박근오 · 설립 2026년 8월 · 대구 수성구</div>
+    <p class="tagline">머리는 하늘을, 발은 땅에, 가슴은 이웃을 —<br>20년 보험 현장의 언어로 AI 시대를 여는 아카데미.</p>
+  </header>
+
+  <nav class="doors">
+    <a class="door" href="#join">
+      <span class="num">첫 번째 문</span><span class="icon">◈</span>
+      <strong>GA 파트너십 문의</strong>
+      <span class="sub">FC 교육·온보딩<br>프로그램 도입</span>
+      <span class="arrow">문의하기 ↓</span>
+    </a>
+    <a class="door" href="#about">
+      <span class="num">두 번째 문</span><span class="icon">◎</span>
+      <strong>WAA가 궁금합니다</strong>
+      <span class="sub">소개·커리큘럼<br>확인</span>
+      <span class="arrow">소개 보기 ↓</span>
+    </a>
+  </nav>
+
+  <section class="pad" id="about">
+    <div class="label">ABOUT</div>
+    <h2>WAA는 이런 곳입니다.</h2>
+    <p class="lead">With AI Academy(WAA)는 20년 보험 현장 경험을 가진 전문가가 설립한 AI 교육·컨설팅 기관입니다. FC로 시작해 본부 스태프·코칭매니저·지점장·단장까지 거치며 직접 겪은 현장의 언어로 교육합니다. AI 도구를 배우는 것이 아니라, AI로 영업이 달라지는 것을 경험하게 하는 것 — 그것이 WAA의 목표입니다.</p>
+    <div class="stats">
+      <div class="stat"><span class="v">20<em>년+</em></span><span class="k">보험 현장</span></div>
+      <div class="stat"><span class="v">9<em>년</em></span><span class="k">GA 법인 관리</span></div>
+      <div class="stat"><span class="v">AI<em></em></span><span class="k">교육 특화</span></div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="label">OUR PRINCIPLE</div>
+    <h2>WAA가 교육할 때 지키는 것.</h2>
+    <div class="fields">
+      <div class="field"><div class="k">01</div><div class="b"><strong>오늘 배워서 오늘 쓴다</strong><span>이론이 아닌 실전 중심. 수업이 끝나는 날, 손에 쥘 수 있는 결과물이 하나씩 생깁니다.</span></div></div>
+      <div class="field"><div class="k">02</div><div class="b"><strong>현장의 언어로 말한다</strong><span>FC·CM·지점장·단장을 직접 경험한 사람이 가르칩니다. 보험 현장 20년의 언어로, AI를 설명합니다.</span></div></div>
+      <div class="field"><div class="k">03</div><div class="b"><strong>천천히 가도 함께</strong><span>"천천히 가도 좋습니다, 함께라서 즐거운 여정." 속도보다 방향, 혼자보다 함께를 먼저 생각합니다.</span></div></div>
+    </div>
+  </section>
+
+  
+  <section class="pad">
+    <div class="label">CAREER</div>
+    <h2>20년 현장이 만든 전문가.</h2>
+    <div class="steps">
+      <div class="step"><strong>FC · MDRT 달성</strong><span>ING생명 · 보험 영업 현장 시작. 최우수 실적 MDRT 달성.</span></div>
+      <div class="step"><strong>본부 스태프</strong><span>ING생명 · 신인 양성 및 예하 지점 관리 담당.</span></div>
+      <div class="step"><strong>HP · CM (코칭매니저)</strong><span>한화생명 본사 경쟁력향상팀 · 전국 지점 컨설팅·교육 및 신규 지점 빌딩.</span></div>
+      <div class="step"><strong>AM 관리자</strong><span>NH농협생명 · 대구·경북 법인대리점 지점장으로 9년간 조직 관리.</span></div>
+      <div class="step"><strong>크리스토퍼리더십 강사</strong><span>2002~2024 · 22년 봉사 강사 활동.</span></div>
+      <div class="step"><strong>카카오 시니어티처 · AI 강사</strong><span>2026년 현재 · 카카오임팩트 디지털 스쿨, DG5060 AI리더스 동아리 리더.</span></div>
+    </div>
+  </section>
+
+  <div class="quote">
+    <div class="q">"머리는 하늘을, 발은 땅에, 가슴은 이웃을."</div>
+    <div class="by">— 박근오 대표 좌우명</div>
+  </div>
+
+  <div class="dark" id="join">
+    <div class="label">PARTNERSHIP</div>
+    <h2>GA 대표님께 제안드립니다.</h2>
+    <p>무경력 신인FC가 위촉 첫 주에 명함·미니사이트·SNS 채널을 갖고 시장에 나가는 것. 경력 5년 설계사도 대부분 갖추지 못한 디지털 기반을 신인이 먼저 갖추게 하는 것 — 그것이 WAA의 신인FC 온보딩 프로그램입니다.</p>
+    <div class="rlist">
+      <div class="rItem"><i>—</i><span>무경력 신인을 위한 <strong>8주 정규 온보딩 과정</strong></span></div>
+      <div class="rItem"><i>—</i><span>신인 정착의 핵심 — <strong>연고 소진 없이 시장을 여는 기술</strong></span></div>
+      <div class="rItem"><i>—</i><span>위촉 첫 주에 완성하는 <strong>전자명함 · 미니사이트 · SNS 채널</strong></span></div>
+      <div class="rItem"><i>—</i><span>보험업법 준수 <strong>컴플라이언스 교육</strong> 포함</span></div>
+      <div class="rItem"><i>—</i><span>GA 맞춤형 <strong>커리큘럼 설계</strong> 및 운영 대행</span></div>
+    </div>
+  </div>
+
+  <section class="pad">
+    <div class="label">PROCESS</div>
+    <h2>파트너십 절차</h2>
+    <div class="steps">
+      <div class="step"><strong>1. 문의</strong><span>아래 양식 또는 전화. 간단한 지사 현황만 말씀해 주세요.</span></div>
+      <div class="step"><strong>2. 사전 통화 (20분)</strong><span>현재 신인 채용·교육 현황을 파악하고, WAA 프로그램 개요를 안내합니다.</span></div>
+      <div class="step"><strong>3. 제안서 미팅 (60분)</strong><span>지사에 맞춘 커리큘럼과 운영 방식을 구체적으로 제안드립니다.</span></div>
+      <div class="step"><strong>4. 파트너십 계약 · 과정 개강</strong><span>서두르지 않습니다. 지사 일정에 맞춰 함께 설계합니다.</span></div>
+    </div>
+  </section>
+
+  <section class="pad" id="consult">
+    <div class="label">CONTACT</div>
+    <h2>편하게 남겨 주십시오.</h2>
+    <p class="lead">지원이든 문의든, 남겨 주시면 직접 연락드리겠습니다.</p>
+
+    <form action="https://formspree.io/f/mpqvnbzd" method="POST">
+      <div class="f"><label for="nm">성함</label><input id="nm" name="성함" type="text" placeholder="홍길동" required></div>
+      <div class="f"><label for="tel">연락처</label><input id="tel" name="연락처" type="tel" inputmode="numeric" placeholder="010-0000-0000" required></div>
+      <div class="f"><label for="tp">문의 유형</label>
+        <select id="tp" name="문의유형">
+          <option>GA 파트너십 문의</option>
+          <option>신인FC 온보딩 프로그램 도입</option>
+          <option>기존FC 디지털 전환 교육</option>
+          <option>기타 문의</option>
+        </select>
+      </div>
+      <div class="f"><label for="ms">남기실 말씀 (선택)</label><textarea id="ms" name="남기실말씀" placeholder="편하게 적어 주세요."></textarea></div>
+      <label class="consent"><input type="checkbox" id="cs" name="개인정보동의" value="동의" required>
+        <span>개인정보(성함·연락처) 수집·이용에 동의합니다. 수집한 정보는 상담 목적으로만 사용하며,
+        종료 후 6개월 이내 파기합니다.</span></label>
+      <button type="submit" class="submit">보내기</button>
+      <div class="okMsg" id="ok"><strong>1영업일 이내</strong>에 연락드리겠습니다.</div>
+    </form>
+  </section>
+
+  <div class="contactbar">
+    <a href="tel:01028369495">전화하기<small>010-2836-9495</small></a>
+    <a href="mailto:info2580@naver.com">메일 보내기<small>info2580@naver.com</small></a>
+  </div>
+
+  <footer>
+    <div class="fname">With AI Academy (WAA)</div>
+    <div>대구광역시 수성구</div>
+    <div>010-2836-9495 · info2580@naver.com</div>
+    <div class="compl">
+      With AI Academy는 보험 상품 판매 기관이 아니며, 본 페이지는 교육·컨설팅 서비스 안내를 목적으로 합니다.
+    </div>
+    <div class="waa">Built with <b>WAA</b> · With AI Academy</div>
+  </footer>
+
+</div>
+
+
+</body></html>
