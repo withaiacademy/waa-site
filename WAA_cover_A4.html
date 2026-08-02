@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>클리어파일 겉장 표지 | WAA</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Malgun Gothic',sans-serif;
+  background:#DDE3EB;padding:30px 16px;-webkit-font-smoothing:antialiased}
+
+.note{max-width:210mm;margin:0 auto 18px;background:#fff;border-radius:10px;padding:18px 20px;
+  font-size:13px;line-height:1.8;color:#31405A;border-left:4px solid #C9922E}
+.note b{color:#16233F}
+.note .t{font-weight:700;color:#16233F;font-size:14px;margin-bottom:6px;display:block}
+
+.sheet{width:210mm;height:297mm;margin:0 auto 26px;position:relative;overflow:hidden;
+  box-shadow:0 8px 34px rgba(22,35,63,.22)}
+
+/* ══════ A안 ══════ */
+.A{background:#16233F;color:#fff;padding:30mm 24mm}
+.A .ring1{position:absolute;right:-38mm;top:-30mm;width:120mm;height:120mm;
+  border:1px solid rgba(201,146,46,.28);border-radius:50%}
+.A .ring2{position:absolute;right:-14mm;top:-8mm;width:72mm;height:72mm;
+  border:1px solid rgba(201,146,46,.45);border-radius:50%}
+.A .ring3{position:absolute;left:-30mm;bottom:-34mm;width:96mm;height:96mm;
+  border:1px solid rgba(255,255,255,.07);border-radius:50%}
+.A>*{position:relative;z-index:2}
+
+.A .top{font-size:10.5pt;letter-spacing:.24em;color:#C9922E;font-weight:700}
+.A .top i{font-style:normal;color:rgba(255,255,255,.35);margin:0 8px}
+
+.A .stmt{margin-top:44mm;font-family:'Gowun Batang',serif;font-size:37pt;font-weight:700;
+  line-height:1.42;letter-spacing:-.03em}
+.A .stmt em{font-style:normal;color:#C9922E}
+
+.A .bar{width:22mm;height:2px;background:#C9922E;margin:11mm 0 8mm}
+
+.A .ans{font-family:'Gowun Batang',serif;font-size:17pt;color:#C9922E;line-height:1.6;font-weight:700}
+.A .ans small{display:block;font-family:'Pretendard Variable',sans-serif;font-size:10.5pt;
+  font-weight:400;color:rgba(255,255,255,.5);margin-top:5mm;letter-spacing:0}
+
+.A .foot{position:absolute;left:24mm;right:24mm;bottom:24mm;z-index:2}
+.A .foot .to{border-top:1px solid rgba(255,255,255,.14);padding-top:7mm;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:10mm}
+.A .foot .who{font-size:13pt;font-weight:700;letter-spacing:-.02em}
+.A .foot .who small{display:block;font-size:9pt;font-weight:400;color:rgba(255,255,255,.45);
+  margin-top:2.5mm;letter-spacing:.02em}
+.A .foot .from{text-align:right;font-size:9pt;color:rgba(255,255,255,.5);line-height:1.85;white-space:nowrap}
+.A .foot .from b{color:#fff;font-weight:700;font-size:10pt}
+
+/* ══════ B안 ══════ */
+.B{background:#fff;color:#16233F;padding:28mm 24mm;border:1px solid #E3E8EF}
+.B .corner{position:absolute;right:0;top:0;width:64mm;height:64mm;background:#16233F}
+.B .corner::after{content:'';position:absolute;left:-1px;bottom:-1px;width:0;height:0;
+  border-style:solid;border-width:0 0 64mm 64mm;border-color:transparent transparent #fff transparent}
+.B .cmark{position:absolute;right:9mm;top:8mm;z-index:3;color:#C9922E;font-size:9pt;
+  font-weight:700;letter-spacing:.18em;text-align:right;line-height:1.5}
+.B>*{position:relative;z-index:2}
+
+.B .top{font-size:10pt;letter-spacing:.24em;color:#C9922E;font-weight:700}
+.B .kicker{margin-top:30mm;font-size:11.5pt;color:#6B7386;line-height:1.75}
+.B .ttl{margin-top:6mm;font-family:'Gowun Batang',serif;font-size:31pt;font-weight:700;
+  line-height:1.36;letter-spacing:-.03em}
+.B .ttl em{font-style:normal;color:#C9922E}
+.B .kind{margin-top:7mm;font-size:12pt;color:#6B7386;letter-spacing:.02em}
+
+.B .phases{margin-top:20mm;display:grid;gap:4mm}
+.B .ph{display:flex;align-items:center;gap:6mm;border:1px solid #E3E8EF;border-radius:3mm;
+  padding:6mm 7mm}
+.B .ph .wk{flex:0 0 24mm;font-size:10pt;font-weight:700;color:#C9922E;letter-spacing:.04em}
+.B .ph .nm{font-size:12.5pt;font-weight:700;letter-spacing:-.02em}
+.B .ph .nm small{display:block;font-size:9.5pt;font-weight:400;color:#6B7386;margin-top:1.6mm;
+  letter-spacing:0}
+
+.B .foot{position:absolute;left:24mm;right:24mm;bottom:24mm;z-index:2}
+.B .foot .to{border-top:1px solid #E3E8EF;padding-top:7mm;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:10mm}
+.B .foot .who{font-size:13pt;font-weight:700;letter-spacing:-.02em}
+.B .foot .who small{display:block;font-size:9pt;font-weight:400;color:#9AA3B0;margin-top:2.5mm}
+.B .foot .from{text-align:right;font-size:9pt;color:#6B7386;line-height:1.85;white-space:nowrap}
+.B .foot .from b{color:#16233F;font-weight:700;font-size:10pt}
+
+@media print{
+  body{background:#fff;padding:0}
+  .note{display:none}
+  .sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page}
+  .sheet:last-child{page-break-after:auto}
+  @page{size:A4;margin:0}
+}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <span class="t">인쇄 방법</span>
+  크롬에서 <b>Ctrl + P</b> → 용지 <b>A4</b> → 여백 <b>없음</b> → <b>배경 그래픽 체크</b> → 인쇄<br>
+  A안(남색)과 B안(흰색) 두 장이 나옵니다. 마음에 드는 쪽을 클리어파일 겉장에 넣으세요.
+</div>
+
+<!-- ══════════════ A안 : 메시지형 ══════════════ -->
+<div class="sheet A">
+  <div class="ring1"></div><div class="ring2"></div><div class="ring3"></div>
+
+  <div class="top">WITH AI ACADEMY<i>|</i>GA 파트너십 제안</div>
+
+  <div class="stmt">
+    위촉 3개월 안에<br>
+    10명 중 <em>7명</em>이<br>
+    떠납니다.
+  </div>
+
+  <div class="bar"></div>
+
+  <div class="ans">
+    WAA는 그 3개월을 설계합니다.
+    <small>무경력 신인FC 12주 온보딩 프로그램 · 3단계 정규 과정</small>
+  </div>
+
+  <div class="foot">
+    <div class="to">
+      <div class="who">정상철 대표님 귀하
+        <small>한화금융서비스 _________지사</small>
+      </div>
+      <div class="from">
+        <b>With AI Academy (WAA)</b><br>
+        대표 박근오 · 보험 현장 25년<br>
+        010-2836-9495 · 2026. 07. 31.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ B안 : 구조형 ══════════════ -->
+<div class="sheet B">
+  <div class="corner"></div>
+  <div class="cmark">WAA</div>
+
+  <div class="top">WITH AI ACADEMY</div>
+
+  <div class="kicker">이탈 구간 3개월을 정면으로 겨냥한</div>
+  <div class="ttl">무경력 신인FC<br><em>12주 온보딩</em> 프로그램</div>
+  <div class="kind">_________지사 맞춤 제안서</div>
+
+  <div class="phases">
+    <div class="ph">
+      <div class="wk">1 ~ 4주</div>
+      <div class="nm">무경력 신인 교육 시스템
+        <small>판매사 자격증 · 보험 입문 교육 · FC 성공 로드맵</small>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="wk">5 ~ 8주</div>
+      <div class="nm">실전 온보딩
+        <small>전자명함 · 개인 미니사이트 · AI 마케팅</small>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="wk">9 ~ 12주</div>
+      <div class="nm">연고 밖 시장 창출 실전 스킬
+        <small>SNS 채널 운영 · 신규 DB 발굴</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="to">
+      <div class="who">정상철 대표님 귀하
+        <small>한화금융서비스 _________지사</small>
+      </div>
+      <div class="from">
+        <b>With AI Academy (WAA)</b><br>
+        대표 박근오 · 보험 현장 25년<br>
+        010-2836-9495 · 2026. 07. 31.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
