@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박근오 대표 | With AI Academy (WAA) — 전자명함 편집기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9;
+  --rule:#C3CDDA; --maxw:400px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px}
+
+.card{max-width:var(--maxw);width:100%;background:var(--surface);border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(22,35,63,.16)}
+
+.top{background:var(--ink);color:#fff;padding:38px 28px 30px;text-align:center;position:relative;overflow:hidden}
+.top::after{content:'';position:absolute;right:-60px;top:-60px;width:180px;height:180px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.top::before{content:'';position:absolute;left:-40px;bottom:-50px;width:150px;height:150px;
+  border:1px solid rgba(201,146,46,.22);border-radius:50%}
+.top>*{position:relative;z-index:2}
+.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(160deg,#2C3E5E,#16233F);
+  border:2px solid rgba(201,146,46,.55);display:flex;align-items:center;justify-content:center;
+  font-family:'Gowun Batang',serif;font-size:26px;color:rgba(255,255,255,.85)}
+.eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--amber);font-weight:600;margin-bottom:10px}
+.name{font-size:26px;font-weight:700;letter-spacing:-.03em}
+.name .role{display:block;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.68);margin-top:4px;letter-spacing:0}
+.org{font-size:13px;color:rgba(255,255,255,.6);margin-top:10px}
+
+.tagline{padding:20px 28px;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.7;
+  border-bottom:1px solid var(--line);background:var(--paper)}
+.tagline b{color:var(--ink)}
+
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.act{background:var(--surface);padding:18px 8px;text-align:center;text-decoration:none;color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .2s}
+.act .ic{width:34px;height:34px;border-radius:50%;background:rgba(226,87,76,.09);color:var(--coral);
+  display:flex;align-items:center;justify-content:center;font-size:16px}
+.act:nth-child(2) .ic,.act:nth-child(4) .ic{background:rgba(201,146,46,.12);color:var(--amber)}
+.act strong{font-size:13.5px;font-weight:600;letter-spacing:-.02em}
+.act:active{background:var(--paper)}
+@media(hover:hover){.act:hover{background:var(--paper)}}
+
+.savebar{padding:20px 24px 8px}
+.savebtn{display:block;width:100%;padding:16px;background:var(--coral);color:#fff;border:none;border-radius:10px;
+  font-family:inherit;font-size:15.5px;font-weight:700;letter-spacing:-.02em;cursor:pointer;text-align:center}
+.savebtn:active{background:#C8483E}
+@media(hover:hover){.savebtn:hover{background:#C8483E}}
+.saveNote{font-size:11.5px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.5}
+
+.sitelink{margin:6px 24px 0;padding:15px 16px;border:1px solid var(--line);border-radius:10px;
+  display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--ink);gap:10px}
+.sitelink .t{font-size:13.5px;font-weight:600}
+.sitelink .s{font-size:11.5px;color:var(--muted);margin-top:2px}
+.sitelink .arrow{color:var(--coral);font-size:15px;flex:0 0 auto}
+.sitelink:active{background:var(--paper)}
+@media(hover:hover){.sitelink:hover{background:var(--paper)}}
+
+.quote{margin:24px 24px 0;padding:18px 20px;background:var(--ink);border-radius:10px;color:#fff}
+.quote .q{font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.75}
+.quote .by{margin-top:10px;font-size:11px;color:var(--amber);letter-spacing:.05em}
+
+footer{padding:22px 24px 26px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.7}
+footer b{color:var(--ink-soft)}
+
+/* ── 편집기 툴바 ── */
+#waa-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#16233F;color:#fff;
+  display:flex;align-items:center;gap:9px;padding:10px 14px;flex-wrap:wrap;
+  font-family:system-ui,-apple-system,'Malgun Gothic',sans-serif;font-size:13px;
+  box-shadow:0 2px 12px rgba(0,0,0,.25)}
+#waa-bar .ttl{font-weight:700;margin-right:2px;white-space:nowrap}
+#waa-bar .hint{color:rgba(255,255,255,.6);font-size:12px;flex:1 1 100%;min-width:140px;order:99}
+#waa-bar button{border:0;border-radius:7px;padding:9px 14px;font-size:13px;font-weight:700;
+  cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+#waa-bar .save{background:#C9922E;color:#fff}
+#waa-bar .save:hover{background:#dda63a}
+#waa-bar .reset,#waa-bar .toggle{background:rgba(255,255,255,.14);color:#fff}
+#waa-bar .reset:hover,#waa-bar .toggle:hover{background:rgba(255,255,255,.24)}
+#waa-bar input{border:0;border-radius:7px;padding:8px 11px;font-size:12.5px;font-family:inherit;
+  background:rgba(255,255,255,.92);color:#16233F}
+#waa-bar .fname{width:230px}
+#waa-bar .ct{width:150px}
+#waa-bar .grp{display:flex;align-items:center;gap:6px}
+#waa-bar .grp label{font-size:11px;color:rgba(255,255,255,.55);white-space:nowrap}
+
+body{padding-top:118px !important}
+body.waa-edit [contenteditable]{outline:1px dashed rgba(226,87,76,.45);outline-offset:3px;border-radius:3px}
+body.waa-edit [contenteditable]:hover{background:rgba(226,87,76,.09)}
+body.waa-edit [contenteditable]:focus{outline:2px solid #E2574C;outline-offset:3px;background:rgba(226,87,76,.06)}
+body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
+#waa-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:#16233F;color:#fff;padding:13px 22px;border-radius:9px;font-size:13.5px;font-weight:600;
+  font-family:system-ui,sans-serif;opacity:0;pointer-events:none;transition:.25s;z-index:100000;
+  box-shadow:0 6px 24px rgba(0,0,0,.3);max-width:88vw;text-align:center}
+#waa-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media print{#waa-bar,#waa-toast{display:none !important}body{padding-top:0 !important}
+  body.waa-edit [contenteditable]{outline:none !important;background:none !important}}
+</style>
+</head>
+<body>
+
+<div id="waa-bar">
+  <span class="ttl">✏️ 전자명함 편집</span>
+  <span class="grp"><label>전화</label><input class="ct" id="waaTel" value="010-2836-9495"></span>
+  <span class="grp"><label>이메일</label><input class="ct" id="waaMail" value="info2580@naver.com"></span>
+  <span class="grp"><label>미니사이트 링크</label><input class="ct" id="waaSite" style="width:280px" value="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html"></span>
+  <span class="grp"><label>도메인(footer 표시)</label><input class="ct" id="waaDomain" style="width:160px" value="www.waa.ai.kr"></span>
+  <input class="fname" id="waaName" value="박근오_WAA대표_전자명함.html" title="저장할 파일 이름">
+  <button class="toggle" onclick="waaToggle()">미리보기</button>
+  <button class="reset" onclick="waaReset()">처음으로</button>
+  <button class="save" onclick="waaSave()">✅ 완성 파일 저장</button>
+  <span class="hint">굵은 글자·문구는 클릭해서 워드처럼 고치고, 전화·이메일·링크는 위 칸에 입력한 뒤 Enter 또는 다른 곳 클릭하면 자동 반영됩니다.</span>
+</div>
+<div id="waa-toast"></div>
+
+<div class="card">
+
+  <div class="top">
+    <div class="eyebrow" contenteditable="true">WITH AI ACADEMY</div>
+    <div class="avatar" contenteditable="true">WAA</div>
+    <div class="name"><span class="nametext" contenteditable="true">박근오</span><span class="role" contenteditable="true">With AI Academy(WAA) 대표</span></div>
+  </div>
+
+  <div class="tagline" contenteditable="true">
+    <b>머리는 하늘을, 발은 땅에, 가슴은 이웃을.</b><br>
+    25년 보험 전문가가 코칭하는 AI 보험마케팅
+  </div>
+
+  <div class="actions">
+    <a class="act" href="tel:01028369495">
+      <span class="ic">☎</span><strong>전화하기</strong>
+    </a>
+    <a class="act" href="sms:01028369495">
+      <span class="ic">✎</span><strong>문자보내기</strong>
+    </a>
+    <a class="act" href="mailto:info2580@naver.com">
+      <span class="ic">✉</span><strong>메일보내기</strong>
+    </a>
+    <a class="act" id="kakaoBtn" href="#" onclick="return waaEditing() ? false : copyKakao(event)">
+      <span class="ic">💬</span><strong>카톡 문의</strong>
+    </a>
+  </div>
+
+  <div class="savebar">
+    <button class="savebtn" onclick="waaEditing() ? waaToast('미리보기 모드에서 테스트해보세요') : saveContact()">📇 연락처 저장하기</button>
+    <div class="saveNote">버튼을 누르면 연락처 파일(.vcf)이 다운로드됩니다.<br>열어서 저장하면 스마트폰 주소록에 바로 등록됩니다.</div>
+  </div>
+
+  <a class="sitelink" href="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html" target="_blank" rel="noopener">
+    <span>
+      <span class="t" contenteditable="true">WAA 소개 미니사이트 보기</span><br>
+      <span class="s" contenteditable="true">회사 소개 · 커리큘럼 · 문의 남기기</span>
+    </span>
+    <span class="arrow">↗</span>
+  </a>
+
+  <div class="quote">
+    <div class="q" contenteditable="true">"AI로 앞서가는 FC, 다른 성과를 만듭니다."</div>
+    <div class="by" contenteditable="true">— WAA의 약속</div>
+  </div>
+
+  <footer>
+    <b contenteditable="true">With AI Academy (WAA)</b><br>
+    <span class="footline">010-2836-9495 · info2580@naver.com</span><br>
+    <span class="footdomain">www.waa.ai.kr</span>
+  </footer>
+
+</div>
+
+<script>
+var WAA_ORIGINAL = null;
+
+function waaInit(){
+  if(WAA_ORIGINAL === null) WAA_ORIGINAL = document.querySelector('.card').outerHTML;
+  document.body.classList.add('waa-edit');
+  document.getElementById('waaTel').addEventListener('change', waaSync);
+  document.getElementById('waaMail').addEventListener('change', waaSync);
+  document.getElementById('waaSite').addEventListener('change', waaSync);
+  document.getElementById('waaDomain').addEventListener('change', waaSync);
+  waaSync();
+}
+function waaEditing(){ return document.body.classList.contains('waa-edit'); }
+
+function waaSync(){
+  var tel = document.getElementById('waaTel').value.trim();
+  var mail = document.getElementById('waaMail').value.trim();
+  var site = document.getElementById('waaSite').value.trim();
+  var telDigits = tel.replace(/[^0-9+]/g,'');
+
+  document.querySelector('.act[href^="tel:"]').setAttribute('href','tel:'+telDigits);
+  document.querySelector('.act[href^="sms:"]').setAttribute('href','sms:'+telDigits);
+  document.querySelector('.act[href^="mailto:"]').setAttribute('href','mailto:'+mail);
+  document.querySelector('.footline').textContent = tel + ' · ' + mail;
+
+  var siteLinks = document.querySelectorAll('a.sitelink');
+  siteLinks.forEach(function(a){ a.setAttribute('href', site); });
+
+  var domain = document.getElementById('waaDomain').value.trim();
+  var fd = document.querySelector('.footdomain');
+  if(fd) fd.textContent = domain;
+}
+
+function waaToggle(){
+  var btn = document.querySelector('#waa-bar .toggle');
+  if(waaEditing()){
+    document.body.classList.remove('waa-edit'); btn.textContent='편집으로';
+    waaToast('미리보기 — 버튼이 실제로 동작합니다');
+  } else {
+    document.body.classList.add('waa-edit'); btn.textContent='미리보기';
+    waaToast('편집 모드');
+  }
+}
+function waaReset(){
+  if(!confirm('수정한 내용을 모두 지우고 처음 상태로 되돌릴까요?')) return;
+  document.querySelector('.card').outerHTML = WAA_ORIGINAL;
+  document.body.classList.add('waa-edit');
+  document.querySelector('#waa-bar .toggle').textContent='미리보기';
+  waaSync();
+  waaToast('처음 상태로 되돌렸습니다');
+}
+function waaToast(msg){
+  var t = document.getElementById('waa-toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(window._waaT); window._waaT = setTimeout(function(){ t.classList.remove('on'); }, 2400);
+}
+
+function waaCurrentData(){
+  return {
+    name: document.querySelector('.nametext').textContent.trim(),
+    role: document.querySelector('.name .role').textContent.trim(),
+    org: 'With AI Academy (WAA)',
+    tel: document.getElementById('waaTel').value.trim(),
+    mail: document.getElementById('waaMail').value.trim(),
+    site: document.getElementById('waaSite').value.trim(),
+    domain: document.getElementById('waaDomain').value.trim()
+  };
+}
+
+function saveContact(){
+  var d = waaCurrentData();
+  var domainUrl = d.domain ? (/^https?:\/\//i.test(d.domain) ? d.domain : 'https://'+d.domain) : d.site;
+  var noteText = d.role+(d.site ? ' · 미니사이트 '+d.site : '');
+  var vcard = [
+    'BEGIN:VCARD','VERSION:3.0',
+    'N:'+d.name+';;;;','FN:'+d.name,
+    'ORG:'+d.org,
+    'TITLE:'+d.role,
+    'TEL;TYPE=CELL:'+d.tel,
+    'EMAIL:'+d.mail,
+    'URL:'+domainUrl,
+    'NOTE:'+noteText,
+    'END:VCARD'
+  ].join('\r\n');
+  var blob = new Blob([vcard], {type:'text/vcard;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = d.name + '.vcf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function copyKakao(e){
+  if(e) e.preventDefault();
+  var d = waaCurrentData();
+  var msg = d.name + ' | ' + d.role + '\n' + d.tel + ' · ' + d.mail;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(msg).then(function(){ waaToast('연락처가 복사되었습니다'); }).catch(function(){ alert(msg); });
+  } else { alert(msg); }
+}
+
+function waaSave(){
+  var d = waaCurrentData();
+  var clone = document.documentElement.cloneNode(true);
+  var bar = clone.querySelector('#waa-bar'); if(bar) bar.remove();
+  var toast = clone.querySelector('#waa-toast'); if(toast) toast.remove();
+  clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+  var b = clone.querySelector('body');
+  if(b){ b.classList.remove('waa-edit'); b.removeAttribute('style'); }
+  var oldScript = clone.querySelector('script'); if(oldScript) oldScript.remove();
+
+  var telDigits = d.tel.replace(/[^0-9+]/g,'');
+  var domainUrl = d.domain ? (/^https?:\/\//i.test(d.domain) ? d.domain : 'https://'+d.domain) : d.site;
+  var noteText = d.role+(d.site ? ' · 미니사이트 '+d.site : '');
+  var vcardLines = [
+    'BEGIN:VCARD','VERSION:3.0',
+    'N:'+d.name+';;;;','FN:'+d.name,
+    'ORG:'+d.org,
+    'TITLE:'+d.role,
+    'TEL;TYPE=CELL:'+d.tel,
+    'EMAIL:'+d.mail,
+    'URL:'+domainUrl,
+    'NOTE:'+noteText,
+    'END:VCARD'
+  ];
+
+  var finalScript = document.createElement('script');
+  finalScript.textContent = [
+    'function saveContact(){',
+    '  const vcard = ' + JSON.stringify(vcardLines) + '.join(String.fromCharCode(13,10));',
+    '  const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});',
+    '  const url = URL.createObjectURL(blob);',
+    '  const a = document.createElement("a");',
+    '  a.href = url; a.download = ' + JSON.stringify(d.name + '.vcf') + ';',
+    '  document.body.appendChild(a); a.click(); document.body.removeChild(a);',
+    '  URL.revokeObjectURL(url);',
+    '}',
+    'function copyKakao(e){',
+    '  e.preventDefault();',
+    '  const msg = ' + JSON.stringify(d.name + ' | ' + d.role + '\n' + d.tel + ' · ' + d.mail) + ';',
+    '  if(navigator.clipboard){ navigator.clipboard.writeText(msg).then(()=>{ alert("연락처가 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요."); }).catch(()=>{ alert(msg); }); } else { alert(msg); }',
+    '}'
+  ].join('\n');
+  clone.querySelector('body').appendChild(finalScript);
+
+  var name = (document.getElementById('waaName').value || d.name + '_전자명함').trim();
+  if(!/\.html?$/i.test(name)) name += '.html';
+
+  var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  waaToast('저장했습니다 — ' + name);
+}
+
+document.addEventListener('DOMContentLoaded', waaInit);
+if(document.readyState !== 'loading') waaInit();
+</script>
+
+</body>
+</html>
