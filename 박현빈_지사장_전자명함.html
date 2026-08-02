@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박현빈 지사장 | 한화금융서비스 현빈지사 — 전자명함</title>
+<meta property="og:title" content="박현빈 지사장 | 한화금융서비스 현빈지사 — 전자명함">
+<meta property="og:description" content="전화·문자·연락처저장을 한 번에 — 박현빈 지사장 전자명함">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9;
+  --rule:#C3CDDA; --maxw:400px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px}
+
+.card{max-width:var(--maxw);width:100%;background:var(--surface);border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(22,35,63,.16)}
+
+.top{background:var(--ink);color:#fff;padding:38px 28px 30px;text-align:center;position:relative;overflow:hidden}
+.top::after{content:'';position:absolute;right:-60px;top:-60px;width:180px;height:180px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.top::before{content:'';position:absolute;left:-40px;bottom:-50px;width:150px;height:150px;
+  border:1px solid rgba(201,146,46,.22);border-radius:50%}
+.top>*{position:relative;z-index:2}
+.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(160deg,#2C3E5E,#16233F);
+  border:2px solid rgba(201,146,46,.55);display:flex;align-items:center;justify-content:center;
+  font-family:'Gowun Batang',serif;font-size:20px;color:rgba(255,255,255,.85)}
+.eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--amber);font-weight:600;margin-bottom:10px}
+.name{font-size:26px;font-weight:700;letter-spacing:-.03em}
+.name .role{display:block;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.68);margin-top:4px;letter-spacing:0}
+
+.tagline{padding:20px 28px;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.7;
+  border-bottom:1px solid var(--line);background:var(--paper)}
+.tagline b{color:var(--ink)}
+
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.act{background:var(--surface);padding:18px 8px;text-align:center;text-decoration:none;color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .2s}
+.act .ic{width:34px;height:34px;border-radius:50%;background:rgba(226,87,76,.09);color:var(--coral);
+  display:flex;align-items:center;justify-content:center;font-size:16px}
+.act:nth-child(2) .ic,.act:nth-child(4) .ic{background:rgba(201,146,46,.12);color:var(--amber)}
+.act strong{font-size:13.5px;font-weight:600;letter-spacing:-.02em}
+.act:active{background:var(--paper)}
+@media(hover:hover){.act:hover{background:var(--paper)}}
+
+.savebar{padding:20px 24px 8px}
+.savebtn{display:block;width:100%;padding:16px;background:var(--coral);color:#fff;border:none;border-radius:10px;
+  font-family:inherit;font-size:15.5px;font-weight:700;letter-spacing:-.02em;cursor:pointer;text-align:center}
+.savebtn:active{background:#C8483E}
+@media(hover:hover){.savebtn:hover{background:#C8483E}}
+.saveNote{font-size:11.5px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.5}
+
+.sitelink{margin:6px 24px 0;padding:15px 16px;border:1px solid var(--line);border-radius:10px;
+  display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--ink);gap:10px}
+.sitelink .t{font-size:13.5px;font-weight:600}
+.sitelink .s{font-size:11.5px;color:var(--muted);margin-top:2px}
+.sitelink .arrow{color:var(--coral);font-size:15px;flex:0 0 auto}
+.sitelink:active{background:var(--paper)}
+@media(hover:hover){.sitelink:hover{background:var(--paper)}}
+
+.quote{margin:24px 24px 0;padding:18px 20px;background:var(--ink);border-radius:10px;color:#fff}
+.quote .q{font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.75}
+.quote .by{margin-top:10px;font-size:11px;color:var(--amber);letter-spacing:.05em}
+
+footer{padding:22px 24px 26px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.7}
+footer b{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="top">
+    <div class="eyebrow">HANWHA FINANCIAL SERVICES</div>
+    <div class="avatar">박현빈</div>
+    <div class="name">박현빈<span class="role">지사장 · 한화금융서비스 현빈지사</span></div>
+  </div>
+
+  <div class="tagline">
+    <b>잘 먹고 잘 살자.</b><br>
+    30년 현장의 경험으로, 우리 식구를 키우는 지사입니다.
+  </div>
+
+  <div class="actions">
+    <a class="act" href="tel:00000000000">
+      <span class="ic">☎</span><strong>전화하기</strong>
+    </a>
+    <a class="act" href="sms:00000000000">
+      <span class="ic">✎</span><strong>문자보내기</strong>
+    </a>
+    <a class="act" href="mailto:insure00@naver.com">
+      <span class="ic">✉</span><strong>메일보내기</strong>
+    </a>
+    <a class="act" id="kakaoBtn" href="#" onclick="copyKakao(event)">
+      <span class="ic">💬</span><strong>카톡 문의</strong>
+    </a>
+  </div>
+
+  <div class="savebar">
+    <button class="savebtn" onclick="saveContact()">📇 연락처 저장하기</button>
+    <div class="saveNote">버튼을 누르면 연락처 파일(.vcf)이 다운로드됩니다.<br>열어서 저장하면 스마트폰 주소록에 바로 등록됩니다.</div>
+  </div>
+
+  <a class="sitelink" href="https://withaiacademy.github.io/waa-site/박현빈_지사장_미니사이트.html" target="_blank" rel="noopener">
+    <span>
+      <span class="t">박현빈 지사장 소개 미니사이트 보기</span><br>
+      <span class="s">지사 소개 · 지원하기 · 문의 남기기</span>
+    </span>
+    <span class="arrow">↗</span>
+  </a>
+
+  <div class="quote">
+    <div class="q">"가족처럼 품는다."</div>
+    <div class="by">— 퍼펙트지사 원칙</div>
+  </div>
+
+  <footer>
+    <b>한화금융서비스 현빈지사</b><br>
+    000-0000-0000 · insure00@naver.com<br>
+    대구광역시 중구 삼덕동
+  </footer>
+
+</div>
+
+<script>
+function saveContact(){
+  const vcard = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'N:박현빈;;;;',
+    'FN:박현빈',
+    'ORG:한화금융서비스 현빈지사',
+    'TITLE:지사장',
+    'TEL;TYPE=CELL:000-0000-0000',
+    'EMAIL:insure00@naver.com',
+    'ADR:;;대구광역시 중구 삼덕동;;;;대한민국',
+    'URL:https://withaiacademy.github.io/waa-site/박현빈_지사장_미니사이트.html',
+    'NOTE:한화금융서비스 현빈지사 지사장 · 미니사이트 https://withaiacademy.github.io/waa-site/박현빈_지사장_미니사이트.html',
+    'END:VCARD'
+  ].join('\r\n');
+
+  const blob = new Blob([vcard], {type:'text/vcard;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '박현빈_지사장.vcf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function copyKakao(e){
+  e.preventDefault();
+  const msg = '박현빈 | 한화금융서비스 현빈지사 지사장\n000-0000-0000 · insure00@naver.com';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(msg).then(()=>{
+      alert('연락처가 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요.');
+    }).catch(()=>{
+      alert(msg);
+    });
+  } else {
+    alert(msg);
+  }
+}
+</script>
+
+</body>
+</html>
