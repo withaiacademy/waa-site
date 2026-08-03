@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>박근오 대표 | With AI Academy (WAA) — 전자명함 편집기</title>
+<meta property="og:title" content="박근오 대표 | With AI Academy (WAA) — 전자명함">
+<meta property="og:description" content="전화·문자·연락처저장을 한 번에 — 박근오 대표 전자명함">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -28,9 +31,18 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
 .top::before{content:'';position:absolute;left:-40px;bottom:-50px;width:150px;height:150px;
   border:1px solid rgba(201,146,46,.22);border-radius:50%}
 .top>*{position:relative;z-index:2}
-.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(160deg,#2C3E5E,#16233F);
+.avatarWrap{position:relative;width:76px;height:76px;margin:0 auto 16px}
+.avatar{width:76px;height:76px;border-radius:50%;margin:0;background:linear-gradient(160deg,#2C3E5E,#16233F);
   border:2px solid rgba(201,146,46,.55);display:flex;align-items:center;justify-content:center;
-  font-family:'Gowun Batang',serif;font-size:26px;color:rgba(255,255,255,.85)}
+  font-family:'Gowun Batang',serif;font-size:26px;color:rgba(255,255,255,.85);
+  position:absolute;top:0;left:0;overflow:hidden}
+.avatarImg{position:absolute;top:0;left:0;width:76px;height:76px;border-radius:50%;object-fit:cover;
+  border:2px solid rgba(201,146,46,.55);display:none}
+.avatarUpload{display:none;position:absolute;right:-6px;bottom:-4px;width:26px;height:26px;border-radius:50%;
+  background:#C9922E;color:#fff;align-items:center;justify-content:center;font-size:13px;cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,.35);z-index:6;border:2px solid var(--surface)}
+body.waa-edit .avatarUpload{display:flex}
+@media print{.avatarUpload{display:none !important}}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--amber);font-weight:600;margin-bottom:10px}
 .name{font-size:26px;font-weight:700;letter-spacing:-.03em}
 .name .role{display:block;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.68);margin-top:4px;letter-spacing:0}
@@ -115,6 +127,7 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
   <span class="grp"><label>미니사이트 링크</label><input class="ct" id="waaSite" style="width:280px" value="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html"></span>
   <span class="grp"><label>도메인(footer 표시)</label><input class="ct" id="waaDomain" style="width:160px" value="www.waa.ai.kr"></span>
   <input class="fname" id="waaName" value="박근오_WAA대표_전자명함.html" title="저장할 파일 이름">
+  <button class="reset" onclick="waaRemovePhoto()">🗑 사진 제거</button>
   <button class="toggle" onclick="waaToggle()">미리보기</button>
   <button class="reset" onclick="waaReset()">처음으로</button>
   <button class="save" onclick="waaSave()">✅ 완성 파일 저장</button>
@@ -126,7 +139,12 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
 
   <div class="top">
     <div class="eyebrow" contenteditable="true">WITH AI ACADEMY</div>
-    <div class="avatar" contenteditable="true">WAA</div>
+    <div class="avatarWrap">
+      <div class="avatar" id="avatarText" contenteditable="true">WAA</div>
+      <img class="avatarImg" id="avatarImg" alt="프로필 사진">
+      <label class="avatarUpload" for="waaPhotoInput" title="사진 업로드">📷</label>
+      <input type="file" id="waaPhotoInput" accept="image/*" style="display:none">
+    </div>
     <div class="name"><span class="nametext" contenteditable="true">박근오</span><span class="role" contenteditable="true">With AI Academy(WAA) 대표</span></div>
   </div>
 
@@ -155,7 +173,7 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
     <div class="saveNote">버튼을 누르면 연락처 파일(.vcf)이 다운로드됩니다.<br>열어서 저장하면 스마트폰 주소록에 바로 등록됩니다.</div>
   </div>
 
-  <a class="sitelink" href="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html" target="_blank" rel="noopener">
+  <a class="sitelink" href="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html">
     <span>
       <span class="t" contenteditable="true">WAA 소개 미니사이트 보기</span><br>
       <span class="s" contenteditable="true">회사 소개 · 커리큘럼 · 문의 남기기</span>
@@ -186,7 +204,53 @@ function waaInit(){
   document.getElementById('waaMail').addEventListener('change', waaSync);
   document.getElementById('waaSite').addEventListener('change', waaSync);
   document.getElementById('waaDomain').addEventListener('change', waaSync);
+  waaBindPhoto();
   waaSync();
+}
+
+function waaBindPhoto(){
+  var input = document.getElementById('waaPhotoInput');
+  if(input) input.addEventListener('change', waaPhotoChange);
+}
+
+function waaPhotoChange(e){
+  var file = e.target.files && e.target.files[0];
+  if(!file) return;
+  if(!/^image\//.test(file.type)){ waaToast('이미지 파일만 업로드할 수 있습니다'); return; }
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    var im = new Image();
+    im.onload = function(){
+      var size = 300;
+      var canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      var ctx = canvas.getContext('2d');
+      var scale = Math.max(size / im.width, size / im.height);
+      var w = im.width * scale, h = im.height * scale;
+      var x = (size - w) / 2, y = (size - h) / 2;
+      ctx.drawImage(im, x, y, w, h);
+      var dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      var img = document.getElementById('avatarImg');
+      img.src = dataUrl;
+      img.style.display = 'block';
+      document.getElementById('avatarText').style.opacity = '0';
+      waaToast('사진이 적용되었습니다');
+    };
+    im.onerror = function(){ waaToast('이미지를 불러올 수 없습니다'); };
+    im.src = ev.target.result;
+  };
+  reader.onerror = function(){ waaToast('파일을 읽을 수 없습니다'); };
+  reader.readAsDataURL(file);
+}
+
+function waaRemovePhoto(){
+  var img = document.getElementById('avatarImg');
+  var txt = document.getElementById('avatarText');
+  var input = document.getElementById('waaPhotoInput');
+  if(img){ img.removeAttribute('src'); img.style.display = 'none'; }
+  if(txt){ txt.style.opacity = '1'; }
+  if(input){ input.value = ''; }
+  waaToast('사진을 제거했습니다');
 }
 function waaEditing(){ return document.body.classList.contains('waa-edit'); }
 
@@ -224,6 +288,7 @@ function waaReset(){
   document.querySelector('.card').outerHTML = WAA_ORIGINAL;
   document.body.classList.add('waa-edit');
   document.querySelector('#waa-bar .toggle').textContent='미리보기';
+  waaBindPhoto();
   waaSync();
   waaToast('처음 상태로 되돌렸습니다');
 }
@@ -281,6 +346,8 @@ function waaSave(){
   var clone = document.documentElement.cloneNode(true);
   var bar = clone.querySelector('#waa-bar'); if(bar) bar.remove();
   var toast = clone.querySelector('#waa-toast'); if(toast) toast.remove();
+  var uploadBtn = clone.querySelector('.avatarUpload'); if(uploadBtn) uploadBtn.remove();
+  var photoInput = clone.querySelector('#waaPhotoInput'); if(photoInput) photoInput.remove();
   clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
   var b = clone.querySelector('body');
   if(b){ b.classList.remove('waa-edit'); b.removeAttribute('style'); }
