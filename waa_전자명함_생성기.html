@@ -69,9 +69,22 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
         <div class="two"><input id="name" placeholder="예: 이서연"><input id="role" placeholder="예: FC"></div>
       </div>
       <div class="row"><label>소속 / 한줄 소개</label><input id="org" placeholder="예: 한화금융서비스 현빈지사 · 신인FC"></div>
-      <div class="row"><label>아바타 이니셜 (2~3글자)</label><input id="avatar" placeholder="예: WAA, 이서연, FC 등" maxlength="4"></div>
+      <div class="row"><label>아바타 이니셜 (2~3글자) — 사진을 넣지 않을 때 표시됩니다</label><input id="avatar" placeholder="예: WAA, 이서연, FC 등" maxlength="4"></div>
       <div class="row"><label>태그라인 (굵게 강조되는 첫 줄)</label><input id="taglineB" placeholder="예: 전문가가 코칭하는 AI마케팅"></div>
       <div class="row"><label>태그라인 (아래 보조 문구)</label><input id="taglineS" placeholder="예: 한화금융서비스 현빈지사 신인FC"></div>
+    </div>
+
+    <div class="group">
+      <h2>프로필 사진 (선택 — 카톡 미리보기용)</h2>
+      <div class="row">
+        <label>사진 업로드 — 명함 안 원형 아바타에 표시됩니다</label>
+        <input type="file" id="photoInput" accept="image/*">
+      </div>
+      <div class="row" id="photoDlRow" style="display:none">
+        <button type="button" class="dlbtn" style="padding:9px;font-size:12.5px;background:var(--accent2)" onclick="downloadPhoto()">🖼 사진 파일만 따로 다운로드</button>
+        <div class="hint">① 이 버튼으로 정사각형 사진을 저장 → ② GitHub의 waa-site 저장소 루트에 업로드 → ③ 아래 "og:image 파일명"에 업로드한 파일명을 정확히 입력하세요. 이 파일명이 카톡 링크 미리보기 이미지 경로가 됩니다.</div>
+      </div>
+      <div class="row"><label>og:image 파일명 (GitHub에 업로드한 사진 파일명)</label><input id="ogImageName" placeholder="예: 이서연.jpg"></div>
     </div>
 
     <div class="group">
@@ -97,7 +110,7 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
     <div class="dlbar">
       <input class="dlname" id="filename" placeholder="파일명 (예: 이서연_FC_전자명함.html)">
       <button class="dlbtn" onclick="downloadCard()">✅ 완성된 전자명함 다운로드</button>
-      <div class="hint">다운로드한 파일을 GitHub의 waa-site 저장소에 업로드하면 링크가 생깁니다. 열어서 "연락처 저장하기" 버튼이 잘 동작하는지 꼭 확인해보세요.</div>
+      <div class="hint">다운로드한 HTML 파일과 (사진을 넣었다면) 사진 파일을 모두 GitHub의 waa-site 저장소에 업로드하면 링크가 생깁니다. 열어서 "연락처 저장하기" 버튼이 잘 동작하는지, 카톡에 링크를 보냈을 때 사진이 미리보기로 뜨는지 꼭 확인해보세요.</div>
     </div>
   </div>
 
@@ -112,8 +125,48 @@ const THEMES = {
   gold:  {name:'골드-그린', ink:'#0D1B2A', inkSoft:'#1C3144', paper:'#F4F6F0', accent:'#1A6B3C', accent2:'#B8962E'},
 };
 let currentTheme = 'coral';
+let photoDataUrl = null;
 
 function el(id){ return document.getElementById(id); }
+
+function handlePhotoFile(file){
+  if(!file) return;
+  if(!/^image\//.test(file.type)){ alert('이미지 파일만 업로드할 수 있습니다'); return; }
+  const reader = new FileReader();
+  reader.onload = (ev)=>{
+    const im = new Image();
+    im.onload = ()=>{
+      const size = 300;
+      const canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      const scale = Math.max(size/im.width, size/im.height);
+      const w = im.width*scale, h = im.height*scale;
+      const x = (size-w)/2, y = (size-h)/2;
+      ctx.drawImage(im, x, y, w, h);
+      photoDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      el('photoDlRow').style.display = 'block';
+      if(!el('ogImageName').value.trim()){
+        const nm = (val('name') || '전자명함').replace(/\s+/g,'');
+        el('ogImageName').value = nm + '.jpg';
+      }
+      render();
+    };
+    im.onerror = ()=> alert('이미지를 불러올 수 없습니다');
+    im.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+el('photoInput') && el('photoInput').addEventListener('change', (e)=> handlePhotoFile(e.target.files && e.target.files[0]));
+
+function downloadPhoto(){
+  if(!photoDataUrl){ alert('먼저 사진을 업로드해주세요'); return; }
+  const nameField = el('ogImageName').value.trim() || ((val('name')||'photo').replace(/\s+/g,'') + '.jpg');
+  const a = document.createElement('a');
+  a.href = photoDataUrl;
+  a.download = nameField;
+  a.click();
+}
 
 function renderThemePicker(){
   const box = el('themePicker');
@@ -148,6 +201,12 @@ function buildHTML(){
   const quoteText = val('quoteText') || '';
   const quoteBy = val('quoteBy') || '';
   const telDigits = tel.replace(/[^0-9+]/g,'');
+  const ogImageName = val('ogImageName').trim();
+  const ogImageUrl = ogImageName ? (/^https?:\/\//i.test(ogImageName) ? ogImageName : 'https://withaiacademy.github.io/waa-site/'+ogImageName) : '';
+  const ogImageTags = ogImageUrl ? `
+<meta property="og:image" content="${esc(ogImageUrl)}">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">` : '';
 
   const vcardLines = [
     'BEGIN:VCARD','VERSION:3.0',
@@ -169,7 +228,7 @@ function buildHTML(){
 <title>${esc(name)} | ${esc(role)} — 전자명함</title>
 <meta property="og:title" content="${esc(name)} | ${esc(role)} — 전자명함">
 <meta property="og:description" content="전화·문자·연락처저장을 한 번에 — ${esc(name)} 전자명함">
-<meta property="og:type" content="website">
+<meta property="og:type" content="website">${ogImageTags}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -183,7 +242,8 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
 .top::after{content:'';position:absolute;right:-60px;top:-60px;width:180px;height:180px;border:1px solid rgba(255,255,255,.09);border-radius:50%}
 .top::before{content:'';position:absolute;left:-40px;bottom:-50px;width:150px;height:150px;border:1px solid rgba(201,146,46,.22);border-radius:50%}
 .top>*{position:relative;z-index:2}
-.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(160deg,var(--ink-soft),var(--ink));border:2px solid rgba(201,146,46,.55);display:flex;align-items:center;justify-content:center;font-family:'Gowun Batang',serif;font-size:22px;color:rgba(255,255,255,.85)}
+.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(160deg,var(--ink-soft),var(--ink));border:2px solid rgba(201,146,46,.55);display:flex;align-items:center;justify-content:center;font-family:'Gowun Batang',serif;font-size:22px;color:rgba(255,255,255,.85);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .eyebrow{font-size:11.5px;letter-spacing:.2em;color:var(--amber);font-weight:600;margin-bottom:10px}
 .name{font-size:26px;font-weight:700;letter-spacing:-.03em}
 .name .role{display:block;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.68);margin-top:4px;letter-spacing:0}
@@ -216,7 +276,7 @@ footer b{color:var(--ink-soft)}
 <div class="card">
   <div class="top">
     <div class="eyebrow">WITH AI ACADEMY</div>
-    <div class="avatar">${esc(avatar)}</div>
+    <div class="avatar">${photoDataUrl ? `<img src="${photoDataUrl}" alt="${esc(name)}">` : esc(avatar)}</div>
     <div class="name">${esc(name)}<span class="role">${esc(role)}</span></div>
     <div class="org">${esc(org)}</div>
   </div>

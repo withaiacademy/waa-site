@@ -126,12 +126,14 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
   <span class="grp"><label>이메일</label><input class="ct" id="waaMail" value="info2580@naver.com"></span>
   <span class="grp"><label>미니사이트 링크</label><input class="ct" id="waaSite" style="width:280px" value="https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트.html"></span>
   <span class="grp"><label>도메인(footer 표시)</label><input class="ct" id="waaDomain" style="width:160px" value="www.waa.ai.kr"></span>
+  <span class="grp"><label>og:image 파일명(GitHub 업로드용)</label><input class="ct" id="waaOgImage" style="width:160px" value="박근오.png"></span>
   <input class="fname" id="waaName" value="박근오_WAA대표_전자명함.html" title="저장할 파일 이름">
+  <button class="reset" onclick="waaDownloadPhoto()">🖼 사진 파일 다운로드</button>
   <button class="reset" onclick="waaRemovePhoto()">🗑 사진 제거</button>
   <button class="toggle" onclick="waaToggle()">미리보기</button>
   <button class="reset" onclick="waaReset()">처음으로</button>
   <button class="save" onclick="waaSave()">✅ 완성 파일 저장</button>
-  <span class="hint">굵은 글자·문구는 클릭해서 워드처럼 고치고, 전화·이메일·링크는 위 칸에 입력한 뒤 Enter 또는 다른 곳 클릭하면 자동 반영됩니다.</span>
+  <span class="hint">굵은 글자·문구는 클릭해서 워드처럼 고치고, 전화·이메일·링크는 위 칸에 입력한 뒤 Enter 또는 다른 곳 클릭하면 자동 반영됩니다. 사진을 올렸다면 "사진 파일 다운로드"로 따로 저장해 GitHub에 업로드하고, og:image 파일명 칸에 그 파일명을 넣어야 카톡 미리보기에 사진이 뜹니다.</span>
 </div>
 <div id="waa-toast"></div>
 
@@ -252,6 +254,15 @@ function waaRemovePhoto(){
   if(input){ input.value = ''; }
   waaToast('사진을 제거했습니다');
 }
+function waaDownloadPhoto(){
+  var img = document.getElementById('avatarImg');
+  if(!img || !img.src || img.style.display === 'none'){ waaToast('먼저 사진을 업로드해주세요'); return; }
+  var name = (document.getElementById('waaOgImage').value || '사진.jpg').trim();
+  var a = document.createElement('a');
+  a.href = img.src;
+  a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
 function waaEditing(){ return document.body.classList.contains('waa-edit'); }
 
 function waaSync(){
@@ -352,6 +363,29 @@ function waaSave(){
   var b = clone.querySelector('body');
   if(b){ b.classList.remove('waa-edit'); b.removeAttribute('style'); }
   var oldScript = clone.querySelector('script'); if(oldScript) oldScript.remove();
+
+  var ogName = (document.getElementById('waaOgImage').value || '').trim();
+  var origImg = document.getElementById('avatarImg');
+  var hasPhoto = !!(origImg && origImg.src && origImg.style.display !== 'none');
+  var head = clone.querySelector('head');
+  if(head){
+    head.querySelectorAll('meta[property^="og:image"]').forEach(function(m){ m.remove(); });
+    if(hasPhoto && ogName){
+      var ogUrl = /^https?:\/\//i.test(ogName) ? ogName : 'https://withaiacademy.github.io/waa-site/' + ogName;
+      var ogType = head.querySelector('meta[property="og:type"]');
+      var tags = [
+        ['og:image', ogUrl],
+        ['og:image:width', '300'],
+        ['og:image:height', '300']
+      ];
+      tags.reverse().forEach(function(pair){
+        var m = document.createElement('meta');
+        m.setAttribute('property', pair[0]);
+        m.setAttribute('content', pair[1]);
+        if(ogType){ ogType.insertAdjacentElement('afterend', m); } else { head.appendChild(m); }
+      });
+    }
+  }
 
   var telDigits = d.tel.replace(/[^0-9+]/g,'');
   var domainUrl = d.domain ? (/^https?:\/\//i.test(d.domain) ? d.domain : 'https://'+d.domain) : d.site;
