@@ -70,7 +70,7 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
       </div>
       <div class="row"><label>소속 / 한줄 소개</label><input id="org" placeholder="예: 한화금융서비스 현빈지사 · 신인FC"></div>
       <div class="row"><label>아바타 이니셜 (2~3글자)</label><input id="avatar" placeholder="예: WAA, 이서연, FC 등" maxlength="4"></div>
-      <div class="row"><label>태그라인 (굵게 강조되는 첫 줄)</label><input id="taglineB" placeholder="예: 고객님의 첫걸음을 함께합니다."></div>
+      <div class="row"><label>태그라인 (굵게 강조되는 첫 줄)</label><input id="taglineB" placeholder="예: 전문가가 코칭하는 AI마케팅"></div>
       <div class="row"><label>태그라인 (아래 보조 문구)</label><input id="taglineS" placeholder="예: 한화금융서비스 현빈지사 신인FC"></div>
     </div>
 
@@ -167,6 +167,9 @@ function buildHTML(){
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(name)} | ${esc(role)} — 전자명함</title>
+<meta property="og:title" content="${esc(name)} | ${esc(role)} — 전자명함">
+<meta property="og:description" content="전화·문자·연락처저장을 한 번에 — ${esc(name)} 전자명함">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -228,7 +231,7 @@ footer b{color:var(--ink-soft)}
     <button class="savebtn" onclick="saveContact()">📇 연락처 저장하기</button>
     <div class="saveNote">버튼을 누르면 연락처 파일(.vcf)이 다운로드됩니다.<br>열어서 저장하면 스마트폰 주소록에 바로 등록됩니다.</div>
   </div>
-  <a class="sitelink" href="${site}" target="_blank" rel="noopener">
+  <a class="sitelink" href="${site}">
     <span><span class="t">${esc(siteTitle)}</span><br><span class="s">${esc(siteSub)}</span></span>
     <span class="arrow">↗</span>
   </a>
