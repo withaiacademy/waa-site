@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAA 홍보카드 — 기관 담당자 제안용</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:#F0F2F5;
+  padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:32px;
+  -webkit-font-smoothing:antialiased}
+.page-title{font-size:13px;letter-spacing:.14em;color:#888;font-weight:500;margin-bottom:4px;text-align:center;line-height:1.7}
+.page-title b{display:block;font-size:16px;color:#16233F;letter-spacing:-.02em;margin-bottom:6px}
+
+/* 카드 공통 */
+.card{width:100%;max-width:480px;border-radius:16px;overflow:hidden;position:relative}
+
+/* ── 카드 1 ── */
+.card1{background:#16233F;color:#fff;padding:44px 36px 40px}
+.card1 .tag{font-size:11px;letter-spacing:.2em;color:#C9922E;font-weight:700;margin-bottom:20px}
+.card1 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card1 .headline em{font-style:normal;color:#C9922E}
+.card1 .body{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.78);
+  border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-bottom:28px}
+.card1 .sig{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.06em;line-height:1.7}
+.card1 .deco{position:absolute;right:-40px;bottom:-40px;width:160px;height:160px;
+  border:1px solid rgba(201,146,46,.2);border-radius:50%}
+.card1 .deco2{position:absolute;right:-10px;bottom:-10px;width:100px;height:100px;
+  border:1px solid rgba(201,146,46,.35);border-radius:50%}
+
+/* ── 카드 2 ── */
+.card2{background:#fff;padding:44px 36px 40px;border:1px solid #E5E9F0}
+.card2 .tag{font-size:11px;letter-spacing:.2em;color:#E2574C;font-weight:700;margin-bottom:20px}
+.card2 .headline{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-.03em;color:#16233F;margin-bottom:8px}
+.card2 .sub{font-size:15px;color:#6B7A90;margin-bottom:20px;line-height:1.6}
+.card2 .boxes{display:grid;gap:10px;margin-bottom:20px}
+.card2 .box{background:#F4F6F9;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.card2 .box .num{font-size:11px;font-weight:700;color:#E2574C;flex:0 0 18px;padding-top:2px}
+.card2 .box .txt{font-size:13.5px;color:#2C3E5E;line-height:1.65}
+.card2 .box .txt strong{display:block;font-size:14px;margin-bottom:3px;color:#16233F}
+.card2 .infoline{background:#16233F;color:#fff;border-radius:8px;padding:15px 16px;margin-bottom:22px;
+  display:grid;gap:7px}
+.card2 .infoline .r{display:flex;gap:10px;font-size:13.5px;line-height:1.5}
+.card2 .infoline .r b{flex:0 0 52px;color:#C9922E;font-weight:600;font-size:12.5px;padding-top:1px}
+.card2 .infoline .r span{color:rgba(255,255,255,.92)}
+.card2 .sig{font-size:12px;color:#9AA3B0;letter-spacing:.06em;border-top:1px solid #E5E9F0;padding-top:16px;line-height:1.7}
+
+/* ── 카드 3 ── */
+.card3{background:linear-gradient(145deg,#1A6B3C 0%,#0D4A2A 100%);color:#fff;padding:44px 36px 40px}
+.card3 .tag{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:20px}
+.card3 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card3 .quote-box{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.5);
+  padding:16px 18px;margin-bottom:20px;border-radius:0 8px 8px 0}
+.card3 .quote-box p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.9)}
+.card3 .quote-box p+p{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.15)}
+.card3 .body{font-size:14px;line-height:1.8;color:rgba(255,255,255,.72);margin-bottom:28px}
+.card3 .sig{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.06em;line-height:1.7}
+
+/* 복사 영역 */
+.copy-area{width:100%;max-width:480px;background:#fff;border-radius:12px;border:1px solid #E5E9F0;padding:20px 24px}
+.copy-area h3{font-size:12px;letter-spacing:.12em;color:#888;font-weight:600;margin-bottom:14px}
+.copy-text{font-size:13.5px;line-height:1.85;color:#2C3E5E;white-space:pre-line;margin-bottom:14px}
+.copy-btn{display:inline-block;padding:8px 18px;background:#16233F;color:#fff;border:none;border-radius:6px;
+  font-size:13px;font-weight:600;cursor:pointer;letter-spacing:-.01em;font-family:inherit}
+.copy-btn:active{background:#2C3E5E}
+.copied{color:#1A6B3C;font-size:12px;margin-left:10px;display:none}
+.shot-btn{display:inline-block;padding:8px 16px;background:#C9922E;color:#fff;border:none;border-radius:6px;
+  font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;margin-left:8px}
+.cardtools{width:100%;max-width:480px;margin-top:-22px;text-align:right}
+</style>
+</head>
+<body>
+
+<div class="page-title"><b>기관 담당자 제안용 홍보카드</b>복지관 · 평생교육원 담당자에게 보내는 3장</div>
+
+<div class="card card1" id="cardA1">
+  <div class="deco"></div><div class="deco2"></div>
+  <div class="tag">복지관 · 평생교육원 담당자님께</div>
+  <div class="headline">예산 없이<br>프로그램 하나가<br><em>늘어납니다.</em></div>
+  <div class="body">시범 특강 90분은 강사료를 받지 않습니다.<br>
+  학습동아리와 독서회 운영도 마찬가지입니다.<br><br>
+  기관에서 빌려주실 것은 모일 공간과<br>회원 모집 홍보, 두 가지뿐입니다.</div>
+  <div class="sig">With AI Academy (WAA) · 대표 박근오<br>5060 · 시니어 AI · 디지털 교육</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardA1','WAA_기관제안_카드1')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="card card2" id="cardA2">
+  <div class="tag">어디서 무엇을 하고 있는가</div>
+  <div class="headline">말씀만 드리지<br>않겠습니다.</div>
+  <div class="sub">이미 현장에서 하고 있는 일입니다.</div>
+  <div class="boxes">
+    <div class="box"><div class="num">01</div><div class="txt">
+      <strong>카카오임팩트 시니어티처</strong>
+      「찾아가는 시니어 디지털 스쿨」 경산시어르신종합복지관·달성군노인복지관·대덕종합노인복지관 <b>3개 기관 출강</b>. 주강사 6회·보조강사 9회, 누적 15회 30시간.</div></div>
+    <div class="box"><div class="num">02</div><div class="txt">
+      <strong>DG5060 AI리더스 학습동아리 리더</strong>
+      대구중장년내일센터 · 매월 2·4주 수요일, 4개월 정규 과정 운영 중.</div></div>
+    <div class="box"><div class="num">03</div><div class="txt">
+      <strong>강의 20년 · 무보수 봉사 강의 22년</strong>
+      한국크리스토퍼리더십 영남센터 강사팀장(2002~2024) · 前 NH농협생명 AM지점장.</div></div>
+  </div>
+  <div class="sig">활동 기록 · blog.naver.com/dg5060<br>강사 이력서 · 소개서는 요청하시면 바로 보내드립니다.</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardA2','WAA_기관제안_카드2')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="card card3" id="cardA3">
+  <div class="tag">먼저 한 번 해 보십시오</div>
+  <div class="headline">시범 특강 1회,<br>강사료 없이<br>진행합니다.</div>
+  <div class="quote-box">
+    <p>담당자 사전 면담 30분 → 기관 맞춤 운영계획서 제출 → 시범 특강 90분.<br>
+    반응을 보신 뒤에 결정하셔도 늦지 않습니다.</p>
+  </div>
+  <div class="body"><b>개설 가능 강좌</b><br>
+  시니어를 위한 AI 첫걸음 · AI로 쓰는 나의 이야기 · 함께 읽는 독서회<br>
+  스마트폰 기초 / 활용 심화 · 디지털 안전 교실 · 학습동아리 리더 양성 등 9종<br><br>
+  <span style="opacity:.75">정규 강좌는 기관의 강사료 기준에 따르며, 예산이 없는 기관은 재능기부로도 진행합니다.</span></div>
+  <div class="sig">박근오 · 010-2836-9495 · info2580@naver.com<br>waa.ai.kr</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardA3','WAA_기관제안_카드3')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="copy-area">
+  <h3>카카오톡 · 메일 첫 인사 (카드 1과 함께)</h3>
+  <div class="copy-text" id="txt1">안녕하십니까. With AI Academy 박근오입니다.
+
+5060·시니어 대상 AI·디지털 교육과 학습동아리를 운영하고 있습니다.
+시범 특강 90분은 강사료 없이 진행해 드리고 있어,
+○○기관에도 제안드리고자 연락드렸습니다.
+
+부담 없이 한 번 보아 주시면 감사하겠습니다.
+010-2836-9495 / 박근오</div>
+  <button class="copy-btn" onclick="copyText('txt1','c1')">복사하기</button>
+  <span class="copied" id="c1">✓ 복사됨</span>
+</div>
+<div class="copy-area">
+  <h3>자료 안내 (카드 2와 함께)</h3>
+  <div class="copy-text" id="txt2">강사 소개와 개설 가능 강좌를 한 곳에 정리해 두었습니다.
+▶ https://withaiacademy.github.io/waa-site/박근오_WAA대표_미니사이트_기관용.html
+
+· 카카오임팩트 「찾아가는 시니어 디지털 스쿨」 시니어티처
+  — 복지관 3개 기관 출강, 누적 15회 30시간
+· 대구중장년내일센터 DG5060 AI리더스 학습동아리 리더
+· 강의 경력 20년 / 무보수 봉사 강의 22년
+
+이력서·소개서가 필요하시면 말씀만 주십시오. 바로 보내드리겠습니다.</div>
+  <button class="copy-btn" onclick="copyText('txt2','c2')">복사하기</button>
+  <span class="copied" id="c2">✓ 복사됨</span>
+</div>
+<div class="copy-area">
+  <h3>면담 요청 (카드 3과 함께)</h3>
+  <div class="copy-text" id="txt3">편하신 때에 30분만 시간을 내주실 수 있겠습니까.
+
+기관 사정과 대상 어르신들을 여쭙고,
+맞는 형태로 운영계획서를 만들어 다시 찾아뵙겠습니다.
+
+시범 특강을 먼저 한 번 해 보시고
+그 결과를 보신 뒤에 결정하셔도 좋습니다.
+
+박근오 · 010-2836-9495 · info2580@naver.com</div>
+  <button class="copy-btn" onclick="copyText('txt3','c3')">복사하기</button>
+  <span class="copied" id="c3">✓ 복사됨</span>
+</div>
+
+<script id="waa-runtime">
+function copyText(id, cId){
+  var txt = document.getElementById(id).innerText;
+  function done(){
+    var el = document.getElementById(cId);
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 2000);
+  }
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(done).catch(function(){ prompt('아래 내용을 복사하세요', txt); }); }
+  else { prompt('아래 내용을 복사하세요', txt); }
+}
+function saveCardImage(cardId, fname){
+  var el = document.getElementById(cardId);
+  if(typeof html2canvas === 'undefined'){
+    alert('이미지 저장 기능을 불러오지 못했습니다.\n인터넷 연결을 확인하시거나, 화면을 캡처(스크린샷)해서 사용하세요.');
+    return;
+  }
+  html2canvas(el, {scale:2, backgroundColor:null, useCORS:true}).then(function(canvas){
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = fname + '.png';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }).catch(function(){
+    alert('이미지로 만들지 못했습니다. 화면을 캡처(스크린샷)해서 사용하세요.');
+  });
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>

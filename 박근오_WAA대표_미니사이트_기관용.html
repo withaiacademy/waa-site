@@ -2,9 +2,9 @@
 <html lang="ko"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>박근오 | With AI Academy (WAA) — 무료 강좌 · 학습동아리 제안</title>
+<title>박근오 | With AI Academy (WAA) — 시니어 AI·디지털 강좌 · 학습동아리 제안</title>
 <meta property="og:title" content="With AI Academy (WAA) · 박근오 대표">
-<meta property="og:description" content="5060·시니어 AI·디지털 교육 / 학습동아리·독서회 개설·운영 — 전액 무료 재능기부">
+<meta property="og:description" content="5060·시니어 AI·디지털 교육 / 학습동아리·독서회 개설·운영 — 시범 특강 무료">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://withaiacademy.github.io/waa-site/박근오.png">
 <meta property="og:image:width" content="300">
@@ -69,6 +69,8 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
 .big .num em{font-style:normal;font-size:25px;color:var(--ink);margin-left:2px}
 .big .cap{font-size:14.5px;color:var(--ink-soft);margin-top:14px;line-height:1.7}
 .big .cap strong{color:var(--ink)}
+.big .cap .capnote{display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--muted);line-height:1.65}
 
 section{padding:36px 0 6px}
 /* .pad(0,1,0)가 section(0,0,1)보다 우선해 상하 여백이 사라지는 문제 보정 */
@@ -119,6 +121,8 @@ p.lead+p.lead{margin-top:12px}
 .track .tk{font-size:11.5px;letter-spacing:.12em;color:var(--coral);font-weight:700;margin-bottom:7px}
 .track strong{display:block;font-size:16px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
 .track p{font-size:13.5px;color:var(--muted);line-height:1.7}
+.track p.note{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:12.5px;color:var(--ink-soft)}
 .track.hi{border-color:var(--amber);background:rgba(201,146,46,.05)}
 .track.hi .tk{color:var(--amber)}
 
@@ -210,7 +214,7 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <a class="door" href="#offer">
       <span class="num">첫 번째 문</span><span class="icon">◈</span>
       <strong>기관 담당자님께</strong>
-      <span class="sub">무료 강좌 · 학습동아리<br>개설 제안</span>
+      <span class="sub">강좌 · 학습동아리<br>개설 제안</span>
       <span class="arrow">제안 보기 ↓</span>
     </a>
     <a class="door" href="#about">
@@ -223,9 +227,9 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
 
   <div class="big">
     <span class="num">0<em>원</em></span>
-    <div class="cap"><strong>강사료를 받지 않습니다.</strong><br>
-    강좌·동아리 운영은 전액 무료 재능기부입니다.<br>
-    모일 공간과 기관의 신뢰만 빌려 주십시오.</div>
+    <div class="cap"><strong>시범 특강과 학습동아리·독서회 운영은<br>강사료를 받지 않습니다.</strong><br>
+    먼저 해 보시고 판단하십시오.
+    <span class="capnote">정규 강좌는 기관의 강사료 기준에 따르며,<br>예산이 없는 기관은 재능기부로도 진행합니다.</span></div>
   </div>
 
   <section class="pad" id="about">
@@ -254,7 +258,7 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <div class="label">CAREER</div>
     <h2>운영자 약력</h2>
     <div class="steps">
-      <div class="step"><strong>카카오임팩트 시니어티처</strong><span>2026.04 위촉 (대구YWCA 소속) · 「찾아가는 시니어 디지털 스쿨」 메인·보조강사 누적 10회 20시간.</span></div>
+      <div class="step"><strong>카카오임팩트 시니어티처</strong><span>2026.04 위촉 (대구YWCA 소속) · 「찾아가는 시니어 디지털 스쿨」 경산시어르신종합복지관·달성군노인복지관·대덕종합노인복지관 3개 기관 출강. 주강사 6회·보조강사 9회, 누적 15회 30시간.</span></div>
       <div class="step"><strong>DG5060 AI리더스 학습동아리 리더</strong><span>대구중장년내일센터 · 창설 및 운영. 중장년이 서로 가르치며 배우는 AI 학습 커뮤니티.</span></div>
       <div class="step"><strong>前 범어도서관「도서관밖도서관」 TF팀장</strong><span>수성문화재단 · 3개년 사업추진 전략 기획·발표. 계간지「에스콜론」 2023 봄호 사업소개 등재.</span></div>
       <div class="step"><strong>前 한국크리스토퍼리더십 영남센터 강사·강사팀장</strong><span>2002~2024 · 약 22년간 무보수 봉사 강의. 총 10개 과정 진행, 강사후보자 교육 담당.</span></div>
@@ -302,13 +306,15 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
       </div>
       <div class="track">
         <div class="tk">TRACK B</div>
-        <strong>정규 무료 강좌 (12차시 · 주 1회 2시간)</strong>
+        <strong>정규 강좌 (12차시 · 주 1회 2시간)</strong>
         <p>스마트폰 기초 / 스마트폰 활용 심화 / 시니어 AI 입문. 마지막 회차는 반드시 '수료 발표회'로 구성해, 각자 만든 결과물을 함께 보고 다음 단계인 동아리로 연결합니다.</p>
+        <p class="note">강사료는 기관의 지급 기준에 따릅니다. 예산이 없는 기관은 재능기부로도 진행합니다.</p>
       </div>
       <div class="track hi">
         <div class="tk">TRACK C · 핵심 제안</div>
         <strong>학습동아리 · 독서회 개설 및 운영</strong>
-        <p>강좌가 끝난 뒤에도 배움이 이어지도록, 수료생이 중심이 되는 모임을 만들고 자립할 때까지 무료로 지도합니다. 목표는 6개월 안에 회원 스스로 진행할 수 있게 만드는 것입니다.</p>
+        <p>강좌가 끝난 뒤에도 배움이 이어지도록, 수료생이 중심이 되는 모임을 만들고 자립할 때까지 지도합니다. 목표는 6개월 안에 회원 스스로 진행할 수 있게 만드는 것입니다.</p>
+        <p class="note">동아리·독서회 운영은 강사료를 받지 않습니다.</p>
       </div>
     </div>
   </section>
@@ -343,10 +349,10 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <div class="dsub">
       <div class="dt">요청드리지 않는 것</div>
       <div class="rlist no">
-        <div class="rItem"><i>×</i><span>강사료 및 활동비 — <strong>전액 무료 재능기부</strong>입니다</span></div>
+        <div class="rItem"><i>×</i><span>수강료 징수 — <strong>참여자에게 비용을 받지 않습니다</strong></span></div>
         <div class="rItem"><i>×</i><span>교재 제작비 — 강사가 직접 제작·부담합니다</span></div>
         <div class="rItem"><i>×</i><span>별도 인력 배치 — 담당자의 관리 부담을 드리지 않습니다</span></div>
-        <div class="rItem"><i>×</i><span>수강료 징수 — 참여자에게 비용을 받지 않습니다</span></div>
+        <div class="rItem"><i>×</i><span>시범 특강·동아리 운영에 대한 <strong>강사료</strong> — 재능기부로 진행합니다</span></div>
       </div>
     </div>
   </div>
@@ -355,7 +361,7 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <div class="label">BENEFIT</div>
     <h2>기관에서 기대하실 수 있는 것</h2>
     <div class="fields">
-      <div class="field"><div class="k">01</div><div class="b"><strong>예산 부담 없는 프로그램 추가</strong><span>무료 강좌·동아리 프로그램 1~3개를 예산 없이 운영하실 수 있습니다.</span></div></div>
+      <div class="field"><div class="k">01</div><div class="b"><strong>예산 없이도 시작하실 수 있습니다</strong><span>시범 특강과 학습동아리·독서회는 예산 없이 운영하실 수 있습니다. 정규 강좌는 기관의 예산 사정에 맞추어 조정합니다.</span></div></div>
       <div class="field"><div class="k">02</div><div class="b"><strong>자생하는 동아리가 남습니다</strong><span>단발성 강좌가 아닙니다. 6개월 뒤에는 회원 스스로 운영하게 됩니다.</span></div></div>
       <div class="field"><div class="k">03</div><div class="b"><strong>실적 자료를 그대로 제출</strong><span>매 회차 활동 기록과 연간 활동집을 제출하여, 기관의 실적 자료로 그대로 활용하실 수 있습니다.</span></div></div>
       <div class="field"><div class="k">04</div><div class="b"><strong>기관 공익 목표에 직접 부합</strong><span>디지털 소외 계층 지원, 평생학습 동아리 육성, 세대 간 정보격차 해소.</span></div></div>
@@ -379,8 +385,8 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <h2>운영 확약 사항</h2>
     <div class="pledge">
       <ol>
-        <li>본 활동은 전액 무료 재능기부이며, 참여자에게 어떠한 비용도 청구하지 않습니다.</li>
-        <li>강좌·모임 중 어떠한 상품의 판매·모집·권유 행위도 하지 않습니다. With AI Academy는 보험상품 판매기관이 아닙니다.</li>
+        <li>참여자에게 어떠한 비용도 직접 청구하지 않습니다. 강사료는 기관과 협의하며, 시범 특강과 동아리·독서회 운영은 재능기부로 진행합니다.</li>
+        <li>강좌·모임 중 어떠한 상품이나 서비스도 판매·모집·권유하지 않습니다.</li>
         <li>참여자의 개인정보를 수집하지 않으며, 부득이한 경우 기관 절차에 따르고 목적 달성 후 즉시 파기합니다.</li>
         <li>특정 종교·정치적 견해를 활동 내용에 포함하지 않습니다.</li>
         <li>기관의 운영 규정, 안전 지침, 시설 이용 수칙을 준수합니다.</li>
@@ -402,7 +408,7 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
       <div class="f"><label for="tp">문의 유형</label>
         <select id="tp" name="문의유형">
           <option>무료 특강 문의 (90분)</option>
-          <option>정규 무료 강좌 개설 문의 (12차시)</option>
+          <option>정규 강좌 개설 문의 (12차시)</option>
           <option>학습동아리 개설·운영 문의</option>
           <option>독서회 개설·운영 문의</option>
           <option>강사 이력서·소개서 요청</option>
@@ -429,9 +435,8 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <div class="footline">010-2836-9495 · info2580@naver.com</div>
     <div class="footdomain">waa.ai.kr · blog.naver.com/dg5060 · blog.naver.com/bravo_1963</div>
     <div class="compl">
-      With AI Academy는 보험상품 판매기관이 아닌 교육·컨설팅 기관이며,
-      본 페이지는 무료 교육 프로그램 안내를 목적으로 합니다.
-      강좌·모임 중 어떠한 상품의 판매·모집·권유도 하지 않습니다.
+      With AI Academy는 5060·시니어를 대상으로 하는 교육·컨설팅 기관입니다.
+      본 페이지는 교육 프로그램 안내를 목적으로 합니다.
     </div>
     <div class="waa">Built with <b>WAA</b> · With AI Academy</div>
   </footer>

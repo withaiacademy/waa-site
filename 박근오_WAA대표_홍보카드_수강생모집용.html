@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAA 홍보카드 — 수강생 모집용</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:#F0F2F5;
+  padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:32px;
+  -webkit-font-smoothing:antialiased}
+.page-title{font-size:13px;letter-spacing:.14em;color:#888;font-weight:500;margin-bottom:4px;text-align:center;line-height:1.7}
+.page-title b{display:block;font-size:16px;color:#16233F;letter-spacing:-.02em;margin-bottom:6px}
+
+/* 카드 공통 */
+.card{width:100%;max-width:480px;border-radius:16px;overflow:hidden;position:relative}
+
+/* ── 카드 1 ── */
+.card1{background:#16233F;color:#fff;padding:44px 36px 40px}
+.card1 .tag{font-size:11px;letter-spacing:.2em;color:#C9922E;font-weight:700;margin-bottom:20px}
+.card1 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card1 .headline em{font-style:normal;color:#C9922E}
+.card1 .body{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.78);
+  border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-bottom:28px}
+.card1 .sig{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.06em;line-height:1.7}
+.card1 .deco{position:absolute;right:-40px;bottom:-40px;width:160px;height:160px;
+  border:1px solid rgba(201,146,46,.2);border-radius:50%}
+.card1 .deco2{position:absolute;right:-10px;bottom:-10px;width:100px;height:100px;
+  border:1px solid rgba(201,146,46,.35);border-radius:50%}
+
+/* ── 카드 2 ── */
+.card2{background:#fff;padding:44px 36px 40px;border:1px solid #E5E9F0}
+.card2 .tag{font-size:11px;letter-spacing:.2em;color:#E2574C;font-weight:700;margin-bottom:20px}
+.card2 .headline{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-.03em;color:#16233F;margin-bottom:8px}
+.card2 .sub{font-size:15px;color:#6B7A90;margin-bottom:20px;line-height:1.6}
+.card2 .boxes{display:grid;gap:10px;margin-bottom:20px}
+.card2 .box{background:#F4F6F9;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.card2 .box .num{font-size:11px;font-weight:700;color:#E2574C;flex:0 0 18px;padding-top:2px}
+.card2 .box .txt{font-size:13.5px;color:#2C3E5E;line-height:1.65}
+.card2 .box .txt strong{display:block;font-size:14px;margin-bottom:3px;color:#16233F}
+.card2 .infoline{background:#16233F;color:#fff;border-radius:8px;padding:15px 16px;margin-bottom:22px;
+  display:grid;gap:7px}
+.card2 .infoline .r{display:flex;gap:10px;font-size:13.5px;line-height:1.5}
+.card2 .infoline .r b{flex:0 0 52px;color:#C9922E;font-weight:600;font-size:12.5px;padding-top:1px}
+.card2 .infoline .r span{color:rgba(255,255,255,.92)}
+.card2 .sig{font-size:12px;color:#9AA3B0;letter-spacing:.06em;border-top:1px solid #E5E9F0;padding-top:16px;line-height:1.7}
+
+/* ── 카드 3 ── */
+.card3{background:linear-gradient(145deg,#1A6B3C 0%,#0D4A2A 100%);color:#fff;padding:44px 36px 40px}
+.card3 .tag{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:20px}
+.card3 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card3 .quote-box{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.5);
+  padding:16px 18px;margin-bottom:20px;border-radius:0 8px 8px 0}
+.card3 .quote-box p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.9)}
+.card3 .quote-box p+p{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.15)}
+.card3 .body{font-size:14px;line-height:1.8;color:rgba(255,255,255,.72);margin-bottom:28px}
+.card3 .sig{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.06em;line-height:1.7}
+
+/* 복사 영역 */
+.copy-area{width:100%;max-width:480px;background:#fff;border-radius:12px;border:1px solid #E5E9F0;padding:20px 24px}
+.copy-area h3{font-size:12px;letter-spacing:.12em;color:#888;font-weight:600;margin-bottom:14px}
+.copy-text{font-size:13.5px;line-height:1.85;color:#2C3E5E;white-space:pre-line;margin-bottom:14px}
+.copy-btn{display:inline-block;padding:8px 18px;background:#16233F;color:#fff;border:none;border-radius:6px;
+  font-size:13px;font-weight:600;cursor:pointer;letter-spacing:-.01em;font-family:inherit}
+.copy-btn:active{background:#2C3E5E}
+.copied{color:#1A6B3C;font-size:12px;margin-left:10px;display:none}
+.shot-btn{display:inline-block;padding:8px 16px;background:#C9922E;color:#fff;border:none;border-radius:6px;
+  font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;margin-left:8px}
+.cardtools{width:100%;max-width:480px;margin-top:-22px;text-align:right}
+</style>
+</head>
+<body>
+
+<div class="page-title"><b>수강생 모집용 홍보카드</b>강좌 개설 확정 후 · 어르신과 가족에게 보내는 3장</div>
+
+<div class="card card1" id="cardB1">
+  <div class="deco"></div><div class="deco2"></div>
+  <div class="tag">○○기관 강좌 안내</div>
+  <div class="headline">스마트폰,<br>아직도 자녀분께<br><em>물어보십니까?</em></div>
+  <div class="body">못 하시는 것이 아닙니다.<br>
+  아무도 천천히 알려드리지 않았을 뿐입니다.<br><br>
+  처음부터, 되실 때까지 함께 갑니다.<br>
+  진도 때문에 뒤에 두고 가지 않습니다.</div>
+  <div class="sig">With AI Academy · 강사 박근오<br>카카오임팩트 시니어티처</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardB1','WAA_수강생모집_카드1')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="card card2" id="cardB2">
+  <div class="tag">이런 것을 배웁니다</div>
+  <div class="headline">어려운 말은<br>쓰지 않습니다.</div>
+  <div class="sub">매 시간, 오늘 하나는 반드시 되게 합니다.</div>
+  <div class="boxes">
+    <div class="box"><div class="num">01</div><div class="txt">
+      <strong>시니어를 위한 AI 첫걸음</strong>
+      편지·인사말·축사를 대신 써 주는 AI. 궁금한 것을 물어보고, 사진을 정리합니다.</div></div>
+    <div class="box"><div class="num">02</div><div class="txt">
+      <strong>AI로 쓰는 나의 이야기</strong>
+      살아온 이야기를 글로. 수업이 끝나는 날, 인쇄된 소책자 한 권이 손에 남습니다.</div></div>
+    <div class="box"><div class="num">03</div><div class="txt">
+      <strong>함께 읽는 독서회 — 책과 AI</strong>
+      한 달에 한 번, 책 한 권. 읽고 이야기 나누고, 남긴 생각을 기록으로 모읍니다.</div></div>
+  </div>
+  <div class="infoline">
+    <div class="r"><b>장 소</b><span class="v-place">○○○</span></div>
+    <div class="r"><b>일 시</b><span class="v-when">○요일 ○○:○○ ~ ○○:○○</span></div>
+    <div class="r"><b>인 원</b><span class="v-num">○○명</span></div>
+    <div class="r"><b>시 작</b><span class="v-start">○월 ○일</span></div>
+  </div>
+  <div class="sig">수강료 없음 · 준비물은 쓰시던 스마트폰 하나<br>글씨가 잘 안 보이셔도 됩니다. 크게 키워 드립니다.</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardB2','WAA_수강생모집_카드2')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="card card3" id="cardB3">
+  <div class="tag">먼저 배우신 분들의 말</div>
+  <div class="headline">처음엔<br>다들 그러셨습니다.</div>
+  <div class="quote-box">
+    <p>"처음에 어려웠는데 자꾸 하니까 재미있습니다."</p>
+    <p>"가족 여행 가서 내가 직접 카카오택시를 예약했어요."</p>
+    <p>"더 배우고 싶어요. 꼭 다시 오세요."</p>
+  </div>
+  <div class="body">못 따라가실까 걱정하지 마십시오.<br>
+  진도보다 중요한 것은 끝까지 함께 가는 것입니다.<br>
+  옆자리 분도 똑같이 처음입니다.</div>
+  <div class="sig">신청 · <span class="v-apply">○○기관 ○○○</span><br>문의 · 박근오 010-2836-9495</div>
+</div>
+<div class="cardtools"><button class="shot-btn" onclick="saveCardImage('cardB3','WAA_수강생모집_카드3')">🖼 이 카드를 이미지로 저장</button></div>
+
+<div class="copy-area">
+  <h3>단체 카톡방 · 밴드에 올릴 안내 (카드 1·2와 함께)</h3>
+  <div class="copy-text" id="txt1">📱 스마트폰·AI 무료 강좌를 엽니다
+
+"자녀에게 물어보기 미안해서 그냥 참았다"는
+그 마음 때문에 만든 수업입니다.
+
+· 장 소 : ○○○
+· 일 시 : ○요일 ○○:○○ ~ ○○:○○
+· 인 원 : ○○명
+· 시 작 : ○월 ○일
+· 수강료 : 없음 (준비물은 쓰시던 스마트폰 하나)
+
+신청 · ○○기관 ○○○
+문의 · 박근오 010-2836-9495</div>
+  <button class="copy-btn" onclick="copyText('txt1','c1')">복사하기</button>
+  <span class="copied" id="c1">✓ 복사됨</span>
+</div>
+<div class="copy-area">
+  <h3>가족에게 전할 때 (자녀·보호자용)</h3>
+  <div class="copy-text" id="txt2">부모님께 권해드릴 만한 강좌가 열립니다.
+
+스마트폰 기초부터 AI까지, 천천히 진행합니다.
+진도를 맞추려고 뒤처진 분을 두고 가지 않습니다.
+
+강사는 카카오임팩트 「찾아가는 시니어 디지털 스쿨」
+시니어티처로 활동 중이며, 수강료는 없습니다.
+
+· 장 소 : ○○○   · 일 시 : ○요일 ○○:○○
+· 시 작 : ○월 ○일   · 신청 : ○○기관 ○○○
+
+문의 · 010-2836-9495</div>
+  <button class="copy-btn" onclick="copyText('txt2','c2')">복사하기</button>
+  <span class="copied" id="c2">✓ 복사됨</span>
+</div>
+<div class="copy-area">
+  <h3>개강 직전 다시 알릴 때 (마감 임박)</h3>
+  <div class="copy-text" id="txt3">📌 ○○기관 무료 강좌, 자리가 얼마 남지 않았습니다
+
+· 시 작 : ○월 ○일 ○요일 ○○:○○
+· 장 소 : ○○○
+· 남은 자리 : ○명
+
+"처음에 어려웠는데 자꾸 하니까 재미있습니다"
+먼저 배우신 분이 남기신 말입니다.
+
+한 번 나와 보시고 결정하셔도 괜찮습니다.
+신청 · ○○기관 ○○○ / 문의 · 010-2836-9495</div>
+  <button class="copy-btn" onclick="copyText('txt3','c3')">복사하기</button>
+  <span class="copied" id="c3">✓ 복사됨</span>
+</div>
+
+<script id="waa-runtime">
+function copyText(id, cId){
+  var txt = document.getElementById(id).innerText;
+  function done(){
+    var el = document.getElementById(cId);
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 2000);
+  }
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(done).catch(function(){ prompt('아래 내용을 복사하세요', txt); }); }
+  else { prompt('아래 내용을 복사하세요', txt); }
+}
+function saveCardImage(cardId, fname){
+  var el = document.getElementById(cardId);
+  if(typeof html2canvas === 'undefined'){
+    alert('이미지 저장 기능을 불러오지 못했습니다.\n인터넷 연결을 확인하시거나, 화면을 캡처(스크린샷)해서 사용하세요.');
+    return;
+  }
+  html2canvas(el, {scale:2, backgroundColor:null, useCORS:true}).then(function(canvas){
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = fname + '.png';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }).catch(function(){
+    alert('이미지로 만들지 못했습니다. 화면을 캡처(스크린샷)해서 사용하세요.');
+  });
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
