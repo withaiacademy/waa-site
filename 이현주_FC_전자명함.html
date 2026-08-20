@@ -117,8 +117,8 @@ footer b{color:var(--ink-soft)}
     <a class="act" href="mailto:tm3008@hanmail.net">
       <span class="ic">✉</span><strong>메일보내기</strong>
     </a>
-    <a class="act" id="kakaoBtn" href="#" onclick="copyKakao(event)">
-      <span class="ic">💬</span><strong>카톡 문의</strong>
+    <a class="act" id="copyBtn" href="#" onclick="copyCard(event)">
+      <span class="ic">📋</span><strong>명함 복사</strong>
     </a>
   </div>
 
@@ -176,12 +176,12 @@ function saveContact(){
   URL.revokeObjectURL(url);
 }
 
-function copyKakao(e){
+function copyCard(e){
   e.preventDefault();
-  const msg = '이현주 | 한화생명금융서비스 대경퍼펙트지점 FC팀장\n010-2816-2900 · tm3008@hanmail.net';
+  const msg = '이현주 | 한화생명금융서비스 대경퍼펙트지점 FC팀장\n010-2816-2900 · tm3008@hanmail.net\nhttps://withaiacademy.github.io/waa-site/이현주_FC_전자명함.html';
   if(navigator.clipboard){
     navigator.clipboard.writeText(msg).then(()=>{
-      alert('연락처가 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요.');
+      alert('명함 정보가 복사되었습니다. 카카오톡·문자에 붙여넣으면 그대로 전달됩니다.');
     }).catch(()=>{
       alert(msg);
     });

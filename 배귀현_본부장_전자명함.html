@@ -150,13 +150,13 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
     <a class="act" href="mailto:insure000@naver.com">
       <span class="ic">✉</span><strong>메일보내기</strong>
     </a>
-    <a class="act" id="kakaoBtn" href="#" onclick="return waaEditing() ? false : copyKakao(event)">
-      <span class="ic">💬</span><strong>카톡 문의</strong>
+    <a class="act" id="copyBtn" href="#" onclick="copyCard(event)">
+      <span class="ic">📋</span><strong>명함 복사</strong>
     </a>
   </div>
 
   <div class="savebar">
-    <button class="savebtn" onclick="waaEditing() ? waaToast('미리보기 모드에서 테스트해보세요') : saveContact()">📇 연락처 저장하기</button>
+    <button class="savebtn" onclick="saveContact()">📇 연락처 저장하기</button>
     <div class="saveNote">버튼을 누르면 연락처 파일(.vcf)이 다운로드됩니다.<br>열어서 저장하면 스마트폰 주소록에 바로 등록됩니다.</div>
   </div>
 
@@ -194,8 +194,8 @@ body.waa-edit .act,body.waa-edit .sitelink{cursor:default}
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
-function copyKakao(e){
+function copyCard(e){
   e.preventDefault();
-  const msg = "배귀현 | 본부장 · 프라임에셋 148본부\n010-0000-0000 · insure000@naver.com";
-  if(navigator.clipboard){ navigator.clipboard.writeText(msg).then(()=>{ alert("연락처가 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요."); }).catch(()=>{ alert(msg); }); } else { alert(msg); }
+  const msg = "배귀현 | 본부장 · 프라임에셋 148본부\n010-0000-0000 · insure000@naver.com\nhttps://withaiacademy.github.io/waa-site/배귀현_본부장_전자명함.html";
+  if(navigator.clipboard){ navigator.clipboard.writeText(msg).then(()=>{ alert("명함 정보가 복사되었습니다. 카카오톡·문자에 붙여넣으면 그대로 전달됩니다."); }).catch(()=>{ alert(msg); }); } else { alert(msg); }
 }</script></body></html>
