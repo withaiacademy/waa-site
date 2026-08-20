@@ -78,6 +78,20 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
 footer{padding:22px 24px 26px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.7}
 footer b{color:var(--ink-soft)}
 </style>
+<script>
+/* 카카오톡 인앱 브라우저에서 열렸을 때, 기본 브라우저로 자동 전환 */
+(function(){
+  try{
+    var ua = navigator.userAgent || '';
+    if(ua.indexOf('KAKAOTALK') === -1) return;            /* 카톡 안이 아니면 아무 일도 하지 않음 */
+    if(location.search.indexOf('ext=1') !== -1) return;   /* 이미 전환된 화면이면 반복 방지 */
+    var target = location.protocol + '//' + location.host + location.pathname
+               + (location.search ? location.search + '&ext=1' : '?ext=1')
+               + location.hash;
+    location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(target);
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 
