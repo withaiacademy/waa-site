@@ -46,7 +46,7 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
   border-bottom:1px solid var(--line);background:var(--paper)}
 .tagline b{color:var(--ink)}
 
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line)}
 .act{background:var(--surface);padding:18px 8px;text-align:center;text-decoration:none;color:var(--ink);
   display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .2s}
 .act .ic{width:34px;height:34px;border-radius:50%;background:rgba(226,87,76,.09);color:var(--coral);
@@ -117,9 +117,6 @@ footer b{color:var(--ink-soft)}
     <a class="act" href="mailto:lyw9384@naver.com">
       <span class="ic">✉</span><strong>메일보내기</strong>
     </a>
-    <a class="act" id="copyBtn" href="#" onclick="copyCard(event)">
-      <span class="ic">📋</span><strong>명함 복사</strong>
-    </a>
   </div>
 
   <div class="savebar">
@@ -176,19 +173,6 @@ function saveContact(){
   URL.revokeObjectURL(url);
 }
 
-function copyCard(e){
-  e.preventDefault();
-  const msg = '이연우 | 한화생명금융서비스 대경퍼펙트지점 수석팀장\n010-2916-2828 · lyw9384@naver.com\nhttps://withaiacademy.github.io/waa-site/이연우_FC_전자명함.html';
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(msg).then(()=>{
-      alert('명함 정보가 복사되었습니다. 카카오톡·문자에 붙여넣으면 그대로 전달됩니다.');
-    }).catch(()=>{
-      alert(msg);
-    });
-  } else {
-    alert(msg);
-  }
-}
 </script>
 
 </body>
