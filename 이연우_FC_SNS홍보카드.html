@@ -7,7 +7,7 @@
 <meta property="og:title" content="이연우 수석팀장 — SNS 홍보 카드">
 <meta property="og:description" content="카카오톡 프로필·채널 게시용 홍보 카드 3종과 복사용 문구">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://withaiacademy.github.io/waa-site/이연우.jpg?v=3">
+<meta property="og:image" content="https://withaiacademy.github.io/waa-site/이연우.jpg?v=4">
 <meta property="og:image:width" content="896">
 <meta property="og:image:height" content="1195">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
@@ -170,11 +170,31 @@ https://withaiacademy.github.io/waa-site/이연우_FC_미니사이트.html</div>
 <script>
 function copyText(id, cId) {
   var txt = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(txt).then(function() {
+  function done(){
     var el = document.getElementById(cId);
     el.style.display = 'inline';
     setTimeout(function(){ el.style.display = 'none'; }, 2000);
-  });
+  }
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    if (ok) { done(); }
+    else { alert('복사가 되지 않았습니다. 위 문구를 길게 눌러 직접 복사해 주세요.'); }
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
 }
 </script>
 
