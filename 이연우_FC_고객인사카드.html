@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이연우 수석팀장 — 고객 인사카드 4종</title>
+<meta property="og:title" content="이연우 수석팀장 — 고객 인사카드">
+<meta property="og:description" content="계약 감사 · 상담 중 · 첫 만남 전 · 추석 인사 카드와 복사용 문구">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://withaiacademy.github.io/waa-site/이연우.jpg?v=6">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="900">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;background:#F0F2F5;padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:32px}
+.page-title{font-size:13px;letter-spacing:.14em;color:#888;font-weight:500;margin-bottom:4px;text-align:center}
+.card{width:100%;max-width:480px;border-radius:16px;overflow:hidden;position:relative}
+
+/* 카드 1 — 계약 감사 */
+.card1{background:#16233F;color:#fff;padding:44px 36px 40px}
+.card1 .tag{font-size:11px;letter-spacing:.2em;color:#C9922E;font-weight:700;margin-bottom:20px}
+.card1 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.card1 .headline em{font-style:normal;color:#C9922E}
+.card1 .body{font-size:14.5px;line-height:1.85;color:rgba(255,255,255,.78);border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-bottom:28px}
+.card1 .sig{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.card1 .deco{position:absolute;right:-40px;bottom:-40px;width:160px;height:160px;border:1px solid rgba(201,146,46,.2);border-radius:50%}
+.card1 .deco2{position:absolute;right:-10px;bottom:-10px;width:100px;height:100px;border:1px solid rgba(201,146,46,.35);border-radius:50%}
+
+/* 카드 2 — 상담 중 */
+.card2{background:#fff;padding:44px 36px 40px;border:1px solid #E5E9F0}
+.card2 .tag{font-size:11px;letter-spacing:.2em;color:#E2574C;font-weight:700;margin-bottom:20px}
+.card2 .headline{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-.03em;color:#16233F;margin-bottom:8px}
+.card2 .sub{font-size:15px;color:#6B7A90;margin-bottom:20px;line-height:1.6}
+.card2 .boxes{display:grid;gap:10px;margin-bottom:28px}
+.card2 .box{background:#F4F6F9;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.card2 .box .num{font-size:11px;font-weight:700;color:#E2574C;flex:0 0 18px;padding-top:2px}
+.card2 .box .txt{font-size:13.5px;color:#2C3E5E;line-height:1.65}
+.card2 .box .txt strong{display:block;font-size:14px;margin-bottom:3px;color:#16233F}
+.card2 .sig{font-size:12px;color:#9AA3B0;letter-spacing:.06em;border-top:1px solid #E5E9F0;padding-top:16px}
+
+/* 카드 3 — 첫 만남 전 */
+.card3{background:linear-gradient(145deg,#1A6B3C 0%,#0D4A2A 100%);color:#fff;padding:44px 36px 40px}
+.card3 .tag{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:20px}
+.card3 .headline{font-size:28px;font-weight:700;line-height:1.35;letter-spacing:-.03em;margin-bottom:22px}
+.card3 .quote-box{background:rgba(255,255,255,.1);border-left:3px solid rgba(255,255,255,.45);border-radius:0 8px 8px 0;padding:16px 18px;margin-bottom:22px}
+.card3 .quote-box p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.92)}
+.card3 .body{font-size:14.5px;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:28px}
+.card3 .sig{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em}
+
+/* 카드 4 — 추석 */
+.card4{background:#FBF5E9;padding:44px 36px 40px;border:1px solid #EADFC8}
+.card4 .tag{font-size:11px;letter-spacing:.2em;color:#B07C1E;font-weight:700;margin-bottom:20px}
+.card4 .headline{font-size:30px;font-weight:700;line-height:1.35;letter-spacing:-.03em;color:#16233F;margin-bottom:20px}
+.card4 .headline em{font-style:normal;color:#B07C1E}
+.card4 .body{font-size:14.5px;line-height:1.85;color:#4A5568;border-top:1px solid #EADFC8;padding-top:20px;margin-bottom:28px}
+.card4 .sig{font-size:12px;color:#9A8B6E;letter-spacing:.06em}
+.card4 .moon{position:absolute;right:28px;top:28px;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F5E3B8,#E8CE93)}
+
+/* 복사 영역 */
+.copy-area{width:100%;max-width:480px;background:#fff;border:1px solid #E5E9F0;border-radius:12px;padding:22px 20px}
+.copy-area h3{font-size:14px;color:#16233F;font-weight:700;margin-bottom:12px}
+.copy-text{font-size:13.5px;line-height:1.75;color:#2C3E5E;white-space:pre-wrap;background:#F7F8FA;border-radius:8px;padding:16px;margin-bottom:12px;word-break:break-all}
+.copy-btn{background:#16233F;color:#fff;border:none;border-radius:8px;padding:11px 22px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer}
+.copy-btn:active{opacity:.75}
+.copied{display:none;margin-left:10px;font-size:13px;color:#1A6B3C;font-weight:600}
+.when{font-size:12px;color:#9AA3B0;margin-bottom:12px;line-height:1.6}
+
+/* 사용법 */
+.usage{width:100%;max-width:480px;background:#fff;border:1px solid #E5E9F0;border-radius:12px;padding:24px 22px}
+.usage h3{font-size:15px;color:#16233F;font-weight:700;margin-bottom:14px}
+.usage ul{list-style:none}
+.usage li{font-size:13.5px;line-height:1.8;color:#4A5568;padding-left:16px;position:relative;margin-bottom:8px}
+.usage li:before{content:"·";position:absolute;left:4px;color:#C9922E;font-weight:700}
+.usage li b{color:#16233F}
+.warn{margin-top:16px;background:#FBEDEC;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.75;color:#A33C33}
+</style>
+</head>
+<body>
+
+<p class="page-title">이연우 수석팀장 · 고객 인사카드 4종</p>
+
+<!-- 카드 1 -->
+<div class="card card1">
+  <div class="tag">고객 인사 01 · 계약 감사</div>
+  <div class="headline">믿고 맡겨 주셔서<br><em>감사합니다.</em></div>
+  <div class="body">서명하신 그날이 끝이 아니라 시작입니다.<br><br>청구할 일이 생기셨을 때,<br>내용이 다시 궁금해지셨을 때,<br>주소나 연락처가 바뀌셨을 때 —<br>가장 먼저 떠오르는 사람이 되겠습니다.<br><br>먼저 여쭙고, 먼저 챙기겠습니다.</div>
+  <div class="sig">이연우 수석팀장 · 한화생명금융서비스 대경퍼펙트지점 · 010-2916-2828</div>
+  <div class="deco"></div>
+  <div class="deco2"></div>
+</div>
+
+<!-- 카드 2 -->
+<div class="card card2">
+  <div class="tag">고객 인사 02 · 상담 진행 중</div>
+  <div class="headline">천천히<br>결정하십시오.</div>
+  <div class="sub">재촉하지 않겠습니다.</div>
+  <div class="boxes">
+    <div class="box"><div class="num">①</div><div class="txt"><strong>다시 물으셔도 됩니다</strong>한 번 듣고 전부 이해되는 내용이 아닙니다. 같은 것을 몇 번 다시 물으셔도 괜찮습니다. 그게 제 일입니다.</div></div>
+    <div class="box"><div class="num">②</div><div class="txt"><strong>가족과 상의하실 시간을 드립니다</strong>결정은 대개 그날 저녁 가족 대화에서 납니다. 그 자리에 제가 없어도 되도록, 오늘 나눈 이야기를 정리해 보내드리겠습니다.</div></div>
+    <div class="box"><div class="num">③</div><div class="txt"><strong>결론이 안 나도 관계는 남습니다</strong>이번에 결정하지 않으셔도 됩니다. 필요하실 때 편하게 연락 주시는 사이로 남고 싶습니다.</div></div>
+  </div>
+  <div class="sig">이연우 수석팀장 · 한화생명금융서비스 대경퍼펙트지점 · 010-2916-2828</div>
+</div>
+
+<!-- 카드 3 -->
+<div class="card card3">
+  <div class="tag">고객 인사 03 · 첫 만남 전</div>
+  <div class="headline">만나기 전에<br>먼저 인사드립니다.</div>
+  <div class="quote-box">
+    <p>"처음 뵙는 자리에서 제 소개에 쓰는 10분이 아깝습니다. 그 시간을 고객님 이야기를 듣는 데 쓰고 싶습니다."</p>
+  </div>
+  <div class="body">제가 어떤 사람인지,<br>상담이 어떤 순서로 진행되는지<br>미리 적어 두었습니다.<br><br>편하실 때 한 번 훑어보고 오시면 됩니다.</div>
+  <div class="sig">이연우 수석팀장 · 한화생명금융서비스 대경퍼펙트지점 · 010-2916-2828</div>
+</div>
+
+<!-- 카드 4 -->
+<div class="card card4">
+  <div class="moon"></div>
+  <div class="tag">계절 인사 · 2026 추석</div>
+  <div class="headline">올 한가위,<br><em>넉넉하시길.</em></div>
+  <div class="body">오가시는 길 안전하시고,<br>가족과 보내시는 시간이<br>길고 넉넉하시기를 바랍니다.<br><br>연휴 중에도 급한 일이 생기시면<br>편하게 연락 주십시오.</div>
+  <div class="sig">이연우 수석팀장 · 한화생명금융서비스 대경퍼펙트지점 · 010-2916-2828</div>
+</div>
+
+<!-- 복사용 문구 -->
+<div class="copy-area">
+  <h3>복사용 문구 ① — 계약해 주신 고객께</h3>
+  <p class="when">보내는 때 : 청약 후 3~7일 이내. 증권이 도착할 무렵이 가장 좋습니다.</p>
+  <div class="copy-text" id="txt1">○○님, 이번에 믿고 맡겨 주셔서 감사합니다.
+
+서명하신 그날이 끝이 아니라 시작이라고 생각합니다.
+청구할 일이 생기셨을 때, 내용이 다시 궁금해지셨을 때,
+주소나 연락처가 바뀌셨을 때 — 언제든 편하게 연락 주십시오.
+
+제 연락처와 상담 안내를 여기에 정리해 두었습니다.
+가족분들이 "누구한테 들었냐" 물으시면 이 링크 보여주셔도 됩니다.
+
+https://withaiacademy.github.io/waa-site/이연우_FC_미니사이트.html
+
+📞 이연우 수석팀장 · 010-2916-2828
+한화생명금융서비스 대경퍼펙트지점</div>
+  <button class="copy-btn" onclick="copyText('txt1','c1')">복사하기</button>
+  <span class="copied" id="c1">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ② — 상담 진행 중인 고객께</h3>
+  <p class="when">보내는 때 : 상담한 날 저녁. 가족 대화가 시작되기 전에 도착하는 것이 핵심입니다.</p>
+  <div class="copy-text" id="txt2">○○님, 오늘 시간 내주셔서 감사합니다.
+
+한 번에 다 이해되는 내용이 아니니 천천히 보셔도 됩니다.
+저는 재촉하지 않겠습니다.
+
+가족분들과 이야기 나누실 때 참고하시라고
+제 소개와 상담 진행 순서를 링크로 보내드립니다.
+
+https://withaiacademy.github.io/waa-site/이연우_FC_미니사이트.html
+
+궁금한 점은 여기 문의란에 남겨주셔도 되고,
+편하게 전화 주셔도 됩니다.
+
+📞 이연우 수석팀장 · 010-2916-2828
+한화생명금융서비스 대경퍼펙트지점</div>
+  <button class="copy-btn" onclick="copyText('txt2','c2')">복사하기</button>
+  <span class="copied" id="c2">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ③ — 상담 약속이 잡힌 고객께</h3>
+  <p class="when">보내는 때 : 약속을 잡은 다음 날. 만나기 하루 전에 한 번 더 보내면 노쇼가 줄어듭니다.</p>
+  <div class="copy-text" id="txt3">○○님, ○요일 ○시에 뵙기로 한 이연우입니다.
+
+만나기 전에 제 소개를 미리 보내드립니다.
+
+https://withaiacademy.github.io/waa-site/이연우_FC_미니사이트.html
+
+어떤 순서로 상담이 진행되는지도 적어 두었으니
+편하실 때 한 번 보고 오시면 됩니다.
+
+처음 뵙는 자리에서 제 소개에 쓰는 시간이 아깝습니다.
+그 시간을 ○○님 이야기 듣는 데 쓰고 싶습니다.
+
+📞 이연우 수석팀장 · 010-2916-2828</div>
+  <button class="copy-btn" onclick="copyText('txt3','c3')">복사하기</button>
+  <span class="copied" id="c3">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ④ — 추석 인사 <span style="color:#B07C1E">(9/22~9/23 발송)</span></h3>
+  <p class="when">보내는 때 : 9월 22일(화)~23일(수). 연휴 첫날인 24일에 보내면 이동 중이라 묻힙니다.</p>
+  <div class="copy-text" id="txt4">○○님, 올 한가위 넉넉하게 보내시기 바랍니다.
+
+오가시는 길 안전하시고,
+가족과 보내시는 시간이 길고 넉넉하시길 바랍니다.
+
+연휴 중에도 급한 일이 생기시면 편하게 연락 주십시오.
+연락처는 여기 있습니다.
+
+https://withaiacademy.github.io/waa-site/이연우_FC_전자명함.html
+
+📞 이연우 수석팀장 · 010-2916-2828
+한화생명금융서비스 대경퍼펙트지점</div>
+  <button class="copy-btn" onclick="copyText('txt4','c4')">복사하기</button>
+  <span class="copied" id="c4">✓ 복사됨</span>
+</div>
+
+<div class="usage">
+  <h3>이렇게 쓰십시오</h3>
+  <ul>
+    <li>카드는 <b>화면을 캡처</b>해서 이미지로 저장한 뒤, 문구와 함께 보냅니다.</li>
+    <li>문구는 <b>복사하기</b> 버튼을 누른 뒤 카톡에 붙여넣고, <b>○○님 자리에 고객 성함만 바꿔</b> 넣으십시오.</li>
+    <li>①②③은 <b>고객 한 분 한 분에게 개별로</b> 보냅니다. 여러 명 묶어 보내면 티가 납니다.</li>
+    <li>④ 추석 인사도 <b>단체 메시지·단톡방 일괄 발송은 하지 마십시오.</b> 명절 인사는 개별로 갈 때만 인사가 됩니다.</li>
+    <li>①에는 미니사이트, ④에는 전자명함 링크가 들어 있습니다. <b>링크를 지우지 마십시오.</b> 링크가 없으면 그냥 인사로 끝납니다.</li>
+    <li>답장이 오면 <b>그날 안에</b> 답하십시오. 하루 넘기면 온기가 식습니다.</li>
+  </ul>
+  <div class="warn">
+    <b>지켜야 할 선</b><br>
+    상품명 · 보장 금액 · 보험료 · 환급률 수치를 덧붙이지 마십시오. "무료", "최고", "100%" 같은 표현도 쓰지 않습니다. 심의 번호가 나오기 전까지는 <b>명함에 적을 수 있는 범위</b>까지만입니다.<br><br>
+    감사 인사에 <b>추가 가입 권유를 붙이지 마십시오.</b> 감사와 권유가 한 통에 같이 오면, 고객은 감사를 권유로 읽습니다.
+  </div>
+</div>
+
+<script>
+function copyText(id, cId) {
+  var txt = document.getElementById(id).innerText;
+  function done(){
+    var el = document.getElementById(cId);
+    el.style.display = 'inline';
+    setTimeout(function(){ el.style.display = 'none'; }, 2000);
+  }
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    if (ok) { done(); }
+    else { alert('복사가 되지 않았습니다. 위 문구를 길게 눌러 직접 복사해 주세요.'); }
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
+}
+</script>
+
+</body>
+</html>
