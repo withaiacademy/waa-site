@@ -104,8 +104,8 @@ footer b{color:var(--ink-soft)}
     <a class="act" href="mailto:insure00@naver.com">
       <span class="ic">✉</span><strong>메일보내기</strong>
     </a>
-    <a class="act" id="kakaoBtn" href="#" onclick="copyKakao(event)">
-      <span class="ic">💬</span><strong>카톡 문의</strong>
+    <a class="act" href="https://withaiacademy.github.io/waa-site/심쿵한마디.html?fc=이서연">
+      <span class="ic">♡</span><strong>심쿵 한마디</strong>
     </a>
   </div>
 
@@ -161,19 +161,6 @@ function saveContact(){
   URL.revokeObjectURL(url);
 }
 
-function copyKakao(e){
-  e.preventDefault();
-  const msg = '이서연 | 한화금융서비스 현빈지사 FC\n000-0000-0000 · insure00@naver.com';
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(msg).then(()=>{
-      alert('연락처가 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요.');
-    }).catch(()=>{
-      alert(msg);
-    });
-  } else {
-    alert(msg);
-  }
-}
 </script>
 
 </body>
