@@ -138,7 +138,7 @@ footer{padding:22px 24px 26px;text-align:center;font-size:11px;color:var(--muted
 
   <div class="sharebar">
     <button class="sharebtn" onclick="shareIt()">심쿵 한마디 전하기</button>
-    <div class="shareNote">카카오톡으로 전하면<br>받는 분도 이 화면을 열어봅니다.</div>
+    <div class="shareNote">링크만 전해집니다.<br>앞에 한마디 적어 보내보세요.</div>
   </div>
 
   <div class="fc" id="fcBox">
@@ -317,12 +317,11 @@ function reset(){
 
 function shareIt(){
   // 고른 문장은 일부러 넣지 않습니다. 미리 읽어버리면 링크를 열 이유가 없어집니다.
-  // 아래 카드가 이미 '심쿵 한마디'를 말해주므로, 이 줄은 안부와 보낸 사람만 담습니다.
-  // 직함은 일부러 뺐습니다 — 직함이 붙으면 안부가 영업으로 읽힙니다.
-  const head = FC
-    ? (month + '월 안부 인사입니다 · ' + FC.name + ' 드림')
-    : (month + '월 안부 인사입니다');
-  const msg = head + '\n' + location.href;
+  // 주소만 내보냅니다. 미리 써둔 문구를 넣지 않는 이유:
+  //  · 카카오톡이 아래에 미리보기 카드를 만들어 무엇인지 알려줍니다
+  //  · 보내는 분이 앞에 직접 한마디 적을 자리가 생깁니다 (그 한 줄이 가장 잘 통합니다)
+  // 나중에 쓸 문구가 정해지면 아래 한 줄만 바꾸면 됩니다.
+  const msg = location.href;
 
   if(navigator.share){
     navigator.share({title: month + '월의 심쿵 한마디', text: msg}).catch(function(){});
@@ -330,7 +329,7 @@ function shareIt(){
   }
   if(navigator.clipboard){
     navigator.clipboard.writeText(msg).then(function(){
-      alert('한마디가 복사되었습니다. 카카오톡이나 문자에 붙여넣으면 그대로 전달됩니다.');
+      alert('링크가 복사되었습니다. 카카오톡에 붙여넣은 뒤, 앞에 한마디 적으시면 더 좋습니다.');
     }).catch(function(){ alert(msg); });
     return;
   }
