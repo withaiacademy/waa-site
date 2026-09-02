@@ -317,9 +317,11 @@ function reset(){
 
 function shareIt(){
   // 고른 문장은 일부러 넣지 않습니다. 미리 읽어버리면 링크를 열 이유가 없어집니다.
+  // 아래 카드가 이미 '심쿵 한마디'를 말해주므로, 이 줄은 안부와 보낸 사람만 담습니다.
+  // 직함은 일부러 뺐습니다 — 직함이 붙으면 안부가 영업으로 읽힙니다.
   const head = FC
-    ? (FC.name + ' ' + FC.role + '가 전하는 ' + month + '월의 심쿵 한마디')
-    : (month + '월의 심쿵 한마디');
+    ? (month + '월 안부 인사입니다 · ' + FC.name + ' 드림')
+    : (month + '월 안부 인사입니다');
   const msg = head + '\n' + location.href;
 
   if(navigator.share){
