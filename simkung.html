@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심쿵 한마디</title>
+<meta property="og:title" content="심쿵 한마디">
+<meta property="og:description" content="오늘 마음이 가는 쪽은? — 매달 한 편씩 전합니다">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#16233F; --ink-soft:#2C3E5E; --paper:#EFF2F6; --surface:#FFFFFF;
+  --coral:#E2574C; --amber:#C9922E; --muted:#6B7A90; --line:#D9E0E9; --maxw:400px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px}
+
+.card{max-width:var(--maxw);width:100%;background:var(--surface);border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(22,35,63,.16)}
+
+/* 머리 */
+.top{background:var(--ink);color:#fff;padding:34px 28px 28px;text-align:center;position:relative;overflow:hidden}
+.top::after{content:'';position:absolute;right:-60px;top:-70px;width:190px;height:190px;
+  border:1px solid rgba(255,255,255,.09);border-radius:50%}
+.top::before{content:'';position:absolute;left:-46px;bottom:-56px;width:150px;height:150px;
+  border:1px solid rgba(201,146,46,.22);border-radius:50%}
+.top>*{position:relative;z-index:2}
+.month{font-size:11.5px;letter-spacing:.2em;color:var(--amber);font-weight:600;margin-bottom:11px}
+.ttl{font-family:'Gowun Batang',serif;font-size:25px;font-weight:700;letter-spacing:-.02em}
+.sub{font-size:12.5px;color:rgba(255,255,255,.62);margin-top:9px}
+
+/* 고르는 자리 */
+#askWrap{background:var(--paper);padding-bottom:2px}
+.ask{padding:26px 24px 0;text-align:center;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+.hint{padding:9px 24px 0;text-align:center;font-size:12.5px;
+  color:var(--amber);letter-spacing:-.01em}
+.picks{padding:16px 20px 26px;display:flex;flex-direction:column;gap:12px}
+.pick{position:relative;width:100%;background:var(--surface);border:1.5px solid #D5DEE9;border-radius:15px;
+  padding:24px 22px 24px 56px;font-family:'Gowun Batang',serif;font-size:17px;font-weight:400;line-height:1.85;
+  color:var(--ink);text-align:left;cursor:pointer;letter-spacing:-.02em;overflow:hidden;
+  box-shadow:0 4px 14px rgba(22,35,63,.08);transition:border-color .18s,background .18s,box-shadow .18s}
+.pick::after{content:'\201D';position:absolute;right:12px;bottom:-30px;font-family:'Gowun Batang',serif;
+  font-size:88px;line-height:1;color:rgba(22,35,63,.042);pointer-events:none}
+.pick .txt{position:relative;z-index:2;display:block}
+.pick .mark{position:absolute;left:18px;top:24px;width:26px;height:26px;border:2px solid #9FB0C6;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:system-ui,sans-serif;font-size:14px;font-weight:700;color:transparent;
+  background:var(--surface);transition:background .18s,border-color .18s,color .18s}
+.pick:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.pick:active{border-color:var(--amber)}
+@media(hover:hover){.pick:hover{border-color:var(--amber);box-shadow:0 6px 18px rgba(22,35,63,.12)}
+  .pick:hover .mark{border-color:var(--amber)}}
+.pick.sel{border-color:var(--coral);background:#FFF7F6;box-shadow:0 6px 18px rgba(226,87,76,.18)}
+.pick.sel .mark{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* 고른 뒤 */
+.chosen{display:none;padding:30px 24px 26px}
+.chosen.on{display:block}
+.chosenbox{background:var(--ink);color:#fff;border-radius:14px;padding:30px 24px}
+.chosenbox .q{font-family:'Gowun Batang',serif;font-size:19.5px;line-height:1.8;letter-spacing:-.02em}
+.chosenbox .r{margin-top:18px;padding-top:17px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:14px;line-height:1.85;color:rgba(255,255,255,.76)}
+.again{display:block;width:100%;margin-top:14px;background:none;border:none;font-family:inherit;
+  font-size:12.5px;color:var(--muted);cursor:pointer;padding:6px;text-decoration:underline;text-underline-offset:3px}
+
+/* 메모 */
+.memo{margin:22px 24px 0;padding:20px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;border-left:3px solid var(--amber)}
+.memo .mt{font-size:12px;font-weight:700;color:var(--amber);margin-bottom:9px;letter-spacing:-.01em}
+.memo .mb{font-size:13.5px;line-height:1.8;color:var(--ink-soft)}
+
+/* 나누기 */
+.sharebar{padding:22px 24px 6px}
+.sharebtn{display:block;width:100%;padding:16px;background:var(--coral);color:#fff;border:none;border-radius:10px;
+  font-family:inherit;font-size:15.5px;font-weight:700;letter-spacing:-.02em;cursor:pointer}
+.sharebtn:active{background:#C8483E}
+@media(hover:hover){.sharebtn:hover{background:#C8483E}}
+.shareNote{font-size:11.5px;color:var(--muted);text-align:center;margin-top:9px;line-height:1.55}
+
+/* FC */
+.fc{margin:20px 24px 0;padding:17px 18px;border:1px solid var(--line);border-radius:12px}
+.fc .who{font-size:13.5px;font-weight:700}
+.fc .org{font-size:11.5px;color:var(--muted);margin-top:3px}
+.fcacts{display:flex;gap:8px;margin-top:14px}
+.fcacts a{flex:1;text-align:center;padding:11px 4px;border:1px solid var(--line);border-radius:9px;
+  text-decoration:none;color:var(--ink);font-size:12.5px;font-weight:600}
+.fcacts a:active{background:var(--paper)}
+@media(hover:hover){.fcacts a:hover{background:var(--paper)}}
+
+footer{padding:22px 24px 26px;text-align:center;font-size:11px;color:var(--muted);line-height:1.7}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="top">
+    <div class="month" id="mLabel">9월</div>
+    <div class="ttl">심쿵 한마디</div>
+    <div class="sub" id="sub">매달 한 편씩 전합니다</div>
+  </div>
+
+  <div id="askWrap">
+    <div class="ask">오늘 마음이 가는 쪽은?</div>
+    <div class="hint">두 문장 중 하나를 눌러보세요</div>
+    <div class="picks">
+      <button class="pick" id="pickA" onclick="choose('a',this)">
+        <span class="mark" aria-hidden="true">&#10003;</span>
+        <span class="txt" id="txtA"></span>
+      </button>
+      <button class="pick" id="pickB" onclick="choose('b',this)">
+        <span class="mark" aria-hidden="true">&#10003;</span>
+        <span class="txt" id="txtB"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="chosen" id="chosen">
+    <div class="chosenbox">
+      <div class="q" id="cq"></div>
+      <div class="r" id="cr"></div>
+    </div>
+    <button class="again" onclick="reset()">다른 한마디도 보기</button>
+  </div>
+
+  <div class="memo">
+    <div class="mt" id="memoTitle">이달의 메모</div>
+    <div class="mb" id="memoBody"></div>
+  </div>
+
+  <div class="sharebar">
+    <button class="sharebtn" onclick="shareIt()">심쿵 한마디 전하기</button>
+    <div class="shareNote">카카오톡으로 전하면<br>받는 분도 이 화면을 열어봅니다.</div>
+  </div>
+
+  <div class="fc" id="fcBox">
+    <div class="who" id="fcWho"></div>
+    <div class="org" id="fcOrg"></div>
+    <div class="fcacts" id="fcActs"></div>
+  </div>
+
+  <footer id="foot"></footer>
+
+</div>
+
+<script>
+/* ─────────────────────────────────────────
+   1) 열두 달 내용  (매달 이 부분만 손보면 됩니다)
+   ───────────────────────────────────────── */
+const MONTHS = {
+  1:{
+    a:{q:"달력 한 장 바뀌었을 뿐인데 마음이 달라지는 걸 보면, 사람은 계기가 필요한 모양입니다",
+       r:"의지가 약해서가 아닙니다. 다들 그렇게 시작합니다. 1월이 있는 이유가 그것입니다."},
+    b:{q:"새해는 1월 1일에 오지 않습니다. 무언가 하나를 바꾼 날에 옵니다",
+       r:"거창하지 않아도 됩니다. 아침에 물 한 잔, 저녁에 십 분 걷기. 하나를 바꿔본 사람만 다음 것도 바꿉니다."},
+    memo:"새해 첫 달에 자동이체 목록을 한 번 훑어보십시오. 몇 해째 빠져나가는데 뭔지도 모르는 항목이 꼭 하나둘 있습니다."
+  },
+  2:{
+    a:{q:"애쓴 날에는, 애썼다는 말이 제일 듣고 싶습니다",
+       r:"아무도 해주지 않으면 스스로에게 하셔도 됩니다. 오늘 하루 애쓰셨다고, 소리 내어 한 번."},
+    b:{q:"듣고 싶은 그 말을, 오늘 누군가에게 먼저 건네보십시오",
+       r:"받고 싶은 말이 곧 내가 가장 잘 아는 말입니다. 그래서 누구보다 정확하게 건넬 수 있습니다."},
+    memo:"주소나 연락처가 바뀌면 금융기관마다 따로 알려야 합니다. 한 곳에 알렸다고 다 바뀌지 않아서, 정작 중요한 우편물이 옛 주소로 갑니다."
+  },
+  3:{
+    a:{q:"서툴렀던 첫날이 있어서 지금이 있습니다",
+       r:"지금 능숙한 일도 처음엔 손이 떨렸을 겁니다. 그 날을 기억하는 사람만이 남의 첫날을 알아봅니다."},
+    b:{q:"잘하게 된 다음에 시작한 사람은 없습니다. 오늘을 첫날로 삼으십시오",
+       r:"준비가 끝나면 시작하겠다는 말은, 대개 시작하지 않겠다는 말입니다. 오늘 삼십 분만 써보십시오."},
+    memo:"신분증과 중요한 서류는 사진으로 찍어 휴대폰에 넣어두십시오. 잃어버렸을 때 원본보다 사진 한 장이 더 빨리 일을 해결해줍니다."
+  },
+  4:{
+    a:{q:"눈에 보이지 않던 시간에도, 뿌리는 일하고 있었습니다",
+       r:"아무 일도 없던 것 같은 시간이 사실은 가장 바쁜 시간이었습니다. 지금이 그런 때라면, 잘 가고 계신 겁니다."},
+    b:{q:"미뤄둔 일 하나만 오늘 꺼내보십시오. 뿌리는 그렇게 자랍니다",
+       r:"다 해내지 않아도 됩니다. 꺼내서 펼쳐놓는 것만으로 절반은 시작된 겁니다."},
+    memo:"건강검진 미루지 마십시오. 미루는 이유는 늘 바빠서인데, 그 바쁜 일은 내년에도 그대로 있습니다."
+  },
+  5:{
+    a:{q:"마음은 전해질 거라 믿지만, 말은 해야 도착합니다",
+       r:"가까운 사이일수록 말을 아끼게 됩니다. 알아줄 거라 믿어서인데, 대개는 알아주지 못합니다."},
+    b:{q:"지금 떠오른 그 얼굴에게, 오늘 안에 연락하십시오",
+       r:"용건은 없어도 됩니다. 용건 없이 오는 연락이 제일 오래 기억에 남습니다."},
+    memo:"우리의 경쟁자는 AI가 아니라, AI를 나보다 잘 쓰는 사람입니다. 어렵게 배울 것도 없습니다. 궁금한 걸 말로 물어보는 것부터가 시작입니다."
+  },
+  6:{
+    a:{q:"무언가를 준비한다는 건, 지킬 사람이 있다는 뜻입니다",
+       r:"걱정이 많은 게 아니라 아끼는 것이 많은 겁니다. 그 마음이 여태 잘 지켜온 겁니다."},
+    b:{q:"오늘 하나만 점검해두십시오. 걱정은 딱 그만큼 줄어듭니다",
+       r:"머릿속에만 있는 걱정은 크기를 알 수 없습니다. 꺼내서 확인해보면 대개 생각보다 작습니다."},
+    memo:"아무것도 지킬 게 없는 사람은 준비하지 않습니다. 지금 준비해두신 것들이 있다면, 그건 지킬 사람이 있다는 뜻입니다."
+  },
+  7:{
+    a:{q:"쉬지 않고 달린 사람이 결국 먼저 멈춥니다",
+       r:"쉬지 못하는 건 부지런해서가 아니라, 멈추면 뒤처질 것 같아서입니다. 그 불안이 사람을 먼저 지치게 합니다."},
+    b:{q:"오늘 삼십 분은 아무 일정도 넣지 마십시오",
+       r:"비워둔 삼십 분이 아깝게 느껴진다면, 그만큼 필요하다는 뜻입니다."},
+    memo:"가족 구성이 바뀌면 보험금의 주인도 바뀔 수 있습니다. 결혼·출산처럼 달라진 일이 있었다면 수익자가 누구로 되어 있는지 한 번 확인해보십시오."
+  },
+  8:{
+    a:{q:"나무는 자기 그늘에 앉지 않습니다",
+       r:"누군가에게 그늘이 되어준 날은 스스로는 잘 모릅니다. 모르고 하셨을 뿐, 없었던 게 아닙니다."},
+    b:{q:"오늘 누군가의 그늘이 되어보십시오. 한 사람이면 충분합니다",
+       r:"대단한 일이 아니어도 됩니다. 안부 한 번, 자리 한 번 내어주는 것으로 충분합니다."},
+    memo:"급할 때 가족이 어디를 봐야 하는지 정해두십시오. 서류가 어느 서랍에 있는지, 누구에게 연락하면 되는지. 이것만 정해둬도 큰일이 작은 일이 됩니다."
+  },
+  9:{
+    a:{q:"명절이 반가운 건 음식이 아니라, 내 자리가 있어서입니다",
+       r:"누가 내 자리를 비워두고 기다린다는 것. 그게 명절이 오래 남는 이유입니다."},
+    b:{q:"올해는 그 자리를 지켜준 분에게 먼저 전화를 거십시오",
+       r:"가서 뵙는 것보다 먼저 거는 전화가 더 오래 기억됩니다. 기다리는 시간까지 함께 드리는 셈이니까요."},
+    memo:"명절에 부모님과 나누기 좋은 이야기 하나. 어떤 서류가 어디 있는지, 급할 때 누구에게 연락하면 되는지. 무거워 보이지만 미뤄두면 훨씬 무거워집니다."
+  },
+  10:{
+    a:{q:"잘 익은 것들은 다 조용히 익었습니다",
+       r:"요란하지 않다고 자라지 않는 게 아닙니다. 티 나지 않는 시간이 결국 맛을 만듭니다."},
+    b:{q:"소리 나지 않는 일 하나를 오늘 시작하십시오",
+       r:"누구에게 말하지 않아도 되는 일이면 더 좋습니다. 혼자 아는 일이 오래 갑니다."},
+    memo:"잊고 지낸 돈이 있을 수 있습니다. '어카운트인포'에서 안 쓰는 계좌와 잠자는 예금을, '내보험다보여'에서 본인 이름으로 든 보험을 한눈에 볼 수 있습니다."
+  },
+  11:{
+    a:{q:"덜어내는 것도 채우는 일입니다",
+       r:"버리는 게 아까운 건 아직 쓸모를 믿어서입니다. 그 믿음까지 내려놓아야 자리가 생깁니다."},
+    b:{q:"오늘 하나를 비우십시오. 물건이든 마음이든",
+       r:"서랍 한 칸이면 충분합니다. 한 칸이 비면 그 다음 칸은 훨씬 쉬워집니다."},
+    memo:"비워둔 자리에만 새것이 들어옵니다. 올해 안 쓴 것, 안 본 것, 안 만난 것을 한 번 정리해보십시오."
+  },
+  12:{
+    a:{q:"견딘 건 기록에 남지 않아 잊힐 뿐, 없었던 게 아닙니다",
+       r:"해낸 일만 세면 한 해가 초라해집니다. 버틴 날을 같이 세어야 제대로 셈이 맞습니다."},
+    b:{q:"올해 잘한 일 세 가지만 적어보십시오. 생각보다 빨리 채워집니다",
+       r:"작은 것부터 적으십시오. 세 개를 적고 나면 네 번째가 저절로 떠오릅니다."},
+    memo:"한 해를 마친다는 건, 한 해를 버텼다는 뜻입니다. 올해도 애쓰셨습니다."
+  }
+};
+
+/* ─────────────────────────────────────────
+   2) FC 명단  (사람이 늘면 여기에 한 줄씩 추가)
+   ───────────────────────────────────────── */
+const FCS = {
+  // 왼쪽 따옴표 안 영문(lsy)이 주소 꼬리표(?fc=lsy)로 쓰입니다.
+  // 한글로 두면 주소가 세 배로 길어져 카카오톡에서 지저분하게 보입니다.
+  // 사람이 늘면 이름 첫 글자들을 딴 영문 세 글자를 새로 정해 한 줄 추가하시면 됩니다.
+  "lsy":{                                   // 이서연
+    name:"이서연", role:"FC", org:"한화금융서비스 현빈지사",
+    tel:"000-0000-0000", mail:"insure00@naver.com",
+    card:"https://withaiacademy.github.io/waa-site/이서연_FC_전자명함.html"
+  }
+};
+
+/* ─────────────────────────────────────────
+   3) 아래는 손대지 않으셔도 됩니다
+   ───────────────────────────────────────── */
+const params = new URLSearchParams(location.search);
+
+// 이번 달 정하기 (?m=2026-10 을 붙이면 그 달을 미리 볼 수 있습니다)
+let month = new Date().getMonth() + 1;
+const mParam = params.get('m');
+if(mParam){
+  const n = parseInt(mParam.split('-').pop(), 10);
+  if(n >= 1 && n <= 12) month = n;
+}
+if(!MONTHS[month]) month = ((month - 1) % 12) + 1;   // 어떤 경우에도 빈 화면이 나오지 않도록
+const M = MONTHS[month];
+
+// FC 정하기 (?fc=이서연)
+const fcKey = params.get('fc');
+const FC = (fcKey && FCS[fcKey]) ? FCS[fcKey] : null;
+
+// 화면 채우기
+document.getElementById('mLabel').textContent = month + '월';
+document.getElementById('txtA').textContent = M.a.q;
+document.getElementById('txtB').textContent = M.b.q;
+document.getElementById('memoBody').textContent = M.memo;
+document.title = month + '월의 심쿵 한마디';
+
+if(FC){
+  document.getElementById('sub').textContent = FC.name + ' ' + FC.role + '가 매달 한 편씩 전합니다';
+  document.getElementById('memoTitle').textContent = FC.name + ' ' + FC.role + '의 ' + month + '월 메모';
+  document.getElementById('fcWho').textContent = FC.name + ' ' + FC.role;
+  document.getElementById('fcOrg').textContent = FC.org;
+  document.getElementById('fcActs').innerHTML =
+    '<a href="tel:' + FC.tel.replace(/-/g,'') + '">전화</a>' +
+    '<a href="sms:' + FC.tel.replace(/-/g,'') + '">문자</a>' +
+    '<a href="' + FC.card + '">명함 보기</a>';
+  document.getElementById('foot').innerHTML = FC.org + '<br>' + FC.tel + ' · ' + FC.mail;
+}else{
+  document.getElementById('memoTitle').textContent = '이달의 메모';
+  document.getElementById('fcBox').style.display = 'none';
+  document.getElementById('foot').textContent = '';
+}
+
+function choose(k, el){
+  if(el) el.classList.add('sel');            // 누른 쪽에 체크가 켜지고, 잠깐 보인 뒤 넘어갑니다
+  const p = M[k];
+  document.getElementById('cq').textContent = p.q;
+  document.getElementById('cr').textContent = p.r;
+  setTimeout(function(){
+    document.getElementById('askWrap').style.display = 'none';
+    document.getElementById('chosen').classList.add('on');
+    if(el) el.classList.remove('sel');
+  }, 280);
+}
+
+function reset(){
+  document.getElementById('chosen').classList.remove('on');
+  document.getElementById('askWrap').style.display = '';
+}
+
+function shareIt(){
+  // 고른 문장은 일부러 넣지 않습니다. 미리 읽어버리면 링크를 열 이유가 없어집니다.
+  const head = FC
+    ? (FC.name + ' ' + FC.role + '가 전하는 ' + month + '월의 심쿵 한마디')
+    : (month + '월의 심쿵 한마디');
+  const msg = head + '\n' + location.href;
+
+  if(navigator.share){
+    navigator.share({title: month + '월의 심쿵 한마디', text: msg}).catch(function(){});
+    return;
+  }
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(msg).then(function(){
+      alert('한마디가 복사되었습니다. 카카오톡이나 문자에 붙여넣으면 그대로 전달됩니다.');
+    }).catch(function(){ alert(msg); });
+    return;
+  }
+  alert(msg);
+}
+</script>
+
+</body>
+</html>
