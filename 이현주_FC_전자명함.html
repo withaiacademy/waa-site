@@ -46,13 +46,13 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFo
   border-bottom:1px solid var(--line);background:var(--paper)}
 .tagline b{color:var(--ink)}
 
-.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
-.act{background:var(--surface);padding:18px 6px;text-align:center;text-decoration:none;color:var(--ink);
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.act{background:var(--surface);padding:18px 8px;text-align:center;text-decoration:none;color:var(--ink);
   display:flex;flex-direction:column;align-items:center;gap:7px;transition:background .2s}
 .act .ic{width:34px;height:34px;border-radius:50%;background:rgba(226,87,76,.09);color:var(--coral);
   display:flex;align-items:center;justify-content:center;font-size:16px}
-.act:nth-child(2) .ic{background:rgba(201,146,46,.12);color:var(--amber)}
-.act strong{font-size:13px;font-weight:600;letter-spacing:-.02em}
+.act:nth-child(2) .ic,.act:nth-child(4) .ic{background:rgba(201,146,46,.12);color:var(--amber)}
+.act strong{font-size:13.5px;font-weight:600;letter-spacing:-.02em}
 .act:active{background:var(--paper)}
 @media(hover:hover){.act:hover{background:var(--paper)}}
 
@@ -116,6 +116,9 @@ footer b{color:var(--ink-soft)}
     </a>
     <a class="act" href="mailto:tm3008@hanmail.net">
       <span class="ic">✉</span><strong>메일보내기</strong>
+    </a>
+    <a class="act" href="https://withaiacademy.github.io/waa-site/simkung.html?fc=lhj">
+      <span class="ic">♡</span><strong>심쿵 한마디</strong>
     </a>
   </div>
 
