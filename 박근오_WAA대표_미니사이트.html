@@ -145,6 +145,7 @@ button.submit{width:100%;padding:15px;background:var(--coral);color:#fff;border:
 button.submit:active{background:#C8483E}
 @media(hover:hover){button.submit:hover{background:#C8483E}}
 .formNote{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.formNote b{color:var(--ink)}
 .okMsg{display:none;margin-top:14px;padding:14px;background:rgba(201,146,46,.1);
   border-left:3px solid var(--amber);font-size:14px}
 
@@ -270,7 +271,8 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
     <h2>편하게 남겨 주십시오.</h2>
     <p class="lead">지원이든 문의든, 남겨 주시면 직접 연락드리겠습니다.</p>
 
-    <form action="https://formspree.io/f/mpqvnbzd" method="POST">
+    <!-- 문자 수신자 = 미니사이트 명의자 번호 (data-sms) -->
+    <form id="smsForm" data-sms="01028369495" data-site="WAA 미니사이트" novalidate>
       <div class="f"><label for="nm">성함</label><input id="nm" name="성함" type="text" placeholder="홍길동" required=""></div>
       <div class="f"><label for="tel">연락처</label><input id="tel" name="연락처" type="tel" inputmode="numeric" placeholder="010-0000-0000" required=""></div>
       <div class="f"><label for="tp">문의 유형</label>
@@ -285,8 +287,9 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
       <label class="consent"><input type="checkbox" id="cs" name="개인정보동의" value="동의" required="">
         <span>개인정보(성함·연락처) 수집·이용에 동의합니다. 수집한 정보는 상담 목적으로만 사용하며,
         종료 후 6개월 이내 파기합니다.</span></label>
-      <button type="submit" class="submit">보내기</button>
-      <div class="okMsg" id="ok"><strong>1영업일 이내</strong>에 연락드리겠습니다.</div>
+      <button type="submit" class="submit">문자로 보내기</button>
+      <div class="formNote">휴대폰 문자 창이 열리면 <b>전송</b>을 눌러 주세요. 박근오 대표에게 바로 도착합니다.</div>
+      <div class="okMsg" id="ok" role="status"></div>
     </form>
   </section>
 
@@ -310,4 +313,35 @@ footer .compl{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
 
 
 
+<script>
+(function(){
+  var form=document.getElementById('smsForm'); if(!form) return;
+  var ok=document.getElementById('ok');
+  var num=form.getAttribute('data-sms');
+  var site=form.getAttribute('data-site')||'미니사이트';
+  var ua=navigator.userAgent||'';
+  var isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var isMobile=isIOS||/Android|Mobile/i.test(ua);
+  function show(html){ ok.innerHTML=html; ok.style.display='block'; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nm=document.getElementById('nm'), tel=document.getElementById('tel'), cs=document.getElementById('cs');
+    if(!nm.value.trim()){ nm.focus(); show('성함을 적어 주세요.'); return; }
+    if(tel.value.replace(/[^0-9]/g,'').length<9){ tel.focus(); show('연락처를 정확히 적어 주세요.'); return; }
+    if(!cs.checked){ cs.focus(); show('개인정보 수집·이용에 동의해 주세요.'); return; }
+    var ms=document.getElementById('ms').value.trim();
+    var body='['+site+' 문의]\n'
+      +'성함: '+nm.value.trim()+'\n'
+      +'연락처: '+tel.value.trim()+'\n'
+      +'문의 유형: '+document.getElementById('tp').value
+      +(ms?'\n남기실 말씀: '+ms:'');
+    if(!isMobile){
+      show('PC에서는 문자 보내기가 되지 않습니다.<br>휴대폰으로 이 페이지를 열어 주시거나, <a href="tel:'+num+'" style="color:inherit;font-weight:700">'+num.replace(/(\d{3})(\d{4})(\d{4})/,'$1-$2-$3')+'</a>로 연락 주십시오.');
+      return;
+    }
+    location.href='sms:'+num+(isIOS?'&':'?')+'body='+encodeURIComponent(body);
+    show('문자 창이 열렸습니다. 내용을 확인하시고 <strong>전송</strong>을 눌러 주십시오.');
+  });
+})();
+</script>
 </body></html>
