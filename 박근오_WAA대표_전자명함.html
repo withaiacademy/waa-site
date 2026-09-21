@@ -183,6 +183,15 @@ function saveContact(){
   URL.revokeObjectURL(url);
 }
 
+/* 미니사이트 링크: 누를 때마다 새 주소표(?t=시각)를 붙여 항상 최신 미니사이트가 열리도록 함 */
+(function(){
+  var a = document.querySelector('a.sitelink'); if(!a) return;
+  var base = a.getAttribute('href').split('?')[0];
+  function fresh(){ a.href = base + '?t=' + Date.now(); }
+  fresh();
+  a.addEventListener('click', fresh);
+  a.addEventListener('touchstart', fresh, {passive:true});
+})();
 </script>
 
 </body>
