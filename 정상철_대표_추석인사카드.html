@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정상철 대표 — 추석 인사 카드 3종</title>
+<meta property="og:title" content="정상철 대표 — 추석 인사 카드 3종">
+<meta property="og:description" content="카카오톡·문자 발송용 추석 인사 카드 3종과 복사용 문구">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://withaiacademy.github.io/waa-site/정상철.jpg?v=2">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="900">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;background:#F0F2F5;
+  padding:32px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:32px;word-break:keep-all}
+.page-title{font-size:13px;letter-spacing:.14em;color:#888;font-weight:500;text-align:center}
+.card{width:100%;max-width:480px;border-radius:16px;overflow:hidden;position:relative;padding:46px 36px 132px}
+.card .art{position:absolute;left:0;right:0;bottom:0;width:100%;height:148px;z-index:0;pointer-events:none}
+.card .tag,.card .headline,.card .body,.card .sig,.card .quote{position:relative;z-index:1}
+.card .tag{font-size:11px;letter-spacing:.2em;font-weight:700;margin-bottom:22px}
+.card .headline{font-size:30px;font-weight:700;line-height:1.38;letter-spacing:-.03em;margin-bottom:22px}
+.card .headline em{font-style:normal}
+.card .body{font-size:15px;line-height:1.85;padding-top:20px;margin-bottom:30px}
+.card .sig{font-size:12px;letter-spacing:.05em;line-height:1.7}
+
+/* 카드 1 — 달빛 어린 밤하늘 (별) */
+.card1{color:#fff;background:
+  radial-gradient(1.6px 1.6px at 18% 22%,rgba(255,255,255,.75),transparent 60%),
+  radial-gradient(1.4px 1.4px at 74% 14%,rgba(255,255,255,.55),transparent 60%),
+  radial-gradient(1.8px 1.8px at 46% 8%,rgba(255,255,255,.5),transparent 60%),
+  radial-gradient(1.4px 1.4px at 88% 44%,rgba(255,255,255,.45),transparent 60%),
+  radial-gradient(1.6px 1.6px at 28% 62%,rgba(255,255,255,.35),transparent 60%),
+  linear-gradient(170deg,#1B2A52 0%,#0B1224 68%,#070C18 100%)}
+.card1 .tag{color:#E7B85C}
+.card1 .headline em{color:#F5D89A}
+.card1 .body{color:rgba(255,255,255,.80);border-top:1px solid rgba(255,255,255,.14)}
+.card1 .sig{color:rgba(255,255,255,.45)}
+.card1 .moon{position:absolute;right:26px;top:26px;width:86px;height:86px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#FFF6DD,#F0C978 70%,#E0AE54 100%);
+  box-shadow:0 0 0 14px rgba(240,201,120,.10),0 0 0 30px rgba(240,201,120,.06),0 0 48px rgba(240,201,120,.35);z-index:0}
+.card1 .ring{position:absolute;left:-60px;bottom:-70px;width:230px;height:230px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);z-index:0}
+
+/* 카드 2 — 황금 들녘 */
+.card2{color:#fff;background:linear-gradient(155deg,#D8A63E 0%,#B5822A 55%,#8A6119 100%);border:none}
+.card2 .tag{color:rgba(255,255,255,.85)}
+.card2 .headline{color:#fff}
+.card2 .headline em{color:#2A2417}
+.card2 .body{color:rgba(255,255,255,.92);border-top:1px solid rgba(255,255,255,.28)}
+.card2 .sig{color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.card2 .moon{position:absolute;right:-56px;bottom:-56px;width:200px;height:200px;border-radius:50%;
+  background:rgba(255,255,255,.14);z-index:0}
+
+/* 카드 3 — 감색 밤, 달무리 */
+.card3{background:linear-gradient(150deg,#3A1F3D 0%,#241432 60%,#151024 100%);color:#fff}
+.card3 .tag{color:rgba(240,201,120,.85)}
+.card3 .headline em{color:#F0C978}
+.card3 .quote{background:rgba(255,255,255,.08);border-left:3px solid rgba(240,201,120,.7);
+  padding:16px 18px;margin-bottom:22px;border-radius:0 8px 8px 0;font-size:15px;line-height:1.75}
+.card3 .body{color:rgba(255,255,255,.76);border-top:1px solid rgba(255,255,255,.14)}
+.card3 .sig{color:rgba(255,255,255,.42)}
+.card3 .moon{position:absolute;left:50%;top:-88px;transform:translateX(-50%);width:230px;height:230px;
+  border-radius:50%;background:radial-gradient(circle,rgba(240,201,120,.22) 0%,rgba(240,201,120,.07) 45%,rgba(240,201,120,0) 70%);z-index:0}
+
+/* 복사 영역 */
+.copy-area{width:100%;max-width:480px;background:#fff;border-radius:12px;border:1px solid #E5E9F0;padding:20px 24px}
+.copy-area h3{font-size:12px;letter-spacing:.12em;color:#888;font-weight:600;margin-bottom:14px}
+.copy-text{font-size:13.5px;line-height:1.85;color:#2C3E5E;white-space:pre-line;margin-bottom:14px}
+.copy-btn{padding:9px 18px;background:#16233F;color:#fff;border:none;border-radius:6px;
+  font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.copy-btn:active{background:#2C3E5E}
+.copied{color:#1A6B3C;font-size:12px;margin-left:10px;display:none}
+.usage{width:100%;max-width:480px;background:#FFF8E9;border:1px solid #EBD9A8;border-radius:12px;padding:18px 22px}
+.usage h3{font-size:12px;letter-spacing:.12em;color:#8A6A1E;font-weight:700;margin-bottom:10px}
+.usage li{font-size:13px;line-height:1.9;color:#4A4033;margin-left:16px}
+</style>
+</head>
+
+<body>
+
+<p class="page-title">정상철 대표 · 추석 인사 카드 3종</p>
+
+<!-- 카드 1 -->
+<div class="card card1">
+  <div class="moon"></div><svg class="art" viewBox="0 0 520 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true"
+  style="color:#F5D89A;opacity:0.4"><g fill="currentColor">
+  <g transform="translate(70,44) rotate(-14)">
+  <circle cx="0" cy="16" r="10.5"/><circle cx="0" cy="3.5" r="4"/>
+  <path d="M-14,28 Q0,24 14,28 L17,74 L-17,74 Z"/>
+  <path d="M-15,74 L-16,112 L-5,112 L-2,80 L2,80 L6,112 L17,112 L15,74 Z"/>
+  <path d="M-13,34 C-26,30 -34,26 -40,22" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M-13,44 C-24,40 -32,34 -38,28" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+</g><g transform="translate(152,44) rotate(-14)">
+  <circle cx="0" cy="16" r="10.5"/><circle cx="0" cy="3.5" r="4"/>
+  <path d="M-14,28 Q0,24 14,28 L17,74 L-17,74 Z"/>
+  <path d="M-15,74 L-16,112 L-5,112 L-2,80 L2,80 L6,112 L17,112 L15,74 Z"/>
+  <path d="M-13,34 C-26,30 -34,26 -40,22" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M-13,44 C-24,40 -32,34 -38,28" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+</g><g transform="translate(234,44) rotate(-14)">
+  <circle cx="0" cy="16" r="10.5"/><circle cx="0" cy="3.5" r="4"/>
+  <path d="M-14,28 Q0,24 14,28 L17,74 L-17,74 Z"/>
+  <path d="M-15,74 L-16,112 L-5,112 L-2,80 L2,80 L6,112 L17,112 L15,74 Z"/>
+  <path d="M-13,34 C-26,30 -34,26 -40,22" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M-13,44 C-24,40 -32,34 -38,28" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+</g><g transform="translate(316,44) rotate(-14)">
+  <circle cx="0" cy="16" r="10.5"/><circle cx="0" cy="3.5" r="4"/>
+  <path d="M-14,28 Q0,24 14,28 L17,74 L-17,74 Z"/>
+  <path d="M-15,74 L-16,112 L-5,112 L-2,80 L2,80 L6,112 L17,112 L15,74 Z"/>
+  <path d="M-13,34 C-26,30 -34,26 -40,22" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M-13,44 C-24,40 -32,34 -38,28" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+</g>
+  <path d="M8,66 C150,62 330,66 512,74" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M10,176 L510,176" stroke="currentColor" stroke-width="2" opacity=".45"/>
+</g></svg>
+  <div class="tag">한가위 인사 01 · 우리 FC께</div>
+  <div class="headline">한가위 <em>보름달</em>처럼<br>가득 채우는 한 해 되십시오.</div>
+  <div class="body">올 한 해 현장에서 애써 주신 덕분에<br>대경퍼펙트지점이 여기까지 왔습니다.<br><br>이번 연휴만큼은 숫자도 실적도 내려놓으시고,<br>가족과 함께 편히 쉬셨으면 합니다.<br>잘 쉬고 오시면, 남은 한 해도 함께 걷겠습니다.</div>
+  <div class="sig">정상철 대표 · 한화생명금융서비스 대경퍼펙트지점<br>010-5036-9111</div>
+</div>
+
+<!-- 카드 2 -->
+<div class="card card2">
+  <svg class="art" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true"
+  style="color:#5A3E0C;opacity:0.26"><g fill="currentColor">
+  <circle cx="318" cy="46" r="34"/>
+  <circle cx="318" cy="46" r="48" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"/>
+  <g transform="translate(128,44) scale(0.94) rotate(6)">
+  <circle cx="0" cy="14" r="11.5"/>
+  <path d="M-15,27 Q0,23 15,27 L13,46 Q0,49 -13,46 Z"/>
+  <path d="M-13,46 C-20,66 -28.0,92 -34.0,108 L34.0,108 C28.0,92 20,66 13,46 Z"/>
+</g>
+  <g transform="translate(208,58) scale(0.76) rotate(5)">
+  <circle cx="0" cy="14" r="11.5"/>
+  <path d="M-15,27 Q0,23 15,27 L13,46 Q0,49 -13,46 Z"/>
+  <path d="M-13,46 C-20,66 -28.0,92 -34.0,108 L34.0,108 C28.0,92 20,66 13,46 Z"/>
+</g>
+  <path d="M24,178 C120,170 290,170 380,176" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/>
+</g></svg>
+  <div class="tag">한가위 인사 02 · 귀한 인연께</div>
+  <div class="headline">좋은 인연으로<br>다시 뵙겠습니다.</div>
+  <div class="body">짧은 만남이었지만 나눠 주신 이야기가 오래 남았습니다.<br><br>지금 무엇을 정하지 않으셔도 괜찮습니다.<br>편안한 명절 보내시고,<br>궁금한 일이 생기면 언제든 편하게 연락 주십시오.<br>기다리겠습니다.</div>
+  <div class="sig">정상철 대표 · 한화생명금융서비스 대경퍼펙트지점<br>010-5036-9111</div>
+</div>
+
+<!-- 카드 3 -->
+<div class="card card3">
+  <svg class="art" viewBox="0 0 360 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true"
+  style="color:#F5D89A;opacity:0.34"><g fill="currentColor">
+  <g transform="translate(150,30) rotate(22)">
+    <circle cx="0" cy="16" r="11"/><circle cx="0" cy="3" r="4"/>
+    <path d="M-15,30 Q0,26 15,30 L18,84 L-18,84 Z"/>
+    <path d="M-16,84 L-15,132 L-3,132 L-1,92 L1,92 L3,132 L15,132 L16,84 Z"/>
+    <path d="M14,36 C34,42 48,50 58,56" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(212,30) rotate(-22)">
+    <circle cx="0" cy="16" r="11"/><circle cx="0" cy="3" r="4"/>
+    <path d="M-15,30 Q0,26 15,30 L18,84 L-18,84 Z"/>
+    <path d="M-16,84 L-15,132 L-3,132 L-1,92 L1,92 L3,132 L15,132 L16,84 Z"/>
+    <path d="M-14,36 C-34,42 -48,50 -58,56" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <ellipse cx="180" cy="176" rx="150" ry="14" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+</g></svg>
+  <div class="tag">한가위 인사 03 · 고마운 분들께</div>
+  <div class="headline">마음까지<br><em>둥글게</em>.</div>
+  <div class="quote">"보름달은 한 해에 여러 번 뜨지만,<br>마음까지 둥글어지는 달은 오늘 하나입니다."</div>
+  <div class="body">늘 곁에서 힘이 되어 주셔서 고맙습니다.<br>오가시는 길 안전하시고,<br>가족과 함께 넉넉한 한가위 보내십시오.</div>
+  <div class="sig">정상철 대표 · 한화생명금융서비스 대경퍼펙트지점<br>010-5036-9111</div>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ① — 소속 FC께</h3>
+  <div class="copy-text" id="txt1">[○○○님]
+
+올 한 해 현장에서 애써 주셔서 고맙습니다.
+덕분에 우리 지점이 여기까지 왔습니다.
+
+이번 연휴만큼은 숫자도 실적도 내려놓으시고
+가족과 함께 편히 쉬셨으면 합니다.
+
+잘 쉬고 오시면, 남은 한 해도 함께 걷겠습니다.
+풍성한 한가위 되십시오.
+
+정상철 대표 · 대경퍼펙트지점
+010-5036-9111</div>
+  <button class="copy-btn" onclick="copyText('txt1','c1')">복사하기</button>
+  <span class="copied" id="c1">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ② — 후보자·면담하신 분께</h3>
+  <div class="copy-text" id="txt2">[○○○님]
+
+지난번 나눠 주신 이야기, 오래 마음에 남았습니다.
+
+지금 무엇을 정하지 않으셔도 괜찮습니다.
+편안한 명절 보내시고,
+궁금한 일이 생기면 언제든 편하게 연락 주십시오.
+
+가족과 함께 따뜻한 한가위 보내시기 바랍니다.
+
+정상철 대표 · 대경퍼펙트지점
+010-5036-9111</div>
+  <button class="copy-btn" onclick="copyText('txt2','c2')">복사하기</button>
+  <span class="copied" id="c2">✓ 복사됨</span>
+</div>
+
+<div class="copy-area">
+  <h3>복사용 문구 ③ — 지인께</h3>
+  <div class="copy-text" id="txt3">[○○○님]
+
+한가위입니다.
+늘 곁에서 힘이 되어 주셔서 고맙습니다.
+
+오가시는 길 안전하시고,
+가족과 함께 넉넉한 한가위 보내십시오.
+
+보름달 보실 때 좋은 일 하나 비시고,
+그 일이 꼭 이루어지기를 바랍니다.
+
+정상철 대표 · 대경퍼펙트지점
+010-5036-9111</div>
+  <button class="copy-btn" onclick="copyText('txt3','c3')">복사하기</button>
+  <span class="copied" id="c3">✓ 복사됨</span>
+</div>
+
+<div class="usage">
+  <h3>이렇게 쓰십시오</h3>
+  <ul>
+    <li>카드는 <b>화면을 캡처</b>해 이미지로 저장한 뒤, 카톡이나 문자로 보냅니다.</li>
+    <li>보내는 시각은 <b>연휴 첫날(9월 24일 목요일) 오전 9~11시</b>가 좋습니다. 추석 당일 아침은 인사 문자가 몰립니다.</li>
+    <li>단체방에 한 번 뿌리지 말고, <b>한 분씩 1:1로</b> 보냅니다. 문구 맨 앞의 <b>[○○○님]</b>에 이름을 넣으면 받는 느낌이 완전히 달라집니다.</li>
+    <li>카드 이미지 한 장 + 복사한 문구, 이렇게 두 개만 보냅니다. 링크나 홍보는 붙이지 않습니다.</li>
+    <li>답장이 오면 그날 안에 짧게라도 답해 드립니다.</li>
+  </ul>
+</div>
+
+<script>
+function copyText(id, cId){
+  var txt = document.getElementById(id).innerText;
+  function done(){ var el=document.getElementById(cId); el.style.display='inline';
+    setTimeout(function(){ el.style.display='none'; }, 2000); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=txt; ta.setAttribute('readonly','');
+    ta.style.position='fixed'; ta.style.top='-9999px'; document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, ta.value.length);
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+    ok ? done() : alert('복사가 되지 않았습니다. 위 문구를 길게 눌러 직접 복사해 주세요.');
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(txt).then(done).catch(fallback);
+  } else { fallback(); }
+}
+</script>
+
+</body>
+</html>
